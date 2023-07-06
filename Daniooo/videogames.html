@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Daniooo | Videogames</title>
+        <link rel="icon" type="image/x-icon" href="Misc/Daniooo PFP.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Welcome to Daniooo. Here you can the projects I've worked on, any articles I've written and anything else related to me.">
+		<meta name="keywords" content="daniooo, programmer, computer science, computer security, cybersecurity">
+		<meta name="author" content="Daniel Kasprzyk">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/9075ca7894.js" crossorigin="anonymous"></script>
+
+        <!-- Load custom CSS -->
+        <link rel="stylesheet" href="styling.css">
+
+        <style>
+            /* Override - Applied to the breadcrumb navigation */
+            .breadcrumb {
+                margin-left: 25px;
+            }
+            
+            /* Override - Applied to the sort dropdown button */
+            .dropdown-toggle {
+                margin-left: 25px;
+                margin-bottom: 0px;
+            }
+
+            /* Background card for each game */
+            .game {
+                margin: 25px;
+                padding: 20px;
+                background-color: #6f6f6f; 
+                box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Gives the images a glow */
+            .game-image {
+                box-shadow: 0 0 3px 3px #fe2d02;
+            }
+
+            /* Used to house the Itch IO link + icons */
+            .game-footer {
+                margin-top: auto;
+                margin-bottom: 10px;
+            }
+
+            /* Applied to the dates */
+            .game-date {
+                margin: 0;
+            }
+
+            /* Applied to image cards to remove automatic white border */
+            .card {
+                border: none;
+                background-color: #6f6f6f;
+            }
+
+            /* Updates some properties to scale screen for small screens */
+            @media (max-width: 576px) {
+                .breadcrumb {
+                    margin-left: 10px;
+                }
+
+                .game {
+                    margin: 10px;
+                }
+
+                .dropdown-toggle {
+                    margin-left: 10px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            p, h4, h5 {
+                color: white !important;
+                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Header / Navbar -->
+        <nav class="navbar navbar-expand-md sticky-top header">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="Misc/Daniooo PFP.png" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                    <i class="fa-solid fa-bars fa-lg"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="articles.html">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="videogames.html" id="current-page">Videogames</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="media.html">Media</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about_me.html">About Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+         <!-- Progress bar based on scroll position -->
+        <div id="progress-bar"></div>
+
+        <!-- Breadcrumbs navigation -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Videogames</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sorting dropdown menu -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sort
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="sortingDropdown">
+                            <li><a class="dropdown-item" id="sort-new-old">Sort by date: new to old</a></li>
+                            <li><a class="dropdown-item" id="sort-old-new">Sort by date: old to new</a></li>
+                            <li><a class="dropdown-item" id="sort-default">Sort by default: best viewed first</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamically populated with games -->
+        <div class="container-fluid">
+            <div id="games-root">
+                
+            </div>
+        </div>
+
+        <!-- Button to take user back to the top of page -->
+        <div id="scroll-to-top" class="d-flex justify-content-center align-items-center">
+            <i class="fas fa-chevron-up fa-lg"></i>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <a href="https://linktr.ee/Daniooo" target="_blank" class="footer-icon">
+                            <span class="fa-stack" style="vertical-align: top;" class="footer-icon">
+                                <i class="fa-solid fa-circle fa-stack-2x" style="color: #43E660;"></i>
+                                <i class="fa-solid fa-arrow-up-right-from-square fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="https://youtube.com/c/Daniooo" target="_blank" class="footer-icon">
+                            <span class="fa-stack" style="vertical-align: top;">
+                                <i class="fa-solid fa-circle fa-stack-2x" style="color: #FF0000;"></i>
+                                <i class="fa-brands fa-youtube fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>                
+                        <a href="https://github.com/0xdaniooo" target="_blank" class="footer-icon">
+                            <span class="fa-stack" style="vertical-align: top;">
+                                <i class="fa-solid fa-circle fa-stack-2x" style="color: #000000;"></i>
+                                <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/daniel-kasprzyk7/" target="_blank" class="footer-icon">
+                            <span class="fa-stack" style="vertical-align: top;">
+                                <i class="fa-solid fa-circle fa-stack-2x" style="color: #0077B5;"></i>
+                                <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="https://www.instagram.com/0xdaniooo/" target="_blank" class="footer-icon">
+                            <span class="fa-stack" style="vertical-align: top;">
+                                <i class="fa-solid fa-circle fa-stack-2x" style="color: #ae31bc;"></i>
+                                <i class="fa-brands fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                        <a href="mailto:contact.danielkasprzyk@protonmail.com" target="_blank" class="footer-icon">
+                            <span class="fa-stack" style="vertical-align: top;">
+                                <i class="fa-solid fa-circle fa-stack-2x" style="color: #6d4aff;"></i>
+                                <i class="fa-solid fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <!-- Load custom JS -->
+    <script src="code.js"></script>
+
+    <script>
+        // Contains all the games to be shown on the page - used for dynamic rendering
+        const games = [
+            {
+                image: "ItchIO/Scout.jpg",
+                title: "Scout - Final Major Project",
+                description: "Scout the area, plan your attack, defeat enemies.",
+                p1: "Fight off constant waves of incoming enemies but be careful as each weapon has only one magazine. Use your drone to plan out your attacks from a safe distance then go in for the kill. Loot whatever you can find and utilise the various abilities to aid you in battle.",
+                p2: "Scout is heavily inspired by Watch Dogs 2 with its level design, drone mechanics and third person perspective. Rainbow Six Siege also played a large role with its realistic combat and the many abilities that are offered by the operators present there.",
+                p3: "During development I mainly focused on the programming aspect which allowed me to implement any feature I wanted and push my programming skills to their limits as this was my specialism. Most of the assets I have re-used from my First Person Experience game coupled with some additional ones I have downloaded.",
+                link: "https://0xdaniooo.itch.io/scout-final-major-project",
+                date: "23rd May 2021",
+                dateNumber: "23052021",
+            },
+            {
+                image: "ItchIO/FirstPersonExperience.jpg",
+                title: "First Person Experience - Project 1",
+                description: "Area 51 has been overrun by aliens - clear them out.",
+                p1: "Make your way through the Area 51 facility whilst clearing out the alien infestation. Interact with the environment to open doors and continue with the mini questline present there. Save up points by killing enemies to allow you to purchase new weapons at the shop stations found there.",
+                p2: "The two main games that influenced development were Fallout New Vegas for its setting and Cyberpunk 2077 for the weapons and combat. These however weren't the only inspirations as this was my most research heavy project meaning I have delved into various other games to collect many details that would shape this game and the vision I had for it.",
+                p3: "This being the start of my second year of college, I decided to be very ambitious. I learnt modelling from scratch through Blender and created nearly all the assets present. I then learnt how to animate the characters and utilise NavMesh for AI. Finally, I pushed myself hard with programming and learnt various ways of doing things that would have been way above my skill level in the past.",
+                link: "https://0xdaniooo.itch.io/first-person-experience-project-1",
+                date: "5th March 2021",
+                dateNumber: "05032021",
+            },
+            {
+                image: "ItchIO/Rhubarbarian.jpg",
+                title: "Rise of the Rhubarbarian - Game Jam",
+                description: "Rise up and train the Rhubarbarian for a top secret mission.",
+                p1: "Make your way through a test course designed to train the Rhubarbarian robot for an infiltration mission. Avoid deadly turrets and any other obstacles designed to stop you from reaching the finish point. Watch out for collapsing platforms awaiting your demise. Interact with fun puzzle games to progress further.",
+                p2: "As this is a platformer puzzle game, it draws heavy inspiration from the classics like Portal for the general level design. As for the style and direction taken, Japanese culture played a large role right from the start of development which can be seen in concept art and mechanics present. That was the general idea as only had two weeks to research and conceptualise everything.",
+                p3: "Seeing as I was the programmer for our team, I was tasked with bringing all the features to life like the AI, creating puzzle games and menus. The puzzle games were all very niche which meant everything had to be done from scratch with no reference or starting code. Once all that was complete, I plugged all the mechanics into the level that had been put together by the game designer.",
+                link: "https://0xdaniooo.itch.io/rise-of-the-rhubarbarian-game-jam",
+                date: "28th June 2021",
+                dateNumber: "28062021",
+            },
+            {
+                image: "ItchIO/YetiHorror.jpg",
+                title: "Yeti Horror Game - Final Major Project",
+                description: "Fix your helicopter and make it out of the snowy hills of Nepal alive.",
+                p1: "Explore the snowy Himalayan mountains for any parts you can use to fix your helicopter. Stock up on weapons, supplies and traps to fight off the wildlife trying to hunt you down. You are not alone - a Yeti roams around looking for its prey. Make the best of the limited time you have here and get out in one piece.",
+                p2: "The only constraint I was given was that the game had to center around the country of Nepal. I began by researching heavily into what Nepal was like which then gave me a wide range of ideas for the genre and possible experiences. A horror game based on the rumours of the Yeti is what I settled on as this seemed like something that would be very interesting to pursue.",
+                p3: "Unfortunately, this is my only incomplete game as development was stopped halfway due to covid. With the time I had, I managed to make all the sprites for the game art and program most of the logic necessary to make this worth playing. The only missing pieces were the questline alongside all the horror elements which were essential to this project.",
+                link: "https://0xdaniooo.itch.io/yeti-horror-game-final-major-project",
+                date: "25th May 2020",
+                dateNumber: "25052020",
+            },
+            {
+                image: "ItchIO/VehicleGame.jpg",
+                title: "3D Vehicle Game - Project 2",
+                description: "Back to the future! Discover what the DeLorean is capable of.",
+                p1: "Drive your DeLorean equipped with highly deadly weapons to eliminiate other drivers stood in your way. Go for a ride and explore this sci-fi world and all it has to offer. Stack up cash and upgrade your vehicle at upgrade stops. Avoid the many traps set out on the roads.",
+                p2: "This was mostly a generic vehicle game where I went with the sci-fi theme and took the DeLorean from Back to the Future. The main idea was to create a world with a specific style as I have explored various other themes for this project before eventually settling on an aesthetic.",
+                p3: "Here I was given my first introduction to 3D modelling which can be seen in the DeLorean and the buildings blocking the player from leaving the city. It is also where I pushed myself harder programming wise to try incorporating mechanics I could find on YouTube into my game, something I had not done before. All else was put together with Unity Store Assets which I experimented with.",
+                link: "https://0xdaniooo.itch.io/3d-vehicle-game-project-2",
+                date: "14th February 2020",
+                dateNumber: "14022020",
+            },
+            {
+                image: "ItchIO/AdventureGame.jpg",
+                title: "Top Down Adventure - Project 1",
+                description: "Survive and thrive in this harsh apocalyptic world... or die trying.",
+                p1: "A simple top down adventure game where you traverse a post-apocalyptic city of ruins with the goal of getting out. Be on the lookout for any mines laid around and razor sharp bushes blocking your path. Venture into buildings to locate loot and beware of the enemies spread around the world.",
+                p2: "The one main inspiration for this project was Fallout 3 which pretty much influenced the entire game direction. This can be seen in the post-apocalyptic theme mixed with steampunk. I had explored a few different settings and directions for this game with this one taking the number one spot.",
+                p3: "This was the first game I have ever made and my introduction to the world of programming having no prior experience before this. It's also where I learnt to use the Unity Game Engine and the process of creating games. All the sprites visible I had made on Photoshop and the coding was taught to us by our tutor who released tutorials we could follow.",
+                link: "https://0xdaniooo.itch.io/top-down-adventure-project-1",
+                date: "13th December 2019",
+                dateNumber: "13122019",
+            },
+        ]
+
+        // Used to store the game HTML objects
+        let gamesArray
+
+        // Creates a HTML object for an game
+        const createGame = (game) => {
+            // Create the main container div
+            var rowGameDiv = document.createElement('div');
+            rowGameDiv.className = 'row game'
+
+            // Create the first column div
+            var colDiv1 = document.createElement('div')
+            colDiv1.className = 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column'
+
+            // Create the inner row div
+            var innerRowDiv = document.createElement('div')
+            innerRowDiv.className = 'row'
+
+            // Create the col-12 div
+            var col12Div = document.createElement('div')
+            col12Div.className = 'col-12'
+
+            // Create the game title heading
+            var gameTitleHeading = document.createElement('h4')
+            gameTitleHeading.className = 'game-title'
+            gameTitleHeading.textContent = game.title
+
+            // Create the underline div
+            var underlineDiv = document.createElement('div')
+            underlineDiv.className = 'underline'
+
+            // Create the description paragraph
+            var descriptionParagraph = document.createElement('p')
+            descriptionParagraph.textContent = game.description
+
+            // Create the "About this game" heading
+            var aboutGameHeading = document.createElement('h5')
+            aboutGameHeading.style.marginTop = '10px'
+            aboutGameHeading.textContent = 'About this game:'
+            aboutGameHeading.setAttribute('class', 'subheading-underline')
+
+            // Create the about game paragraphs
+            var aboutGameParagraph1 = document.createElement('p')
+            aboutGameParagraph1.textContent = game.p1
+
+            var aboutGameParagraph2 = document.createElement('p')
+            aboutGameParagraph2.textContent = game.p2
+
+            // Create the project details paragraph
+            var projectDetailsParagraph = document.createElement('p')
+            projectDetailsParagraph.textContent = game.p3
+
+            // Append the elements to the col-12 div
+            col12Div.appendChild(gameTitleHeading)
+            col12Div.appendChild(underlineDiv)
+            col12Div.appendChild(descriptionParagraph)
+            col12Div.appendChild(aboutGameHeading)
+            col12Div.appendChild(aboutGameParagraph1)
+            col12Div.appendChild(aboutGameParagraph2)
+            col12Div.appendChild(projectDetailsParagraph)
+
+            // Append the col-12 div to the inner row div
+            innerRowDiv.appendChild(col12Div)
+
+            // Create the game footer row div
+            var gameFooterRowDiv = document.createElement('div')
+            gameFooterRowDiv.className = 'row game-footer'
+
+            // Create the footer column div
+            var footerColDiv = document.createElement('div')
+            footerColDiv.className = 'col-12 d-flex align-items-center'
+
+            // Create the "Play now on Itch IO" link
+            var itchIOLink = document.createElement('a')
+            itchIOLink.href = game.link
+            itchIOLink.className = 'btn custom-button'
+            itchIOLink.target = '_blank'
+            itchIOLink.textContent = 'Play now on Itch IO'
+
+            // Create the Itch IO icon
+            var itchIOIcon = document.createElement('i')
+            itchIOIcon.className = 'fa-brands fa-itch-io'
+            itchIOIcon.style.color = 'white'
+            itchIOIcon.style.marginLeft = '10px'
+
+            itchIOLink.appendChild(itchIOIcon)
+
+            // Create the game date paragraph
+            var gameDateParagraph = document.createElement('p')
+            gameDateParagraph.className = 'game-date'
+            gameDateParagraph.setAttribute('style', 'margin-left: 20px;')
+            gameDateParagraph.textContent = game.date
+            gameDateParagraph.setAttribute('date', game.dateNumber)
+
+            // Append the elements to the footer column div
+            footerColDiv.appendChild(itchIOLink)
+            footerColDiv.appendChild(gameDateParagraph)
+
+            // Append the elements to the game footer row div
+            gameFooterRowDiv.appendChild(footerColDiv)
+
+            // Append the elements to the first column div
+            colDiv1.appendChild(innerRowDiv)
+            colDiv1.appendChild(gameFooterRowDiv)
+
+            // Create the second column div
+            var colDiv2 = document.createElement('div')
+            colDiv2.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center'
+
+            // Create the card div
+            var cardDiv = document.createElement('div')
+            cardDiv.className = 'card'
+
+            // Create the game image element
+            var gameImage = document.createElement('img')
+            gameImage.src = game.image
+            gameImage.className = 'img-fluid game-image';
+
+            // Append the game image to the card div
+            cardDiv.appendChild(gameImage)
+
+            // Append the card div to the second column div
+            colDiv2.appendChild(cardDiv)
+
+            // Append the columns to the main container div
+            rowGameDiv.appendChild(colDiv1)
+            rowGameDiv.appendChild(colDiv2)
+
+            return rowGameDiv
+        }
+
+        // Create game items and render onto page
+        function renderGames()
+        {
+            let itemRoot = document.getElementById('games-root')
+
+            games.forEach(item => {
+                const game = createGame(item)
+                itemRoot.appendChild(game)
+            })
+
+            // Store all the game objects in array for sorting
+            gamesArray = Array.from(document.querySelectorAll('.game'))
+        }
+
+        // Sort games by date (descending)
+        const sortDescending = () => {
+            setCurrentDropdown('sort-new-old')
+            gamesArray.sort((a, b) => {
+                // Obtain date for a
+                let dateString = a.querySelector('p[date]').getAttribute('date')
+                let day = dateString.substring(0, 2)
+                let month = dateString.substring(2, 4)
+                let year = dateString.substring(4, 8)
+                let formattedDate = `${year}-${month}-${day}`
+                let date1 = new Date(formattedDate)
+
+                // Obtain date for b
+                dateString = b.querySelector('p[date]').getAttribute('date')
+                day = dateString.substring(0, 2)
+                month = dateString.substring(2, 4)
+                year = dateString.substring(4, 8)
+                formattedDate = `${year}-${month}-${day}`
+                date2 = new Date(formattedDate)
+
+                return date2 - date1
+            })
+
+            // Reorder the games 
+            gamesArray.forEach(gameObject => {
+                gameObject.parentElement.appendChild(gameObject)
+            })
+        }
+
+        // Sort games by date (ascending)
+        const sortAscending = () => {
+            setCurrentDropdown('sort-old-new')
+            gamesArray.sort((a, b) => {
+                // Obtain date for a
+                let dateString = a.querySelector('p[date]').getAttribute('date')
+                let day = dateString.substring(0, 2)
+                let month = dateString.substring(2, 4)
+                let year = dateString.substring(4, 8)
+                let formattedDate = `${year}-${month}-${day}`
+                let date1 = new Date(formattedDate)
+
+                // Obtain date for b
+                dateString = b.querySelector('p[date]').getAttribute('date')
+                day = dateString.substring(0, 2)
+                month = dateString.substring(2, 4)
+                year = dateString.substring(4, 8)
+                formattedDate = `${year}-${month}-${day}`
+                date2 = new Date(formattedDate)
+
+                return date1 - date2
+            })
+
+            // Reorder the games 
+            gamesArray.forEach(gameObject => {
+                gameObject.parentElement.appendChild(gameObject)
+            })
+        }
+
+        // Default sort
+        const sortDefault = () => {
+            setCurrentDropdown('sort-default')
+            let tempArray = []
+
+            // Compile default order of games by referencing against original games array
+            for (let i = 0; i < games.length; i++)
+            {
+                for (let j = 0; j < gamesArray.length; j++)
+                {
+                    if (games[i].link == gamesArray[j].querySelector('a').getAttribute('href'))
+                    {
+                        tempArray.push(gamesArray[j])
+                        continue
+                    }
+                }
+            }
+
+            // Rewrite the games array based on new order
+            for (let i = 0; i < gamesArray.length; i++)
+            {
+                gamesArray[i] = tempArray[i]
+            }
+
+            // Reorder the games 
+            gamesArray.forEach(gameObject => {
+                gameObject.parentElement.appendChild(gameObject)
+            })
+        }
+
+        // Function to set the current option and change its color
+        function setCurrentDropdown(optionId) 
+        {
+            const dropdownItems = document.querySelectorAll(".dropdown-item")
+            dropdownItems.forEach(item => {
+                item.classList.remove("current-sort")
+            })
+
+            const selectedOption = document.getElementById(optionId)
+            selectedOption.classList.add("current-sort")
+        }
+
+        // Add event listeners for sorting buttons
+        const sortDescendingButton = document.getElementById('sort-new-old')
+        sortDescendingButton.addEventListener('click', sortDescending)
+
+        const sortAscendingButton = document.getElementById('sort-old-new')
+        sortAscendingButton.addEventListener('click', sortAscending)
+
+        const sortDefaultButton = document.getElementById('sort-default')
+        sortDefaultButton.addEventListener('click', sortDefault)
+
+        renderGames()
+        setCurrentDropdown('sort-default')
+
+    </script>
+</html>
