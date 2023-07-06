@@ -34,3 +34,7 @@ Back in September 2022, I had created a website under this same URL where I disp
 
 ## About Me Page
 ![AboutMe](/Imgs/AboutMe.png)
+
+
+## Note
+The Media folder is not included in the codebase due to file size restrictions. These can be acquired from the live version of the website if you wish to tinker with the code.
