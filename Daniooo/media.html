@@ -2,24 +2,44 @@
 <html lang="en">
     <head>
         <title>Daniooo | Media</title>
-        <link rel="icon" type="image/x-icon" href="Misc/Daniooo PFP.png">
+        <link rel="icon" type="image/x-icon" href="Misc/Daniooo PFP.webp">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Welcome to Daniooo. Here you can the projects I've worked on, any articles I've written and anything else related to me.">
-		<meta name="keywords" content="daniooo, programmer, computer science, computer security, cybersecurity">
-		<meta name="author" content="Daniel Kasprzyk">
+        <meta name="description" content="Welcome to Daniooo. Here you can the projects I've worked on, various articles I've written and anything else related to me.">
+        <meta name="keywords" content="daniooo, programmer, computer science, computer security, cybersecurity, psychology, technology, productivity, photography">
+        <meta name="author" content="Daniel Kasprzyk">
 
+        <!-- Bootstrap 5 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/9075ca7894.js" crossorigin="anonymous"></script>
 
         <!-- Load custom CSS -->
         <link rel="stylesheet" href="styling.css">
 
         <style>
+            /* Override - Applied to the breadcrumb navigation */
+            .breadcrumb {
+                margin-left: 28px;
+            }
+
+            /* Override - Applied to the sort dropdown button */
+            .dropdown-toggle {
+                margin-right: 28px;
+            }
+
+            /* Applied to the root div for horizontal spacing */
+            #media-root {
+                margin: 0px 11px 0px 11px;
+            }
+
             /* Restyles the card background color for media items */
             .card-body {
                 background-color: #6f6f6f;
@@ -29,7 +49,7 @@
             .card {
                 border: none;
                 box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
-                margin: 0 2px 70px 2px;
+                margin: 0 2px 40px 2px;
                 transition: transform 0.3s ease;
             }
 
@@ -37,6 +57,7 @@
             .card:hover {
                 box-shadow: 0 0 4px 4px #fe2d02;
                 transform: scale(1.10);
+                cursor: pointer;
             }
 
             /* Bootstrap override - Applied to the image modal */
@@ -56,7 +77,7 @@
         <!-- Header / Navbar -->
         <nav class="navbar navbar-expand-md sticky-top header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="Misc/Daniooo PFP.png" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
+                <a class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="Misc/Daniooo PFP.webp" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                     <i class="fa-solid fa-bars fa-lg"></i>
                 </button>
@@ -69,10 +90,10 @@
                             <a class="nav-link" href="articles.html">Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="videogames.html">Videogames</a>
+                            <a class="nav-link" id="current-page" href="media.html">Media</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="media.html" id="current-page">Media</a>
+                            <a class="nav-link" href="videogames.html">Videogames</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about_me.html">About Me</a>
@@ -85,10 +106,11 @@
         <!-- Progress bar based on scroll position -->
         <div id="progress-bar"></div>
 
-        <!-- Breadcrumbs navigation -->
+       <!-- Header -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <!-- Breadcrumbs navigation -->
+                <div class="col-6 d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -96,21 +118,42 @@
                         </ol>
                     </nav>
                 </div>
-            </div>
-        </div>
 
-         <!-- Sorting dropdown menu -->
-         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
+                <div class="col-6 d-flex justify-content-end">
+                    <!-- Collections dropdown -->
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="collectionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Collection
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="collectionDropdown">
+                            <li><a class="dropdown-item current-collection" id="coll-all">All</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-poland">Poland</a></li>
+                            <li><a class="dropdown-item" id="coll-england">England</a></li>
+                            <li><a class="dropdown-item" id="coll-inowlodz">Inowlodz, PL</a></li>
+                            <li><a class="dropdown-item" id="coll-emley">Emley Moor, UK</a></li>
+                            <li><a class="dropdown-item" id="coll-huddersfield">Huddersfield, UK</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-2023">2023</a></li>
+                            <li><a class="dropdown-item" id="coll-2022">2022</a></li>
+                            <li><a class="dropdown-item" id="coll-2021">2021</a></li>
+                            <li><a class="dropdown-item" id="coll-2020">2020</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-image">Image</a></li>
+                            <li><a class="dropdown-item" id="coll-video">Video</a></li>
+                            <li><a class="dropdown-item" id="coll-ytvideo">YouTube Video</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sort dropdown -->
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Sort
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="sortingDropdown">
-                            <li><a class="dropdown-item" id="sort-new-old">Sort by date: new to old</a></li>
-                            <li><a class="dropdown-item" id="sort-old-new">Sort by date: old to new</a></li>
-                            <li><a class="dropdown-item" id="sort-default">Sort by default: best viewed first</a></li>
+                            <li><a class="dropdown-item" id="sort-new-old">Sort by date: new - old</a></li>
+                            <li><a class="dropdown-item" id="sort-old-new">Sort by date: old - new</a></li>
+                            <li><a class="dropdown-item current-sort" id="sort-default">Sort by default: best viewed first</a></li>
                         </ul>
                     </div>
                 </div>
@@ -129,7 +172,7 @@
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <img id="largeImage" src="Media/LakeReflection.jpg" class="img-fluid">
+                        <img id="largeImage" src="Media/LakeReflection.webp" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -145,37 +188,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
-                        <a href="https://linktr.ee/Daniooo" target="_blank" class="footer-icon">
-                            <span class="fa-stack" style="vertical-align: top;" class="footer-icon">
+                        <a href="https://linktr.ee/Daniooo" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="All my links">
+                            <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #43E660;"></i>
                                 <i class="fa-solid fa-arrow-up-right-from-square fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="https://youtube.com/c/Daniooo" target="_blank" class="footer-icon">
+                        <a href="https://youtube.com/c/Daniooo" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Subscribe to my YouTube channel">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #FF0000;"></i>
                                 <i class="fa-brands fa-youtube fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>                
-                        <a href="https://github.com/0xdaniooo" target="_blank" class="footer-icon">
+                        <a href="https://github.com/0xdaniooo" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Check out my portfolio on GitHub">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #000000;"></i>
                                 <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="https://www.linkedin.com/in/daniel-kasprzyk7/" target="_blank" class="footer-icon">
+                        <a href="https://www.linkedin.com/in/daniel-kasprzyk7/" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Connect with me on LinkedIn">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #0077B5;"></i>
                                 <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="https://www.instagram.com/0xdaniooo/" target="_blank" class="footer-icon">
+                        <a href="https://www.instagram.com/0xdaniooo/" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Follow my Instagram">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #ae31bc;"></i>
                                 <i class="fa-brands fa-instagram fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="mailto:contact.danielkasprzyk@protonmail.com" target="_blank" class="footer-icon">
+                        <a href="mailto:daniel.kasprzyk@daniooo.com" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Contact me via email">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #6d4aff;"></i>
                                 <i class="fa-solid fa-envelope fa-stack-1x fa-inverse"></i>
@@ -191,112 +234,191 @@
     <script src="code.js"></script>
 
     <script>
-        // Contains all the media items to be shown on the page - used for dynamic rendering
-        const mediaItems = [
+        // Collection options
+        const collections = [
             {
-                image: "Media/LakeReflection.jpg",
+                id: "coll-all",
+                tag: "",
+            },
+            {
+                id: "coll-poland",
+                tag: "Poland",
+            },
+            {
+                id: "coll-england",
+                tag: "England",
+            },
+            {
+                id: "coll-inowlodz",
+                tag: "Inowlodz",
+            },
+            {
+                id: "coll-emley",
+                tag: "Emley",
+            },
+            {
+                id: "coll-huddersfield",
+                tag: "Huddersfield",
+            },
+            {
+                id: "coll-2020",
+                tag: "2020",
+            },
+            {
+                id: "coll-2021",
+                tag: "2021",
+            },
+            {
+                id: "coll-2022",
+                tag: "2022",
+            },
+            {
+                id: "coll-2023",
+                tag: "2023",
+            },
+            {
+                id: "coll-image",
+                tag: "Image",
+            },
+            {
+                id: "coll-video",
+                tag: "Video",
+            },
+            {
+                id: "coll-ytvideo",
+                tag: "YouTube Video",
+            },
+        ];
+
+        // Contains all the items to used for dynamic rendering
+        const itemObjects = [
+            {
+                image: "Media/LakeReflection.webp",
                 date: "July 2021",
                 dateNumber: "15072021",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2021", "Image"],
             },
             {
-                image: "Media/ScenicRiver.jpg",
+                image: "Media/ScenicRiver.webp",
                 date: "February 2023",
                 dateNumber: "25022023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/EmleyRoad.jpg",
+                image: "Media/EmleyRoad.webp",
                 date: "January 2023",
                 dateNumber: "14012023",
                 location: "Emley Moor, UK",
                 type: "image",
+                tags: ["", "Emley", "2023", "Image"],
             },
             {
-                image: "Media/PlantCloseup.jpg",
+                image: "Media/PlantCloseup.webp",
                 date: "July 2021",
                 dateNumber: "15072021",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2021", "Image"],
             },
             {
-                image: "Media/CastleHillGlow.jpg",
+                image: "Media/CastleHillGlow.webp",
                 date: "October 2022",
                 dateNumber: "16102022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
-                image: "Media/GreenSummerDay.jpg",
+                image: "Media/GreenSummerDay.webp",
                 date: "August 2020",
                 dateNumber: "27082020",
                 location: "Inowlodz, PL",
                 type: "image",
+                tags: ["", "Inowlodz", "2020", "Image"],
             },
             {
-                image: "Media/ForestSunset.jpg",
+                image: "Media/DistantViews.webp",
+                date: "January 2023",
+                dateNumber: "04012023",
+                location: "Huddersfield, UK",
+                type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
+            },
+            {
+                image: "Media/ForestSunset.webp",
                 date: "June 2023",
                 dateNumber: "04062023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/Sunset.jpg",
+                image: "Media/Sunset.webp",
                 date: "July 2021",
                 dateNumber: "25072021",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2021", "Image"],
             },
             {
-                image: "Media/CastleHillClouds.jpg",
+                image: "Media/CastleHillClouds.webp",
                 date: "March 2023",
                 dateNumber: "18032023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                image: "Media/CityTurn.jpg",
+                image: "Media/CityTurn.webp",
                 date: "January 2022",
                 dateNumber: "26012022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
-                image: "Media/BurningSky.jpg",
+                image: "Media/BurningSky.webp",
                 date: "Jaunary 2023",
                 dateNumber: "08012023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/TreeSilhouettes.jpg",
+                image: "Media/TreeSilhouettes.webp",
                 date: "February 2023",
                 dateNumber: "25022023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/SnowyGate.jpg",
+                image: "Media/SnowyGate.webp",
                 date: "March 2023",
                 dateNumber: "10032023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                image: "Media/GreyDay.jpg",
+                image: "Media/GreyDay.webp",
                 date: "April 2023",
                 dateNumber: "22042023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/Rainbow.jpg",
+                image: "Media/Rainbow.webp",
                 date: "December 2021",
                 dateNumber: "07122021",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2021", "Image"],
             },
             {
                 video: "Media/CastleHillWindyDarkness.mp4",
@@ -304,27 +426,31 @@
                 dateNumber: "14012023",
                 location: "Huddersfield, UK",
                 type: "video",
+                tags: ["", "Huddersfield", "2023", "Video"],
             },
             {
-                image: "Media/EmleyTower.jpg",
+                image: "Media/EmleyTower.webp",
                 date: "January 2023",
                 dateNumber: "14012023",
                 location: "Emley Moor, UK",
                 type: "image",
+                tags: ["", "Emley", "2023", "Image"],
             },
             {
-                image: "Media/Forest.jpg",
+                image: "Media/Forest.webp",
                 date: "February 2023",
                 dateNumber: "23022023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/CastleHillStairs.jpg",
+                image: "Media/CastleHillStairs.webp",
                 date: "March 2022",
                 dateNumber: "18032022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
                 video: "Media/Sunset.mp4",
@@ -332,62 +458,63 @@
                 dateNumber: "04062023",
                 location: "England",
                 type: "video",
+                tags: ["", "England", "2023", "Video"],
             },
             {
-                image: "Media/SunsetRiver.jpg",
+                image: "Media/SunsetRiver.webp",
                 date: "August 2020",
                 dateNumber: "27082020",
                 location: "Inowlodz, PL",
                 type: "image",
+                tags: ["", "Inowlodz", "2020", "Image"],
             },
             {
-                image: "Media/SnowyBushes.jpg",
+                image: "Media/SnowyBushes.webp",
                 date: "March 2023",
                 dateNumber: "10032023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                youtubeVideo: "https://www.youtube.com/embed/aNsaZMW5dts",
-                date: "February 2023",
-                dateNumber: "13022023",
-                location: "Watch Dogs",
-                type: "youtubeVideo",
-            },
-            {
-                image: "Media/River.jpg",
+                image: "Media/River.webp",
                 date: "August 2020",
                 dateNumber: "27082020",
                 location: "Inowlodz, PL",
                 type: "image",
+                tags: ["", "Inowlodz", "2020", "Image"],
             },
             {
-                image: "Media/NightCity.jpg",
+                image: "Media/NightCity.webp",
                 date: "February 2023",
                 dateNumber: "11022023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                image: "Media/Footpath.jpg",
+                image: "Media/Footpath.webp",
                 date: "February 2023",
                 dateNumber: "25022023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/SnowyMountains.jpg",
+                image: "Media/SnowyMountains.webp",
                 date: "March 2023",
                 dateNumber: "10032023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                image: "Media/Skyline.jpg",
+                image: "Media/Skyline.webp",
                 date: "July 2021",
                 dateNumber: "15072021",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2021", "Image"],
             },
             {
                 video: "Media/RedSkyline.mp4",
@@ -395,357 +522,445 @@
                 dateNumber: "05022023",
                 location: "England",
                 type: "video",
+                tags: ["", "England", "2023", "Video"],
             },
             {
-                image: "Media/Castle.jpg",
+                image: "Media/Castle.webp",
                 date: "August 2020",
                 dateNumber: "27082020",
                 location: "Inowlodz, PL",
                 type: "image",
+                tags: ["", "Inowlodz", "2020", "Image"],
             },
             {
-                image: "Media/DistantViews.jpg",
-                date: "January 2023",
-                dateNumber: "04012023",
-                location: "Huddersfield, UK",
-                type: "image",
-            },
-            {
-                image: "Media/CityGlow.jpg",
+                image: "Media/CityGlow.webp",
                 date: "November 2022",
                 dateNumber: "05112022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
-                image: "Media/OrangeHorizon.jpg",
+                image: "Media/OrangeHorizon.webp",
                 date: "February 2023",
                 dateNumber: "05022023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/Moon.jpg",
+                image: "Media/Moon.webp",
                 date: "July 2021",
                 dateNumber: "15072021",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2021", "Image"],
             },
             {
-                image: "Media/FogRollingIn.jpg",
+                image: "Media/FogRollingIn.webp",
                 date: "March 2023",
                 dateNumber: "18032023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                image: "Media/GreyRainbow.jpg",
+                image: "Media/GreyRainbow.webp",
                 date: "December 2022",
                 dateNumber: "26122022",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2022", "Image"],
             },
             {
-                image: "Media/Field.jpg",
+                image: "Media/Canal.webp",
+                date: "August 2023",
+                dateNumber: "07082023",
+                location: "England",
+                type: "image",
+                tags: ["", "England", "2023", "Image"],
+            },
+            {
+                image: "Media/Field.webp",
                 date: "March 2022",
                 dateNumber: "18032022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
-                image: "Media/Tree.jpg",
+                image: "Media/Tree.webp",
                 date: "January 2023",
                 dateNumber: "08012023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/CastleHill.jpg",
+                image: "Media/CastleHill.webp",
                 date: "February 2022",
                 dateNumber: "11022022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
-                image: "Media/ScenicOverlook.jpg",
+                image: "Media/ScenicOverlook.webp",
                 date: "February 2022",
                 dateNumber: "11022022",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2022", "Image"],
             },
             {
-                image: "Media/BlockView.jpg",
+                image: "Media/BlockView.webp",
                 date: "August 2022",
                 dateNumber: "16082022",
                 location: "Poland",
                 type: "image",
+                tags: ["", "Poland", "2022", "Image"],
             },
             {
-                image: "Media/DeadForest.jpg",
+                image: "Media/DeadForest.webp",
                 date: "January 2023",
                 dateNumber: "08012023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/Oasis.jpg",
+                image: "Media/Oasis.webp",
                 date: "January 2023",
                 dateNumber: "08012023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/SnowyRoad.jpg",
+                image: "Media/Connections.webp",
+                date: "September 2023",
+                dateNumber: "23092023",
+                location: "England",
+                type: "image",
+                tags: ["", "England", "2023", "Image"],
+            },
+            {
+                image: "Media/SnowyRoad.webp",
                 date: "March 2023",
                 dateNumber: "10032023",
                 location: "Huddersfield, UK",
                 type: "image",
+                tags: ["", "Huddersfield", "2023", "Image"],
             },
             {
-                image: "Media/RedSky.jpg",
+                image: "Media/RedSky.webp",
                 date: "February 2023",
                 dateNumber: "05022023",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2023", "Image"],
             },
             {
-                image: "Media/PinkSky.jpg",
+                image: "Media/Variation.webp",
+                date: "July 2023",
+                dateNumber: "06072023",
+                location: "England",
+                type: "image",
+                tags: ["", "England", "2023", "Image"],
+            },
+            {
+                image: "Media/PinkSky.webp",
                 date: "July 2021",
                 dateNumber: "29072021",
                 location: "England",
                 type: "image",
+                tags: ["", "England", "2021", "Image"],
             },
-        ]
+        ];
         
-        // Used to store the media HTML objects
-        let mediaArray
+        // Used to store the item HTML objects
+        let itemHTMLobjects;
 
-        // Creates a HTML object for an media item
-        const createMedia = (media) => {
-            var div = document.createElement('div')
-            div.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'col-xl-2', 'media')
+        // Creates a HTML object for item
+        const createHTMLitem = (item) => {
+            let div = document.createElement('div');
+            div.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'col-xl-2', 'media');
 
-            var card = document.createElement('div')
-            card.classList.add('card')
+            let card = document.createElement('div');
+            card.classList.add('card');
 
-            if (media.type === 'image') 
+            if (item.type === 'image')
             {
-                var img = document.createElement('img')
-                img.setAttribute('src', media.image)
-                img.setAttribute('data-bs-toggle', 'modal')
-                img.setAttribute('data-bs-target', '#imageModal')
+                let img = document.createElement('img');
+                img.setAttribute('src', item.image);
+                img.setAttribute('data-bs-toggle', 'modal');
+                img.setAttribute('data-bs-target', '#imageModal');
 
-                var cardBody = document.createElement('div')
-                cardBody.classList.add('card-body')
+                let cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
 
-                var text = document.createElement('p')
-                text.classList.add('card-text', 'text-center')
-                text.textContent = `${media.date} | ${media.location}`
-                text.setAttribute('date', media.dateNumber)
-                text.setAttribute('identifier', media.image)
+                let text = document.createElement('p');
+                text.classList.add('card-text', 'text-center');
+                text.textContent = `${item.date} | ${item.location}`;
+                text.setAttribute('date', item.dateNumber);
+                text.setAttribute('identifier', item.image);
 
-                cardBody.appendChild(text)
-                card.appendChild(img)
-                card.appendChild(cardBody)
+                cardBody.appendChild(text);
+                card.appendChild(img);
+                card.appendChild(cardBody);
             } 
             
-            else if (media.type === 'youtubeVideo') 
+            else if (item.type === 'youtubeVideo') 
             {
-                var ratioDiv = document.createElement('div')
-                ratioDiv.classList.add('ratio', 'ratio-4x3')
+                let ratioDiv = document.createElement('div');
+                ratioDiv.classList.add('ratio', 'ratio-4x3');
 
-                var iframe = document.createElement('iframe')
-                iframe.setAttribute('src', media.youtubeVideo)
-                iframe.setAttribute('allowfullscreen', '')
+                let iframe = document.createElement('iframe');
+                iframe.setAttribute('src', item.youtubeVideo);
+                iframe.setAttribute('allowfullscreen', '');
 
-                ratioDiv.appendChild(iframe)
+                ratioDiv.appendChild(iframe);
 
-                var cardBody = document.createElement('div')
-                cardBody.classList.add('card-body')
+                let cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
 
-                var text = document.createElement('p')
-                text.classList.add('card-text', 'text-center')
-                text.textContent = `${media.date} | ${media.location}`
-                text.setAttribute('date', media.dateNumber)
-                text.setAttribute('identifier', media.youtubeVideo)
+                let text = document.createElement('p');
+                text.classList.add('card-text', 'text-center');
+                text.textContent = `${item.date} | ${item.location}`;
+                text.setAttribute('date', item.dateNumber);
+                text.setAttribute('identifier', item.youtubeVideo);
 
-                cardBody.appendChild(text)
-                card.appendChild(ratioDiv)
-                card.appendChild(cardBody)
+                cardBody.appendChild(text);
+                card.appendChild(ratioDiv);
+                card.appendChild(cardBody);
             }
             
-            else if (media.type === 'video') 
+            else if (item.type === 'video') 
             {
-                var ratioDiv = document.createElement('div')
-                ratioDiv.classList.add('ratio', 'ratio-4x3')
+                let ratioDiv = document.createElement('div');
+                ratioDiv.classList.add('ratio', 'ratio-4x3');
 
-                var video = document.createElement('video')
-                video.setAttribute('controls', '')
+                let video = document.createElement('video');
+                video.setAttribute('controls', '');
+                video.setAttribute('preload', 'none');
+                video.setAttribute('poster', `${item.video.replace(/\.mp4$/, '')}Thumbnail.webp`);
 
-                var source = document.createElement('source')
-                source.setAttribute('src', media.video)
-                source.setAttribute('type', 'video/mp4')
+                let source = document.createElement('source');
+                source.setAttribute('src', item.video);
+                source.setAttribute('type', 'video/mp4');
 
-                video.appendChild(source)
-                ratioDiv.appendChild(video)
+                video.appendChild(source);
+                ratioDiv.appendChild(video);
 
-                var cardBody = document.createElement('div')
-                cardBody.classList.add('card-body')
+                let cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
 
-                var text = document.createElement('p')
-                text.classList.add('card-text', 'text-center')
-                text.textContent = `${media.date} | ${media.location}`
-                text.setAttribute('date', media.dateNumber)
-                text.setAttribute('identifier', media.video)
+                let text = document.createElement('p');
+                text.classList.add('card-text', 'text-center');
+                text.textContent = `${item.date} | ${item.location}`;
+                text.setAttribute('date', item.dateNumber);
+                text.setAttribute('identifier', item.video);
 
-                cardBody.appendChild(text)
-                card.appendChild(ratioDiv)
-                card.appendChild(cardBody)
+                cardBody.appendChild(text);
+                card.appendChild(ratioDiv);
+                card.appendChild(cardBody);
             }
 
             div.appendChild(card);
 
             return div;
-        }
+        };
 
-        function renderMedia()
+        // Create items and render onto page
+        function renderItems(tag)
         {
-            let itemRoot = document.getElementById('media-root')
+            // Wipte item root clean
+            let itemRoot = document.getElementById('media-root');
+            while (itemRoot.firstChild) itemRoot.firstChild.remove();
 
-            mediaItems.forEach(item => {
-                const card = createMedia(item)
-                itemRoot.appendChild(card)
-            })
+            // Render all items
+            if (tag == "")
+            {
+                itemObjects.forEach(item => {
+                    const htmlItem = createHTMLitem(item);
+                    itemRoot.appendChild(htmlItem);
+                });
+            }
 
-            // Store all the media objects in array for sorting
-            mediaArray = Array.from(document.querySelectorAll('.media'))
+            // Render based on tag
+            else
+            {
+                itemObjects.forEach(item => {
+                    if (!item.tags.includes(tag)) return;
+
+                    const htmlItem = createHTMLitem(item);
+                    itemRoot.appendChild(htmlItem);
+                });
+            }
+
+            // Store all the objects in array for sorting
+            itemHTMLobjects = Array.from(document.querySelectorAll('.media'));
+
+            // Sort items based on current selection
+            let currentSort = document.getElementsByClassName('current-sort');
+            setCurrentDropdown(currentSort[0].id);
 
             // Iterate each image and link it up with the large image modal upon click
-            let largeImage = document.getElementById('largeImage')
-            mediaArray.forEach(function(imageItem) 
+            let largeImage = document.getElementById('largeImage');
+            itemHTMLobjects.forEach(function(imageItem)
             {
                 imageItem.addEventListener("click", function() 
                 {
-                    const image = this.querySelector("img").src
-                    largeImage.src = image
-                })
-            })
+                    const image = this.querySelector("img").src;
+                    largeImage.src = image;
+                });
+            });
         }
 
-        // Sort media by date (descending)
+        // Sort items by date (descending)
         const sortDescending = () => {
-            setCurrentDropdown('sort-new-old')
-            mediaArray.sort((a, b) => {
+            itemHTMLobjects.sort((a, b) => {
                 // Obtain date for a
-                let dateString = a.querySelector('p[date]').getAttribute('date')
-                let day = dateString.substring(0, 2)
-                let month = dateString.substring(2, 4)
-                let year = dateString.substring(4, 8)
-                let formattedDate = `${year}-${month}-${day}`
-                let date1 = new Date(formattedDate)
+                let dateString = a.querySelector('p[date]').getAttribute('date');
+                let day = dateString.substring(0, 2);
+                let month = dateString.substring(2, 4);
+                let year = dateString.substring(4, 8);
+                let formattedDate = `${year}-${month}-${day}`;
+                let date1 = new Date(formattedDate);
 
                 // Obtain date for b
-                dateString = b.querySelector('p[date]').getAttribute('date')
-                day = dateString.substring(0, 2)
-                month = dateString.substring(2, 4)
-                year = dateString.substring(4, 8)
-                formattedDate = `${year}-${month}-${day}`
-                date2 = new Date(formattedDate)
+                dateString = b.querySelector('p[date]').getAttribute('date');
+                day = dateString.substring(0, 2);
+                month = dateString.substring(2, 4);
+                year = dateString.substring(4, 8);
+                formattedDate = `${year}-${month}-${day}`;
+                date2 = new Date(formattedDate);
 
-                return date2 - date1
-            })
+                return date2 - date1;
+            });
 
-            // Reorder the media 
-            mediaArray.forEach(mediaObject => {
-                mediaObject.parentElement.appendChild(mediaObject)
-            })
-        }
+            // Reorder the items 
+            itemHTMLobjects.forEach(itemObj => {
+                itemObj.parentElement.appendChild(itemObj);
+            });
+        };
 
-        // Sort media by date (ascending)
+        // Sort items by date (ascending)
         const sortAscending = () => {
-            setCurrentDropdown('sort-old-new')
-            mediaArray.sort((a, b) => {
+            itemHTMLobjects.sort((a, b) => {
                 // Obtain date for a
-                let dateString = a.querySelector('p[date]').getAttribute('date')
-                let day = dateString.substring(0, 2)
-                let month = dateString.substring(2, 4)
-                let year = dateString.substring(4, 8)
-                let formattedDate = `${year}-${month}-${day}`
-                let date1 = new Date(formattedDate)
+                let dateString = a.querySelector('p[date]').getAttribute('date');
+                let day = dateString.substring(0, 2);
+                let month = dateString.substring(2, 4);
+                let year = dateString.substring(4, 8);
+                let formattedDate = `${year}-${month}-${day}`;
+                let date1 = new Date(formattedDate);
 
                 // Obtain date for b
-                dateString = b.querySelector('p[date]').getAttribute('date')
-                day = dateString.substring(0, 2)
-                month = dateString.substring(2, 4)
-                year = dateString.substring(4, 8)
-                formattedDate = `${year}-${month}-${day}`
-                date2 = new Date(formattedDate)
+                dateString = b.querySelector('p[date]').getAttribute('date');
+                day = dateString.substring(0, 2);
+                month = dateString.substring(2, 4);
+                year = dateString.substring(4, 8);
+                formattedDate = `${year}-${month}-${day}`;
+                date2 = new Date(formattedDate);
 
-                return date1 - date2
-            })
+                return date1 - date2;
+            });
 
-            // Reorder the media  
-            mediaArray.forEach(mediaObject => {
-                mediaObject.parentElement.appendChild(mediaObject)
-            })
-        }
+            // Reorder the items 
+            itemHTMLobjects.forEach(itemObj => {
+                itemObj.parentElement.appendChild(itemObj);
+            });
+        };
 
         // Default sort
         const sortDefault = () => {
-            setCurrentDropdown('sort-default')
-            let tempArray = []
+            let tempArray = [];
 
-            // Compile default order of media items by referencing against original media items array
-            for (let i = 0; i < mediaItems.length; i++)
+            // Compile default item order by referencing against original array
+            for (let i = 0; i < itemObjects.length; i++)
             {
-                for (let j = 0; j < mediaArray.length; j++)
+                for (let j = 0; j < itemHTMLobjects.length; j++)
                 {
-                    if (mediaItems[i].image == mediaArray[j].querySelector('p').getAttribute('identifier') ||
-                    mediaItems[i].video == mediaArray[j].querySelector('p').getAttribute('identifier') ||
-                    mediaItems[i].youtubeVideo == mediaArray[j].querySelector('p').getAttribute('identifier'))
+                    if (itemObjects[i].image == itemHTMLobjects[j].querySelector('p').getAttribute('identifier') ||
+                    itemObjects[i].video == itemHTMLobjects[j].querySelector('p').getAttribute('identifier') ||
+                    itemObjects[i].youtubeVideo == itemHTMLobjects[j].querySelector('p').getAttribute('identifier'))
                     {
-                        tempArray.push(mediaArray[j])
-                        continue
+                        tempArray.push(itemHTMLobjects[j]);
+                        continue;
                     }
                 }
             }
 
-            // Rewrite the media array based on new order
-            for (let i = 0; i < mediaArray.length; i++)
+            // Rewrite the items array based on new order
+            for (let i = 0; i < itemHTMLobjects.length; i++)
             {
-                mediaArray[i] = tempArray[i]
+                itemHTMLobjects[i] = tempArray[i];
             }
 
-            // Reorder the media 
-            mediaArray.forEach(mediaObject => {
-                mediaObject.parentElement.appendChild(mediaObject)
-            })
-        }
+            // Reorder the items 
+            itemHTMLobjects.forEach(itemObj => {
+                itemObj.parentElement.appendChild(itemObj);
+            });
+        };
 
-        // Function to set the current option and change its color
+        // Function to set the current option and show it as selected
         function setCurrentDropdown(optionId) 
         {
-            const dropdownItems = document.querySelectorAll(".dropdown-item")
+            // Remove current sort class from old current sort
+            const dropdownItems = document.querySelectorAll(".dropdown-item");
             dropdownItems.forEach(item => {
-                item.classList.remove("current-sort")
-            })
+                item.classList.remove("current-sort");
+            });
 
-            const selectedOption = document.getElementById(optionId)
-            selectedOption.classList.add("current-sort")
+            // Apply current sort to new current sort
+            let selectedOption = document.getElementById(optionId);
+            selectedOption.classList.add("current-sort");
+
+            if (optionId == 'sort-new-old') sortDescending();
+            else if (optionId == 'sort-old-new') sortAscending();
+            else if (optionId == 'sort-default') sortDefault();
         }
 
         // Add event listeners for sorting buttons
-        const sortDescendingButton = document.getElementById('sort-new-old')
-        sortDescendingButton.addEventListener('click', sortDescending)
+        const sortDescendingButton = document.getElementById('sort-new-old');
+        sortDescendingButton.addEventListener('click', () => {
+            setCurrentDropdown('sort-new-old');
+        });
 
-        const sortAscendingButton = document.getElementById('sort-old-new')
-        sortAscendingButton.addEventListener('click', sortAscending)
+        const sortAscendingButton = document.getElementById('sort-old-new');
+        sortAscendingButton.addEventListener('click', () => {
+            setCurrentDropdown('sort-old-new');
+        });
 
-        const sortDefaultButton = document.getElementById('sort-default')
-        sortDefaultButton.addEventListener('click', sortDefault)
+        const sortDefaultButton = document.getElementById('sort-default');
+        sortDefaultButton.addEventListener('click', () => {
+            setCurrentDropdown('sort-default');
+        });
 
-        renderMedia()
-        setCurrentDropdown('sort-default')
+        // Initialise collection dropdowns
+        for (let i = 0; i < collections.length; i++)
+        {
+            // Count up items
+            let collDropItem = document.getElementById(collections[i].id);
+            let count = itemObjects.filter(obj => obj.tags.includes(collections[i].tag)).length;
+            collDropItem.textContent += ` (${count})`;
+
+            // Add event listener to collection dropdown
+            collDropItem.addEventListener('click', () => {
+                renderItems(collections[i].tag);
+
+                // Remove current collection dropdown
+                let currentCollection = document.getElementsByClassName('current-collection');
+                currentCollection[0].classList.remove("current-collection");
+
+                // Set current collection dropdown
+                document.getElementById(collections[i].id).classList.add("current-collection");
+            });
+        }
+
+        // Initialise page
+        renderItems("");
 
     </script>
 </html>

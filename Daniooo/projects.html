@@ -2,18 +2,23 @@
 <html lang="en">
     <head>
         <title>Daniooo | Projects</title>
-        <link rel="icon" type="image/x-icon" href="Misc/Daniooo PFP.png">
+        <link rel="icon" type="image/x-icon" href="Misc/Daniooo PFP.webp">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Welcome to Daniooo. Here you can the projects I've worked on, any articles I've written and anything else related to me.">
-		<meta name="keywords" content="daniooo, programmer, computer science, computer security, cybersecurity">
+        <meta name="description" content="Welcome to Daniooo. Here you can the projects I've worked on, various articles I've written and anything else related to me.">
+		<meta name="keywords" content="daniooo, programmer, computer science, computer security, cybersecurity, psychology, technology, productivity, photography">
 		<meta name="author" content="Daniel Kasprzyk">
 
+        <!-- Bootstrap 5 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+        <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/9075ca7894.js" crossorigin="anonymous"></script>
 
         <!-- Load custom CSS -->
@@ -23,11 +28,12 @@
             /* Override - Applied to the breadcrumb navigation */
             .breadcrumb {
                 margin-left: 25px;
+                margin-bottom: 0px;
             }
 
             /* Override - Applied to the sort dropdown button */
             .dropdown-toggle {
-                margin-left: 25px;
+                margin-right: 25px;
                 margin-bottom: 0px;
             }
 
@@ -68,6 +74,10 @@
                     margin-left: 10px;
                 }
 
+                .dropdown-toggle {
+                    margin-right: 10px;
+                }
+
                 .project {
                     margin: 10px;
                 }
@@ -89,23 +99,23 @@
         <!-- Header / Navbar -->
         <nav class="navbar navbar-expand-md sticky-top header">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="Misc/Daniooo PFP.png" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
+                <a class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="Misc/Daniooo PFP.webp" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                     <i class="fa-solid fa-bars fa-lg"></i>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
                     <ul class="navbar-nav align-items-center">
                         <li class="nav-item active">
-                            <a class="nav-link" href="projects.html" id="current-page">Projects</a>
+                            <a class="nav-link" id="current-page" href="projects.html">Projects</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="articles.html">Articles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="videogames.html">Videogames</a>
+                            <a class="nav-link" href="media.html">Media</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="media.html">Media</a>
+                            <a class="nav-link" href="videogames.html">Videogames</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about_me.html">About Me</a>
@@ -118,10 +128,11 @@
         <!-- Progress bar based on scroll position -->
         <div id="progress-bar"></div>
 
-        <!-- Breadcrumbs navigation -->
+        <!-- Header -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <!-- Breadcrumbs navigation -->
+                <div class="col-6 d-flex align-items-center">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -129,21 +140,34 @@
                         </ol>
                     </nav>
                 </div>
-            </div>
-        </div>
 
-        <!-- Sorting dropdown menu -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
+                <div class="col-6 d-flex justify-content-end">
+                    <!-- Collections dropdown -->
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="collectionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Collection
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="collectionDropdown">
+                            <li><a class="dropdown-item current-collection" id="coll-all">All</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-cli">CLI</a></li>
+                            <li><a class="dropdown-item" id="coll-gui">GUI</a></li>
+                            <li><a class="dropdown-item" id="coll-website">Website</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-2023">2023</a></li>
+                            <li><a class="dropdown-item" id="coll-2022">2022</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sort dropdown -->
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Sort
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="sortingDropdown">
-                            <li><a class="dropdown-item" id="sort-new-old">Sort by date: new to old</a></li>
-                            <li><a class="dropdown-item" id="sort-old-new">Sort by date: old to new</a></li>
-                            <li><a class="dropdown-item" id="sort-default">Sort by default: best viewed first</a></li>
+                            <li><a class="dropdown-item" id="sort-new-old">Sort by date: new - old</a></li>
+                            <li><a class="dropdown-item" id="sort-old-new">Sort by date: old - new</a></li>
+                            <li><a class="dropdown-item current-sort" id="sort-default">Sort by default: best viewed first</a></li>
                         </ul>
                     </div>
                 </div>
@@ -166,37 +190,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 d-flex justify-content-center">
-                        <a href="https://linktr.ee/Daniooo" target="_blank" class="footer-icon">
-                            <span class="fa-stack" style="vertical-align: top;" class="footer-icon">
+                        <a href="https://linktr.ee/Daniooo" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="All my links">
+                            <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #43E660;"></i>
                                 <i class="fa-solid fa-arrow-up-right-from-square fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="https://youtube.com/c/Daniooo" target="_blank" class="footer-icon">
+                        <a href="https://youtube.com/c/Daniooo" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Subscribe to my YouTube channel">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #FF0000;"></i>
                                 <i class="fa-brands fa-youtube fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>                
-                        <a href="https://github.com/0xdaniooo" target="_blank" class="footer-icon">
+                        <a href="https://github.com/0xdaniooo" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Check out my portfolio on GitHub">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #000000;"></i>
                                 <i class="fa-brands fa-github fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="https://www.linkedin.com/in/daniel-kasprzyk7/" target="_blank" class="footer-icon">
+                        <a href="https://www.linkedin.com/in/daniel-kasprzyk7/" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Connect with me on LinkedIn">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #0077B5;"></i>
                                 <i class="fa-brands fa-linkedin fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="https://www.instagram.com/0xdaniooo/" target="_blank" class="footer-icon">
+                        <a href="https://www.instagram.com/0xdaniooo/" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Follow my Instagram">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #ae31bc;"></i>
                                 <i class="fa-brands fa-instagram fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
-                        <a href="mailto:contact.danielkasprzyk@protonmail.com" target="_blank" class="footer-icon">
+                        <a href="mailto:daniel.kasprzyk@daniooo.com" target="_blank" class="footer-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Contact me via email">
                             <span class="fa-stack" style="vertical-align: top;">
                                 <i class="fa-solid fa-circle fa-stack-2x" style="color: #6d4aff;"></i>
                                 <i class="fa-solid fa-envelope fa-stack-1x fa-inverse"></i>
@@ -212,8 +236,36 @@
     <script src="code.js"></script>
 
     <script>
-        // Contains all the projects to be shown on the page - used for dynamic rendering
-        const projects = [
+        // Collection options
+        const collections = [
+            {
+                id: "coll-all",
+                tag: "",
+            },
+            {
+                id: "coll-cli",
+                tag: "CLI",
+            },
+            {
+                id: "coll-gui",
+                tag: "GUI",
+            },
+            {
+                id: "coll-website",
+                tag: "Website",
+            },
+            {
+                id: "coll-2023",
+                tag: "2023",
+            },
+            {
+                id: "coll-2022",
+                tag: "2022",
+            },
+        ];
+        
+        // Contains all the items to used for dynamic rendering
+        const itemObjects = [
             {
                 video: "https://www.youtube.com/embed/khLnwABBBGM",
                 title: "Planify Study Tracker | Python Django REST Framework Website",
@@ -222,6 +274,7 @@
                 link: "https://github.com/0xdaniooo/Planify-Study-Tracker",
                 date: "13th June 2023",
                 dateNumber: "13062023",
+                tags: ["", "2023", "Website"],
             },
             {
                 video: "https://www.youtube.com/embed/OFz46cKP9Pk",
@@ -231,6 +284,27 @@
                 link: "https://github.com/0xdaniooo/Buffer-Overflow-Visualizer",
                 date: "24th June 2022",
                 dateNumber: "24062022",
+                tags: ["", "2022", "GUI"],
+            },
+            {
+                video: "https://www.youtube.com/embed/fvG2z0ZIqt0 ",
+                title: "Strong App - Data Visualizer | Python Tkinter + Plotly Project",
+                description: "Data visualization tool for plotting workout data from Strong App's CSV files - Built with Tkinter and Plotly.",
+                about: "Ever since I started working out at the gym, I've been keeping a detailed record of nearly every workout I have done (which includes exercises, weights and reps). It's been really useful helping me see what I've done and then going higher. Such a large dataset has also been great for viewing my progression. Reading all this data was great but I wanted a way to visualise it which is exactly what this project solves. With plenty of flexibility, it allows you to plot exercises, weights, reps, decide how it is presented and view it on easy to understand charts.",
+                link: "https://github.com/0xdaniooo/Strong-App-Data-Visualizer",
+                date: "17th July 2023",
+                dateNumber: "17072023",
+                tags: ["", "2023", "GUI"],
+            },
+            {
+                video: "https://www.youtube.com/embed/vnYBNXTRzEs ",
+                title: "Daniooo Website | HTML, CSS, JavaScript and Bootstrap Website",
+                description: "My personal website built with HTML, CSS, JavaScript and Bootstrap 5 where I host all my content in one convenient place.",
+                about: "Back in September 2022, I had created a website under this same URL where I displayed nearly the same content as seen here. This was made in anticipation of my placement search, allowing potential employers to see my work in a visual format. My skillset was very lacking at that time as this had only been the second website I had developed and thus aesthetically the layout looked very cheap and outdated; functionality wise, everything was very restrictive as all content was housed on a singular page which meant I could not include all my pieces of content. Wanting to test my new and improved skillset, I decided to rework the website and incorporate all the details and elements I had not been able to implement previously.",
+                link: "https://github.com/0xdaniooo/Daniooo-Website",
+                date: "6th July 2023",
+                dateNumber: "06072023",
+                tags: ["", "2023", "Website"],
             },
             {
                 video: "https://www.youtube.com/embed/IYvIZfPaNqw",
@@ -240,6 +314,7 @@
                 link: "https://github.com/0xdaniooo/cybersecurity-toolkit",
                 date: "17th September 2022",
                 dateNumber: "17092022",
+                tags: ["", "2022", "Website"],
             },
             {
                 video: "https://www.youtube.com/embed/0wXHDmBUiRU",
@@ -249,6 +324,7 @@
                 link: "https://github.com/0xdaniooo/Bank-System",
                 date: "22nd April 2022",
                 dateNumber: "22042022",
+                tags: ["", "2022", "CLI"],
             },
             {
                 video: "https://www.youtube.com/embed/0w7nqefX_fw",
@@ -258,6 +334,17 @@
                 link: "https://github.com/0xdaniooo/Basic-Terminal-Poker",
                 date: "22nd May 2022",
                 dateNumber: "22052022",
+                tags: ["", "2022", "CLI"],
+            },
+            {
+                video: "https://www.youtube.com/embed/XZJE8lh4DNQ",
+                title: "Secure Passphrase Generator | Python CLI Project",
+                description: "Passphrases generated by https://untroubled.org/pwgen/ppgen.cgi with an added level of security including special characters and letter/number substitutions.",
+                about: "Being in cybersecurity, I've come to value my account safety a lot. I've worked hard to keep all my accounts secure which can sometimes be difficult when you can't copy and paste them over (as can be the case on consoles for example). For this reason, I started using passphrases as they are friendlier to type whilst maintaining a high level of protection. Previously, I generated them on untroubled.org then sprinkled in another level of protection by manually changing some letters to numbers and adding in special characters - a process that can get quite boring which is why I created this simple automation script to help speed that up.",
+                link: "https://github.com/0xdaniooo/Secure-Passphrase-Generator",
+                date: "19th July 2023",
+                dateNumber: "19072023",
+                tags: ["", "2023", "CLI"],
             },
             {
                 video: "https://www.youtube.com/embed/hA7XPH1jf6I",
@@ -267,223 +354,275 @@
                 link: "https://github.com/0xdaniooo/Simple-Grade-Calculator",
                 date: "24th April 2022",
                 dateNumber: "24042022",
+                tags: ["", "2022", "CLI"],
             },
-        ]
+        ];
 
-        // Used to store the project HTML objects
-        let projectsArray
+        // Used to store the item HTML objects
+        let itemHTMLobjects;
 
-        // Creates a HTML object for an project
-        const createProject = (project) => {
-            var projectDiv = document.createElement('div')
-            projectDiv.setAttribute('class', 'row project')
+        // Creates a HTML object for item
+        const createHTMLitem = (item) => {
+            let projectDiv = document.createElement('div');
+            projectDiv.setAttribute('class', 'row project');
 
-            var leftColumnDiv = document.createElement('div')
-            leftColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column')
+            let leftColumnDiv = document.createElement('div')
+            leftColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column');
 
-            var rowDiv1 = document.createElement('div')
-            rowDiv1.setAttribute('class', 'row')
+            let rowDiv1 = document.createElement('div');
+            rowDiv1.setAttribute('class', 'row');
 
-            var colDiv1 = document.createElement('div')
-            colDiv1.setAttribute('class', 'col-12')
+            let colDiv1 = document.createElement('div');
+            colDiv1.setAttribute('class', 'col-12');
 
-            var projectTitle = document.createElement('h4')
-            projectTitle.setAttribute('class', 'project-title')
-            projectTitle.textContent = project.title
+            let projectTitle = document.createElement('h4');
+            projectTitle.setAttribute('class', 'project-title');
+            projectTitle.textContent = item.title;
 
-            var underlineDiv = document.createElement('div')
-            underlineDiv.setAttribute('class', 'underline')
+            let underlineDiv = document.createElement('div');
+            underlineDiv.setAttribute('class', 'underline');
 
-            var projectDescription = document.createElement('p')
-            projectDescription.textContent = project.description
+            let projectDescription = document.createElement('p');
+            projectDescription.textContent = item.description;
 
-            var projectSubTitle = document.createElement('h5')
-            projectSubTitle.setAttribute('class', 'subheading-underline')
-            projectSubTitle.textContent = 'About this project:'
+            let projectSubTitle = document.createElement('h5');
+            projectSubTitle.setAttribute('class', 'subheading-underline');
+            projectSubTitle.textContent = 'About this project:';
 
-            var projectSubDescription = document.createElement('p')
-            projectSubDescription.textContent = project.about
+            let projectSubDescription = document.createElement('p');
+            projectSubDescription.textContent = item.about;
 
-            colDiv1.appendChild(projectTitle)
-            colDiv1.appendChild(underlineDiv)
-            colDiv1.appendChild(projectDescription)
-            colDiv1.appendChild(projectSubTitle)
-            colDiv1.appendChild(projectSubDescription)
+            colDiv1.appendChild(projectTitle);
+            colDiv1.appendChild(underlineDiv);
+            colDiv1.appendChild(projectDescription);
+            colDiv1.appendChild(projectSubTitle);
+            colDiv1.appendChild(projectSubDescription);
 
-            rowDiv1.appendChild(colDiv1)
+            rowDiv1.appendChild(colDiv1);
 
-            var rowDiv2 = document.createElement('div')
-            rowDiv2.setAttribute('class', 'row project-footer')
+            let rowDiv2 = document.createElement('div');
+            rowDiv2.setAttribute('class', 'row project-footer');
 
-            var colDiv2 = document.createElement('div')
-            colDiv2.setAttribute('class', 'col-12 d-flex align-items-center')
+            let colDiv2 = document.createElement('div');
+            colDiv2.setAttribute('class', 'col-12 d-flex align-items-center');
 
-            var githubLink = document.createElement('a')
-            githubLink.setAttribute('href', project.link)
-            githubLink.setAttribute('class', 'btn custom-button')
-            githubLink.setAttribute('target', '_blank')
-            githubLink.innerHTML = 'See on GitHub<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>'
+            let githubLink = document.createElement('a');
+            githubLink.setAttribute('href', item.link);
+            githubLink.setAttribute('class', 'btn custom-button');
+            githubLink.setAttribute('target', '_blank');
+            githubLink.innerHTML = 'See on GitHub<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
 
-            var projectDate = document.createElement('p')
-            projectDate.setAttribute('class', 'project-date')
-            projectDate.setAttribute('style', 'margin-left: 20px;')
-            projectDate.textContent = project.date
-            projectDate.setAttribute('date', project.dateNumber)
+            let projectDate = document.createElement('p');
+            projectDate.setAttribute('class', 'project-date');
+            projectDate.setAttribute('style', 'margin-left: 20px;');
+            projectDate.textContent = item.date;
+            projectDate.setAttribute('date', item.dateNumber);
 
-            colDiv2.appendChild(githubLink)
-            colDiv2.appendChild(projectDate)
+            colDiv2.appendChild(githubLink);
+            colDiv2.appendChild(projectDate);
 
-            rowDiv2.appendChild(colDiv2)
+            rowDiv2.appendChild(colDiv2);
 
-            leftColumnDiv.appendChild(rowDiv1)
-            leftColumnDiv.appendChild(rowDiv2)
+            leftColumnDiv.appendChild(rowDiv1);
+            leftColumnDiv.appendChild(rowDiv2);
 
-            var rightColumnDiv = document.createElement('div')
-            rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center')
+            let rightColumnDiv = document.createElement('div');
+            rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
 
-            var cardDiv = document.createElement('div')
-            cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video')
+            let cardDiv = document.createElement('div');
+            cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video');
 
-            var iframe = document.createElement('iframe')
-            iframe.setAttribute('src', project.video)
-            iframe.setAttribute('allowfullscreen', '')
+            let iframe = document.createElement('iframe');
+            iframe.setAttribute('src', item.video);
+            iframe.setAttribute('allowfullscreen', '');
 
-            cardDiv.appendChild(iframe)
+            cardDiv.appendChild(iframe);
 
-            rightColumnDiv.appendChild(cardDiv)
+            rightColumnDiv.appendChild(cardDiv);
 
-            projectDiv.appendChild(leftColumnDiv)
-            projectDiv.appendChild(rightColumnDiv)
+            projectDiv.appendChild(leftColumnDiv);
+            projectDiv.appendChild(rightColumnDiv);
 
             return projectDiv;
-        }
+        };
 
-        // Create project items and render onto page
-        function renderProjects()
+        // Create items and render onto page
+        function renderItems(tag)
         {
-            let itemRoot = document.getElementById('projects-root')
+            // Wipte item root clean
+            let itemRoot = document.getElementById('projects-root');
+            while (itemRoot.firstChild) itemRoot.firstChild.remove();
 
-            projects.forEach(item => {
-                const project = createProject(item)
-                itemRoot.appendChild(project)
-            })
+            // Render all items
+            if (tag == "")
+            {
+                itemObjects.forEach(item => {
+                    const htmlItem = createHTMLitem(item);
+                    itemRoot.appendChild(htmlItem);
+                });
+            }
 
-            // Store all the project objects in array for sorting
-            projectsArray = Array.from(document.querySelectorAll('.project'))
-        }
+            // Render based on tag
+            else
+            {
+                itemObjects.forEach(item => {
+                    if (!item.tags.includes(tag)) return;
 
-        // Sort projects by date (descending)
+                    const htmlItem = createHTMLitem(item);
+                    itemRoot.appendChild(htmlItem);
+                });
+            }
+
+            // Store all the objects in array for sorting
+            itemHTMLobjects = Array.from(document.querySelectorAll('.project'));
+
+            // Sort items based on current selection
+            let currentSort = document.getElementsByClassName('current-sort');
+            setCurrentDropdown(currentSort[0].id);
+        };
+
+        // Sort items by date (descending)
         const sortDescending = () => {
-            setCurrentDropdown('sort-new-old')
-            projectsArray.sort((a, b) => {
+            itemHTMLobjects.sort((a, b) => {
                 // Obtain date for a
-                let dateString = a.querySelector('p[date]').getAttribute('date')
-                let day = dateString.substring(0, 2)
-                let month = dateString.substring(2, 4)
-                let year = dateString.substring(4, 8)
-                let formattedDate = `${year}-${month}-${day}`
-                let date1 = new Date(formattedDate)
+                let dateString = a.querySelector('p[date]').getAttribute('date');
+                let day = dateString.substring(0, 2);
+                let month = dateString.substring(2, 4);
+                let year = dateString.substring(4, 8);
+                let formattedDate = `${year}-${month}-${day}`;
+                let date1 = new Date(formattedDate);
 
                 // Obtain date for b
-                dateString = b.querySelector('p[date]').getAttribute('date')
-                day = dateString.substring(0, 2)
-                month = dateString.substring(2, 4)
-                year = dateString.substring(4, 8)
-                formattedDate = `${year}-${month}-${day}`
-                date2 = new Date(formattedDate)
+                dateString = b.querySelector('p[date]').getAttribute('date');
+                day = dateString.substring(0, 2);
+                month = dateString.substring(2, 4);
+                year = dateString.substring(4, 8);
+                formattedDate = `${year}-${month}-${day}`;
+                date2 = new Date(formattedDate);
 
-                return date2 - date1
-            })
+                return date2 - date1;
+            });
 
-            // Reorder the projects 
-            projectsArray.forEach(projectObject => {
-                projectObject.parentElement.appendChild(projectObject)
-            })
-        }
+            // Reorder the items 
+            itemHTMLobjects.forEach(itemObj => {
+                itemObj.parentElement.appendChild(itemObj);
+            });
+        };
 
-        // Sort projects by date (ascending)
+        // Sort items by date (ascending)
         const sortAscending = () => {
-            setCurrentDropdown('sort-old-new')
-            projectsArray.sort((a, b) => {
+            itemHTMLobjects.sort((a, b) => {
                 // Obtain date for a
-                let dateString = a.querySelector('p[date]').getAttribute('date')
-                let day = dateString.substring(0, 2)
-                let month = dateString.substring(2, 4)
-                let year = dateString.substring(4, 8)
-                let formattedDate = `${year}-${month}-${day}`
-                let date1 = new Date(formattedDate)
+                let dateString = a.querySelector('p[date]').getAttribute('date');
+                let day = dateString.substring(0, 2);
+                let month = dateString.substring(2, 4);
+                let year = dateString.substring(4, 8);
+                let formattedDate = `${year}-${month}-${day}`;
+                let date1 = new Date(formattedDate);
 
                 // Obtain date for b
-                dateString = b.querySelector('p[date]').getAttribute('date')
-                day = dateString.substring(0, 2)
-                month = dateString.substring(2, 4)
-                year = dateString.substring(4, 8)
-                formattedDate = `${year}-${month}-${day}`
-                date2 = new Date(formattedDate)
+                dateString = b.querySelector('p[date]').getAttribute('date');
+                day = dateString.substring(0, 2);
+                month = dateString.substring(2, 4);
+                year = dateString.substring(4, 8);
+                formattedDate = `${year}-${month}-${day}`;
+                date2 = new Date(formattedDate);
 
-                return date1 - date2
-            })
+                return date1 - date2;
+            });
 
-            // Reorder the projects 
-            projectsArray.forEach(projectObject => {
-                projectObject.parentElement.appendChild(projectObject)
-            })
-        }
+            // Reorder the items 
+            itemHTMLobjects.forEach(itemObj => {
+                itemObj.parentElement.appendChild(itemObj);
+            });
+        };
 
         // Default sort
         const sortDefault = () => {
-            setCurrentDropdown('sort-default')
-            let tempArray = []
+            let tempArray = [];
 
-            // Compile default order of projects by referencing against original projects array
-            for (let i = 0; i < projects.length; i++)
+            // Compile default item order by referencing against original array
+            for (let i = 0; i < itemObjects.length; i++)
             {
-                for (let j = 0; j < projectsArray.length; j++)
+                for (let j = 0; j < itemHTMLobjects.length; j++)
                 {
-                    if (projects[i].link == projectsArray[j].querySelector('a').getAttribute('href'))
+                    if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a').getAttribute('href'))
                     {
-                        tempArray.push(projectsArray[j])
-                        continue
+                        tempArray.push(itemHTMLobjects[j]);
+                        continue;
                     }
                 }
             }
 
-            // Rewrite the projects array based on new order
-            for (let i = 0; i < projectsArray.length; i++)
+            // Rewrite the items array based on new order
+            for (let i = 0; i < itemHTMLobjects.length; i++)
             {
-                projectsArray[i] = tempArray[i]
+                itemHTMLobjects[i] = tempArray[i];
             }
 
-            // Reorder the projects 
-            projectsArray.forEach(projectObject => {
-                projectObject.parentElement.appendChild(projectObject)
-            })
-        }
+            // Reorder the items 
+            itemHTMLobjects.forEach(itemObj => {
+                itemObj.parentElement.appendChild(itemObj);
+            });
+        };
 
-        // Function to set the current option and change its color
+        // Function to set the current option and show it as selected
         function setCurrentDropdown(optionId) 
         {
-            const dropdownItems = document.querySelectorAll(".dropdown-item")
+            // Remove current sort class from old current sort
+            const dropdownItems = document.querySelectorAll(".dropdown-item");
             dropdownItems.forEach(item => {
-                item.classList.remove("current-sort")
-            })
+                item.classList.remove("current-sort");
+            });
 
-            const selectedOption = document.getElementById(optionId)
-            selectedOption.classList.add("current-sort")
+            // Apply current sort to new current sort
+            let selectedOption = document.getElementById(optionId);
+            selectedOption.classList.add("current-sort");
+
+            if (optionId == 'sort-new-old') sortDescending();
+            else if (optionId == 'sort-old-new') sortAscending();
+            else if (optionId == 'sort-default') sortDefault();
         }
 
         // Add event listeners for sorting buttons
-        const sortDescendingButton = document.getElementById('sort-new-old')
-        sortDescendingButton.addEventListener('click', sortDescending)
+        const sortDescendingButton = document.getElementById('sort-new-old');
+        sortDescendingButton.addEventListener('click', () => {
+            setCurrentDropdown('sort-new-old');
+        });
 
-        const sortAscendingButton = document.getElementById('sort-old-new')
-        sortAscendingButton.addEventListener('click', sortAscending)
+        const sortAscendingButton = document.getElementById('sort-old-new');
+        sortAscendingButton.addEventListener('click', () => {
+            setCurrentDropdown('sort-old-new');
+        });
 
-        const sortDefaultButton = document.getElementById('sort-default')
-        sortDefaultButton.addEventListener('click', sortDefault)
+        const sortDefaultButton = document.getElementById('sort-default');
+        sortDefaultButton.addEventListener('click', () => {
+            setCurrentDropdown('sort-default');
+        });
 
-        renderProjects()
-        setCurrentDropdown('sort-default')
+        // Initialise collection dropdowns
+        for (let i = 0; i < collections.length; i++)
+        {
+            // Count up items
+            let collDropItem = document.getElementById(collections[i].id);
+            let count = itemObjects.filter(obj => obj.tags.includes(collections[i].tag)).length;
+            collDropItem.textContent += ` (${count})`;
+
+            // Add event listener to collection dropdown
+            collDropItem.addEventListener('click', () => {
+                renderItems(collections[i].tag);
+
+                // Remove current collection dropdown
+                let currentCollection = document.getElementsByClassName('current-collection');
+                currentCollection[0].classList.remove("current-collection");
+
+                // Set current collection dropdown
+                document.getElementById(collections[i].id).classList.add("current-collection");
+            });
+        }
+
+        // Initialise page
+        renderItems("");
 
     </script>
 </html>

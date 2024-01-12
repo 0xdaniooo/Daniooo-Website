@@ -61,7 +61,7 @@
 /* Applied to the button which scrolls to the top of the page */
 #scroll-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     right: 20px;
     width: 60px;
     height: 60px;
@@ -119,7 +119,7 @@
     color: #fe2d02;
 }
 
-/* Applied to the sort dropdown button */
+/* Applied to the dropdown button */
 .dropdown-toggle {
     margin-left: 2px;
     margin-bottom: 25px;
@@ -131,22 +131,28 @@
 /* Applied to hover over dropdown items */
 .dropdown-menu a:hover {
     color: #fe2d02 !important;
+    cursor: pointer;
 }
 
-/* Applied to the sort dropdown button */
+/* Applied to the dropdown button */
 .dropdown-toggle:hover {
     color: #fe2d02;
     box-shadow: 0 0 4px 4px #fe2d02;
 }
 
-/* Applied to the sort dropdown button */
+/* Applied to the dropdown button */
 .dropdown-toggle:focus {
     color: #fe2d02;
     box-shadow: 0 0 4px 4px #fe2d02;
 }
 
-/* Applied to the currently chosen sort dropdown option */
+/* Applied to the currently chosen sorting dropdown option */
 .current-sort {
+    color: #fe2d02;
+}
+
+/* Applied to the currently chosen collection dropdown option */
+.current-collection {
     color: #fe2d02;
 }
 
