@@ -1,8 +1,9 @@
 # Daniooo Website
 My personal website built with HTML, CSS, JavaScript and Bootstrap 5 where I host all my content in one convenient place.
 
-Check it out at https://daniooo.com
+Check it out at: https://daniooo.com
 
+See it in action here: 
 
 ## About
 Back in September 2022, I had created a website under this same URL where I displayed nearly the same content as seen here. This was made in anticipation of my placement search, allowing potential employers to see my work in a visual format. My skillset was very lacking at that time as this had only been the second website I had developed and thus aesthetically the layout looked very cheap and outdated; functionality wise, everything was very restrictive as all content was housed on a singular page which meant I could not include all my pieces of content. Wanting to test my new and improved skillset, I decided to rework the website and incorporate all the details and elements I had not been able to implement previously.
@@ -12,7 +13,8 @@ Back in September 2022, I had created a website under this same URL where I disp
 - Responsive layout which works across various screen sizes (desktop, mobile etc)
 - Animations and other little details to make the website feel alive
 - Content is added to the DOM and rendered onto the screen dynamically through JavaScript
-- Sorting functionality for content collections
+- Display content based on collections
+- Ability to change content sorting
 
 
 ## Home Page
@@ -35,6 +37,12 @@ Back in September 2022, I had created a website under this same URL where I disp
 ## About Me Page
 ![AboutMe](/Imgs/AboutMe.png)
 
+## Collection Dropdown
+![CollectionDropdown](/Imgs/CollectionDropdown.png)
+
+## Sorting Dropdown
+![SortingDropdown](/Imgs/SortDropdown.png)
+
 
 ## Note
-The Media folder is not included in the codebase due to file size restrictions. These can be acquired from the live version of the website if you wish to tinker with the code.
+Videos from the Media page are not included in the codebase due to file size restrictions. These can be acquired from the live version of the website if you wish to tinker with the code and have everything working correctly.
