@@ -3,7 +3,7 @@ My personal website built with HTML, CSS, JavaScript and Bootstrap 5 where I hos
 
 Check it out at: https://daniooo.com
 
-See it in action here: 
+See it in action here: https://www.youtube.com/watch?v=NPRg8yjdCU4
 
 ## About
 Back in September 2022, I had created a website under this same URL where I displayed nearly the same content as seen here. This was made in anticipation of my placement search, allowing potential employers to see my work in a visual format. My skillset was very lacking at that time as this had only been the second website I had developed and thus aesthetically the layout looked very cheap and outdated; functionality wise, everything was very restrictive as all content was housed on a singular page which meant I could not include all my pieces of content. Wanting to test my new and improved skillset, I decided to rework the website and incorporate all the details and elements I had not been able to implement previously.
