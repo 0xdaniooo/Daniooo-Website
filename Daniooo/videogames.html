@@ -50,6 +50,13 @@
                 box-shadow: 0 0 3px 3px #fe2d02;
             }
 
+            /* Gives the YouTube videos a glow */
+            .game-video {
+                box-shadow: 0 0 3px 3px #fe2d02;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
             /* Used to house the Itch IO link + icons */
             .game-footer {
                 margin-top: auto;
@@ -155,6 +162,8 @@
                             <li><a class="dropdown-item" id="coll-2021">2021</a></li>
                             <li><a class="dropdown-item" id="coll-2020">2020</a></li>
                             <li><a class="dropdown-item" id="coll-2019">2019</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-wip">Work in Progress</a></li>
                         </ul>
                     </div>
 
@@ -262,12 +271,17 @@
                 id: "coll-2019",
                 tag: "2019",
             },
+            {
+                id: "coll-wip",
+                tag: "Work in Progress",
+            },
         ];
 
         // Contains all the items to used for dynamic rendering
         const itemObjects = [
             {
                 image: "ItchIO/Scout.webp",
+                video: "",
                 title: "Scout - Final Major Project",
                 description: "Scout the area, plan your attack, defeat enemies.",
                 p1: "Fight off constant waves of incoming enemies but be careful as each weapon has only one magazine. Use your drone to plan out your attacks from a safe distance then go in for the kill. Loot whatever you can find and utilise the various abilities to aid you in battle.",
@@ -277,9 +291,11 @@
                 date: "23rd May 2021",
                 dateNumber: "23052021",
                 tags: ["", "2021", "3D"],
+                devlog: "PDFs/ScoutFMPDevlog.pdf",
             },
             {
                 image: "ItchIO/FirstPersonExperience.webp",
+                video: "",
                 title: "First Person Experience - Project 1",
                 description: "Area 51 has been overrun by aliens - clear them out.",
                 p1: "Make your way through the Area 51 facility whilst clearing out the alien infestation. Interact with the environment to open doors and continue with the mini questline present there. Save up points by killing enemies to allow you to purchase new weapons at the shop stations found there.",
@@ -289,9 +305,11 @@
                 date: "5th March 2021",
                 dateNumber: "05032021",
                 tags: ["", "2021", "3D"],
+                devlog: "PDFs/FirstPersonExperienceDevlog.pdf",
             },
             {
                 image: "ItchIO/Rhubarbarian.webp",
+                video: "",
                 title: "Rise of the Rhubarbarian - Game Jam",
                 description: "Rise up and train the Rhubarbarian for a top secret mission.",
                 p1: "Make your way through a test course designed to train the Rhubarbarian robot for an infiltration mission. Avoid deadly turrets and any other obstacles designed to stop you from reaching the finish point. Watch out for collapsing platforms awaiting your demise. Interact with fun puzzle games to progress further.",
@@ -301,9 +319,11 @@
                 date: "28th June 2021",
                 dateNumber: "28062021",
                 tags: ["", "2021", "3D"],
+                devlog: "",
             },
             {
                 image: "ItchIO/YetiHorror.webp",
+                video: "",
                 title: "Yeti Horror Game - Final Major Project",
                 description: "Fix your helicopter and make it out of the snowy hills of Nepal alive.",
                 p1: "Explore the snowy Himalayan mountains for any parts you can use to fix your helicopter. Stock up on weapons, supplies and traps to fight off the wildlife trying to hunt you down. You are not alone - a Yeti roams around looking for its prey. Make the best of the limited time you have here and get out in one piece.",
@@ -313,9 +333,11 @@
                 date: "25th May 2020",
                 dateNumber: "25052020",
                 tags: ["", "2020", "2D"],
+                devlog: "PDFs/YetiFMPDevlog.pdf",
             },
             {
                 image: "ItchIO/VehicleGame.webp",
+                video: "",
                 title: "3D Vehicle Game - Project 2",
                 description: "Back to the future! Discover what the DeLorean is capable of.",
                 p1: "Drive your DeLorean equipped with highly deadly weapons to eliminiate other drivers stood in your way. Go for a ride and explore this sci-fi world and all it has to offer. Stack up cash and upgrade your vehicle at upgrade stops. Avoid the many traps set out on the roads.",
@@ -325,9 +347,11 @@
                 date: "14th February 2020",
                 dateNumber: "14022020",
                 tags: ["", "2020", "3D"],
+                devlog: "",
             },
             {
                 image: "ItchIO/AdventureGame.webp",
+                video: "",
                 title: "Top Down Adventure - Project 1",
                 description: "Survive and thrive in this harsh apocalyptic world... or die trying.",
                 p1: "A simple top down adventure game where you traverse a post-apocalyptic city of ruins with the goal of getting out. Be on the lookout for any mines laid around and razor sharp bushes blocking your path. Venture into buildings to locate loot and beware of the enemies spread around the world.",
@@ -337,6 +361,21 @@
                 date: "13th December 2019",
                 dateNumber: "13122019",
                 tags: ["", "2019", "2D"],
+                devlog: "",
+            },
+            {
+                image: "",
+                video: "https://www.youtube.com/embed/mRxvidSST2w",
+                title: "Scout",
+                description: "Work in progress - aiming to release 2027",
+                p1: "Amid the desolate remnants of Chernobyl lies a secretive military testing ground, veiled in mystery and hidden from the world’s gaze. Set in 2007, Scout plunges you into the haven where nuclear power, experimental weapons, and advanced radio technology have been pushed to their limits.",
+                p2: "As a young man devoid of any purpose, you take on the mission of liberating the oppressed inhabitants from their ruthless overlords. However, your arrival ignites a violent conflict that transforms the once-quiet region into a chaotic warzone.",
+                p3: "While some rally behind you, grateful for the chance at freedom, others recoil in horror at the devastation you've unleashed. As the lines between right and wrong blur, you must confront the chilling question: Was this fight worth it, or have you become the very tyrannical force you sought to destroy?",
+                link: "",
+                date: "??????",
+                dateNumber: "00000000",
+                tags: ["", "Work in Progress", "3D"],
+                devlog: "",
             },
         ];
 
@@ -345,53 +384,42 @@
 
         // Creates a HTML object for item
         const createHTMLitem = (item) => {
-            // Create the main container div
             let rowGameDiv = document.createElement('div');
             rowGameDiv.className = 'row game';
 
-            // Create the first column div
             let colDiv1 = document.createElement('div');
             colDiv1.className = 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column';
 
-            // Create the inner row div
             let innerRowDiv = document.createElement('div');
             innerRowDiv.className = 'row';
 
-            // Create the col-12 div
             let col12Div = document.createElement('div');
             col12Div.className = 'col-12';
 
-            // Create the game title heading
             let gameTitleHeading = document.createElement('h4');
             gameTitleHeading.className = 'game-title';
             gameTitleHeading.textContent = item.title;
 
-            // Create the underline div
             let underlineDiv = document.createElement('div');
             underlineDiv.className = 'underline';
 
-            // Create the description paragraph
             let descriptionParagraph = document.createElement('p');
             descriptionParagraph.textContent = item.description;
 
-            // Create the "About this game" heading
             let aboutGameHeading = document.createElement('h5');
             aboutGameHeading.style.marginTop = '10px';
             aboutGameHeading.textContent = 'About this game:';
             aboutGameHeading.setAttribute('class', 'subheading-underline');
 
-            // Create the about game paragraphs
             let aboutGameParagraph1 = document.createElement('p');
-            aboutGameParagraph1.textContent = item.p1;
+            aboutGameParagraph1.innerHTML += item.p1;
 
             let aboutGameParagraph2 = document.createElement('p');
-            aboutGameParagraph2.textContent = item.p2;
+            aboutGameParagraph2.innerHTML +=item.p2;
 
-            // Create the project details paragraph
             let projectDetailsParagraph = document.createElement('p');
-            projectDetailsParagraph.textContent = item.p3;
+            projectDetailsParagraph.innerHTML += item.p3;
 
-            // Append the elements to the col-12 div
             col12Div.appendChild(gameTitleHeading);
             col12Div.appendChild(underlineDiv);
             col12Div.appendChild(descriptionParagraph);
@@ -400,25 +428,28 @@
             col12Div.appendChild(aboutGameParagraph2);
             col12Div.appendChild(projectDetailsParagraph);
 
-            // Append the col-12 div to the inner row div
             innerRowDiv.appendChild(col12Div);
 
-            // Create the game footer row div
             let gameFooterRowDiv = document.createElement('div');
             gameFooterRowDiv.className = 'row game-footer';
 
-            // Create the footer column div
             let footerColDiv = document.createElement('div');
             footerColDiv.className = 'col-12 d-flex align-items-center';
 
-            // Create the "Play now on Itch IO" link
             let itchIOLink = document.createElement('a');
             itchIOLink.href = item.link;
             itchIOLink.className = 'btn custom-button';
             itchIOLink.target = '_blank';
-            itchIOLink.textContent = 'Play now on Itch IO';
 
-            // Create the Itch IO icon
+            // No Itch access
+            if (item.link.length == 0) 
+            {
+                itchIOLink.style.pointerEvents = 'none';
+                itchIOLink.textContent = 'Unavailable';            
+            }
+            
+            else itchIOLink.textContent = 'Play now on Itch IO';
+            
             let itchIOIcon = document.createElement('i');
             itchIOIcon.className = 'fa-brands fa-itch-io';
             itchIOIcon.style.color = 'white';
@@ -426,46 +457,70 @@
 
             itchIOLink.appendChild(itchIOIcon);
 
-            // Create the game date paragraph
             let gameDateParagraph = document.createElement('p');
             gameDateParagraph.className = 'game-date';
             gameDateParagraph.setAttribute('style', 'margin-left: 20px;');
             gameDateParagraph.textContent = item.date;
             gameDateParagraph.setAttribute('date', item.dateNumber);
 
-            // Append the elements to the footer column div
+            let devlogButton = document.createElement('a');
+
+            if (item.devlog.length != 0)
+            {
+                devlogButton.setAttribute('class', 'devlog-button');
+                devlogButton.setAttribute('style', 'margin-left: 20px');
+                devlogButton.setAttribute('href', item.devlog);
+                devlogButton.textContent = "View devlog";
+                devlogButton.innerHTML += '<i class="fa-regular fa-images" style="margin-left: 6px;"></i>';
+            }
+
             footerColDiv.appendChild(itchIOLink);
             footerColDiv.appendChild(gameDateParagraph);
 
-            // Append the elements to the game footer row div
+            if (item.devlog.length != 0) footerColDiv.appendChild(devlogButton);
+
             gameFooterRowDiv.appendChild(footerColDiv);
 
-            // Append the elements to the first column div
             colDiv1.appendChild(innerRowDiv);
             colDiv1.appendChild(gameFooterRowDiv);
 
-            // Create the second column div
-            let colDiv2 = document.createElement('div');
-            colDiv2.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
+            let rightColumnDiv = document.createElement('div');
 
-            // Create the card div
-            let cardDiv = document.createElement('div');
-            cardDiv.className = 'card';
+            // Add video to game card
+            if (item.video.length != 0)
+            {
+                rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
 
-            // Create the game image element
-            let gameImage = document.createElement('img');
-            gameImage.src = item.image;
-            gameImage.className = 'img-fluid game-image';
+                let cardDiv = document.createElement('div');
+                cardDiv.setAttribute('class', 'ratio ratio-16x9 game-video');
 
-            // Append the game image to the card div
-            cardDiv.appendChild(gameImage);
+                let iframe = document.createElement('iframe');
+                iframe.setAttribute('src', item.video);
+                iframe.setAttribute('allowfullscreen', '');
 
-            // Append the card div to the second column div
-            colDiv2.appendChild(cardDiv);
+                cardDiv.appendChild(iframe);
 
-            // Append the columns to the main container div
+                rightColumnDiv.appendChild(cardDiv);
+            }
+
+            // Add image to game card
+            else
+            {
+                rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
+
+                let cardDiv = document.createElement('div');
+                cardDiv.className = 'card';
+
+                let gameImage = document.createElement('img');
+                gameImage.src = item.image;
+                gameImage.className = 'img-fluid game-image';
+
+                cardDiv.appendChild(gameImage);
+                rightColumnDiv.appendChild(cardDiv);
+            }
+
             rowGameDiv.appendChild(colDiv1);
-            rowGameDiv.appendChild(colDiv2);
+            rowGameDiv.appendChild(rightColumnDiv);
 
             return rowGameDiv;
         };

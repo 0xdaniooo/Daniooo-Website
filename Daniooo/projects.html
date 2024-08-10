@@ -52,6 +52,11 @@
                 margin-bottom: 10px;
             }
 
+            /* Gives the images a glow */
+            .project-image {
+                box-shadow: 0 0 3px 3px #fe2d02;
+            }
+
             /* Used to house the GitHub link + icons */
             .project-footer {
                 margin-top: auto;
@@ -61,6 +66,20 @@
             /* Applied to the dates */
             .project-date {
                 margin: 0;
+            }
+
+            /* Applied to the devlog button */
+            .devlog-button {
+                margin: 0;
+                color: white;
+                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Applied to the devlog button on hover */
+            .devlog-button:hover {
+                margin: 0;
+                color: #fe2d02;
+                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             }
 
             /* Applied to YouTube video cards to remove automatic white border */
@@ -156,6 +175,8 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" id="coll-2023">2023</a></li>
                             <li><a class="dropdown-item" id="coll-2022">2022</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" id="coll-wip">Work in Progress</a></li>
                         </ul>
                     </div>
 
@@ -262,11 +283,16 @@
                 id: "coll-2022",
                 tag: "2022",
             },
+            {
+                id: "coll-wip",
+                tag: "Work in Progress",
+            },
         ];
         
         // Contains all the items to used for dynamic rendering
         const itemObjects = [
             {
+                image: "",
                 video: "https://www.youtube.com/embed/khLnwABBBGM",
                 title: "Planify Study Tracker | Python Django REST Framework Website",
                 description: "A website built with Django REST Framework + Bootstrap 5 aimed at students wanting to track their studies effectively in an intuitive manner.",
@@ -275,8 +301,10 @@
                 date: "13th June 2023",
                 dateNumber: "13062023",
                 tags: ["", "2023", "Website"],
+                devlog: "PDFs/PlanifyDevlog.pdf",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/OFz46cKP9Pk",
                 title: "Buffer Overflow Visualizer | Python Tkinter Project",
                 description: "A Python Tkinter GUI app designed to visualize the buffer overflow security vulnerability in an easy to understand interactive format.",
@@ -285,8 +313,10 @@
                 date: "24th June 2022",
                 dateNumber: "24062022",
                 tags: ["", "2022", "GUI"],
+                devlog: "PDFs/BufferOverflowVisualizerDevlog.pdf",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/fvG2z0ZIqt0 ",
                 title: "Strong App - Data Visualizer | Python Tkinter + Plotly Project",
                 description: "Data visualization tool for plotting workout data from Strong App's CSV files - Built with Tkinter and Plotly.",
@@ -295,8 +325,10 @@
                 date: "17th July 2023",
                 dateNumber: "17072023",
                 tags: ["", "2023", "GUI"],
+                devlog: "",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/NPRg8yjdCU4",
                 title: "Daniooo Website | HTML, CSS, JavaScript and Bootstrap Website",
                 description: "My personal website built with HTML, CSS, JavaScript and Bootstrap 5 where I host all my content in one convenient place.",
@@ -305,8 +337,10 @@
                 date: "6th July 2023",
                 dateNumber: "06072023",
                 tags: ["", "2023", "Website"],
+                devlog: "PDFs/DanioooWebsiteDevlog.pdf",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/IYvIZfPaNqw",
                 title: "Cybersecurity Toolkit | Python Django Website Project",
                 description: "A Django website which provides many useful tools when working in the realm of cybersecurity.",
@@ -315,8 +349,10 @@
                 date: "17th September 2022",
                 dateNumber: "17092022",
                 tags: ["", "2022", "Website"],
+                devlog: "",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/0wXHDmBUiRU",
                 title: "Bank System | C++ CLI Project",
                 description: "A simple bank system written in C++ which I used to learn the basics of the C++ language. Written for Windows exclusively.",
@@ -325,8 +361,10 @@
                 date: "22nd April 2022",
                 dateNumber: "22042022",
                 tags: ["", "2022", "CLI"],
+                devlog: "",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/0w7nqefX_fw",
                 title: "Basic Terminal Poker | C# CLI Project",
                 description: "A basic Poker game you can play in your terminal. Featuring a barebones design as it was intended for the purposes of teaching myself how Poker worked for a future GUI implementation.",
@@ -335,8 +373,10 @@
                 date: "22nd May 2022",
                 dateNumber: "22052022",
                 tags: ["", "2022", "CLI"],
+                devlog: "",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/XZJE8lh4DNQ",
                 title: "Secure Passphrase Generator | Python CLI Project",
                 description: "Passphrases generated by https://untroubled.org/pwgen/ppgen.cgi with an added level of security including special characters and letter/number substitutions.",
@@ -345,8 +385,10 @@
                 date: "19th July 2023",
                 dateNumber: "19072023",
                 tags: ["", "2023", "CLI"],
+                devlog: "",
             },
             {
+                image: "",
                 video: "https://www.youtube.com/embed/hA7XPH1jf6I",
                 title: "Simple Grade Calculator | Python CLI Project",
                 description: "A simple command line tool written in Python to make calculating your grades easier (based on percentages)",
@@ -355,6 +397,19 @@
                 date: "24th April 2022",
                 dateNumber: "24042022",
                 tags: ["", "2022", "CLI"],
+                devlog: "",
+            },
+            {
+                image: "Projects/netOS.webp",
+                video: "",
+                title: "netOS | Python Django Website Project",
+                description: "Work in progress - aiming to release late 2025",
+                about: "During my student work placement at Leeds City Council, I was heavily exposed to the inner workings of its vast digital infrastructure. Combining this with my interest in systems sparked an idea: what if I emulated a network that allowed the user to manipulate it in any way they wanted? Thus netOS was born - a tool that combines packet tracing with computer hacking to form a simulator where an entire system of computers can be crippled with various exploits.",
+                link: "",
+                date: "??????",
+                dateNumber: "00000000",
+                tags: ["", "Work in Progress", "Website"],
+                devlog: "",
             },
         ];
 
@@ -410,7 +465,15 @@
             githubLink.setAttribute('href', item.link);
             githubLink.setAttribute('class', 'btn custom-button');
             githubLink.setAttribute('target', '_blank');
-            githubLink.innerHTML = 'See on GitHub<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
+
+            // No source code access
+            if (item.link.length == 0) 
+            {
+                githubLink.style.pointerEvents = 'none';
+                githubLink.innerHTML = 'Unavailable<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
+            }
+            
+            else githubLink.innerHTML = 'See on GitHub<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
 
             let projectDate = document.createElement('p');
             projectDate.setAttribute('class', 'project-date');
@@ -418,8 +481,21 @@
             projectDate.textContent = item.date;
             projectDate.setAttribute('date', item.dateNumber);
 
+            let devlogButton = document.createElement('a');
+
+            if (item.devlog.length != 0)
+            {
+                devlogButton.setAttribute('class', 'devlog-button');
+                devlogButton.setAttribute('style', 'margin-left: 20px');
+                devlogButton.setAttribute('href', item.devlog);
+                devlogButton.textContent = "View devlog";
+                devlogButton.innerHTML += '<i class="fa-regular fa-images" style="margin-left: 6px;"></i>';
+            }
+
             colDiv2.appendChild(githubLink);
             colDiv2.appendChild(projectDate);
+
+            if (item.devlog.length != 0) colDiv2.appendChild(devlogButton);
 
             rowDiv2.appendChild(colDiv2);
 
@@ -427,18 +503,39 @@
             leftColumnDiv.appendChild(rowDiv2);
 
             let rightColumnDiv = document.createElement('div');
-            rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
 
-            let cardDiv = document.createElement('div');
-            cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video');
+            // Add video to project card
+            if (item.video.length != 0)
+            {
+                rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
 
-            let iframe = document.createElement('iframe');
-            iframe.setAttribute('src', item.video);
-            iframe.setAttribute('allowfullscreen', '');
+                let cardDiv = document.createElement('div');
+                cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video');
 
-            cardDiv.appendChild(iframe);
+                let iframe = document.createElement('iframe');
+                iframe.setAttribute('src', item.video);
+                iframe.setAttribute('allowfullscreen', '');
 
-            rightColumnDiv.appendChild(cardDiv);
+                cardDiv.appendChild(iframe);
+
+                rightColumnDiv.appendChild(cardDiv);
+            }
+
+            // Add image to project card
+            else
+            {
+                rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
+
+                let cardDiv = document.createElement('div');
+                cardDiv.className = 'card';
+
+                let projectImage = document.createElement('img');
+                projectImage.src = item.image;
+                projectImage.className = 'img-fluid project-image';
+
+                cardDiv.appendChild(projectImage);
+                rightColumnDiv.appendChild(cardDiv);
+            }
 
             projectDiv.appendChild(leftColumnDiv);
             projectDiv.appendChild(rightColumnDiv);
