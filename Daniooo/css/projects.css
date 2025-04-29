@@ -1,0 +1,82 @@
+/* Override - Applied to the breadcrumb navigation */
+.breadcrumb {
+  margin-left: 25px;
+  margin-bottom: 0px;
+}
+
+/* Override - Applied to the sort dropdown button */
+.dropdown-toggle {
+  margin-right: 25px;
+  margin-bottom: 0px;
+}
+
+/* Background card for each project */
+.project {
+  margin: 25px;
+  padding: 20px;
+  background-color: #6F6F6F;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Gives the YouTube videos a glow */
+.project-video {
+  box-shadow: 0 0 3px 3px #FE2D02;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Gives the images a glow */
+.project-image {
+  box-shadow: 0 0 3px 3px #FE2D02;
+}
+
+/* Used to house the GitHub link + icons */
+.project-footer {
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+
+/* Applied to the dates */
+.project-date {
+  margin: 0;
+}
+
+/* Applied to the devlog button */
+.devlog-button {
+  margin: 0;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.devlog-button:hover {
+  margin: 0;
+  color: #FE2D02;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Applied to YouTube video cards to remove automatic white border */
+.card {
+  border: none;
+}
+
+/* Updates some properties to scale screen for small screens */
+@media (max-width: 576px) {
+  .breadcrumb {
+    margin-left: 10px;
+  }
+  .dropdown-toggle {
+    margin-right: 10px;
+  }
+  .project {
+    margin: 10px;
+  }
+  .dropdown-toggle {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+}
+p, h4, h5 {
+  color: white !important;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/*# sourceMappingURL=projects.css.map */

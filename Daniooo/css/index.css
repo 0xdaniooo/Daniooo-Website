@@ -1,0 +1,43 @@
+/* Applied to headings on main page */
+.content-heading a {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  font-size: 30px;
+  text-decoration: underline;
+  text-underline-offset: 15px;
+  margin-top: 30px;
+}
+
+/* Applied to headings on main page on hover */
+.content-heading:hover a {
+  color: #FE2D02;
+}
+
+/* Applied to text on main page */
+.content-text {
+  margin: 20px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Applied to image containers on main page */
+.content-img-container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+  background-color: #4C4C4C;
+  padding: 20px;
+  margin: 20px;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+}
+.content-img-container:hover {
+  box-shadow: 0 0 5px 5px #FE2D02;
+  transform: scale(1.05);
+}
+
+/* Applied to images inside the image container */
+.content-img {
+  margin: 20px 0 20px 0;
+  box-shadow: 0 0 3px 3px #FE2D02, 0 10px 16px rgba(0, 0, 0, 0.7);
+}
+
+/*# sourceMappingURL=index.css.map */

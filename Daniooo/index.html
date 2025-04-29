@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Daniooo</title>
-        <link rel="icon" type="image/x-icon" href="Misc/Daniooo PFP.webp">
+        <link rel="icon" type="image/x-icon" href="/content/misc/Daniooo PFP.webp">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Welcome to Daniooo. Here you can the projects I've worked on, various articles I've written and anything else related to me.">
@@ -10,8 +10,8 @@
 		<meta name="author" content="Daniel Kasprzyk">
 
         <!-- Bootstrap 5 -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,60 +22,15 @@
         <script src="https://kit.fontawesome.com/9075ca7894.js" crossorigin="anonymous"></script>
 
         <!-- Load custom CSS -->
-        <link rel="stylesheet" href="styling.css">
-
-        <style>
-            /* Applied to headings on main page */
-            .content-heading a {
-                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-                font-size: 30px;
-                text-decoration: underline;
-                text-underline-offset: 15px;
-                margin-top: 30px;
-            }
-
-            /* Applied to headings on main page on hover */
-            .content-heading:hover a {
-                color: #fe2d02;
-            }
-
-            /* Applied to text on main page */
-            .content-text {
-                margin: 20px;
-                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-                font-size: 20px;
-                text-align: center;
-            }
-
-            /* Applied to image containers on main page */
-            .content-img-container {
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
-                background-color: #4c4c4c;
-                padding: 20px;
-                margin: 20px;
-                margin-right: 20px;
-                transition: transform 0.3s ease;
-            }
-
-            /* Applied to image containers on main page */
-            .content-img-container:hover {
-                box-shadow: 0 0 5px 5px #fe2d02;
-                transform: scale(1.05);
-            }
-
-            /* Applied to images inside the image container */
-            .content-img {
-                margin: 20px 0 20px 0;
-                box-shadow: 0 0 3px 3px #fe2d02, 0 10px 16px rgba(0, 0, 0, 0.7);
-            }
-        </style>
+        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/index.css">
     </head>
 
     <body>
         <!-- Header / Navbar -->
         <nav class="navbar navbar-expand-md sticky-top header">
             <div class="container-fluid">
-                <a id="current-page" class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="Misc/Daniooo PFP.webp" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
+                <a id="current-page" class="navbar-brand" href="index.html" style="font-size: 30px;"><img src="content/misc/Daniooo PFP.webp" class="nav-logo d-inline-block align-text-center" style="width: 70px; margin-left: 10px; margin-right: 20px;">Daniooo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                     <i class="fa-solid fa-bars fa-lg"></i>
                 </button>
@@ -94,7 +49,7 @@
                             <a class="nav-link" href="videogames.html">Videogames</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about_me.html">About Me</a>
+                            <a class="nav-link" href="about-me.html">About Me</a>
                         </li>
                     </ul>
                 </div>
@@ -116,24 +71,24 @@
                         <div class="content-img-container">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="Projects/PlanifyStudyTracker.webp" class="img-fluid content-img">
+                                    <img src="content/projects/PlanifyStudyTracker.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Projects/BasicTerminalPoker.webp" class="img-fluid content-img">
+                                    <img src="content/projects/BasicTerminalPoker.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Projects/CybersecurityToolkit.webp" class="img-fluid content-img">
+                                    <img src="content/projects/CybersecurityToolkit.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="Projects/BufferOverflowVisualizer.webp" class="img-fluid content-img">
+                                    <img src="content/projects/BufferOverflowVisualizer.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Projects/BankSystem.webp" class="img-fluid content-img">
+                                    <img src="content/projects/BankSystem.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Projects/StrongAppDataVisualizer.webp" class="img-fluid content-img">
+                                    <img src="content/projects/StrongAppDataVisualizer.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                         </div>
@@ -150,24 +105,24 @@
                         <div class="content-img-container">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="Articles/SafeBrowsing.webp" class="img-fluid content-img">
+                                    <img src="content/articles/SafeBrowsing.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Articles/CultivatingCreativity.webp" class="img-fluid content-img">
+                                    <img src="content/articles/ReversingELF.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Articles/IntroTox86.webp" class="img-fluid content-img">
+                                    <img src="content/articles/IntroTox86.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="Articles/KnowThyselfGuide.webp" class="img-fluid content-img">
+                                    <img src="content/articles/ReverseEngineering.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Articles/OwaspTop10.webp" class="img-fluid content-img">
+                                    <img src="content/articles/OwaspTop10.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Articles/FlowStateGuide.webp" class="img-fluid content-img">
+                                    <img src="content/articles/PCOptimization.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                         </div>
@@ -192,24 +147,24 @@
                         <div class="content-img-container">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="Media/LakeReflection.webp" class="img-fluid content-img">
+                                    <img src="content/media/LakeReflection.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Media/EmleyRoad.webp" class="img-fluid content-img">
+                                    <img src="content/media/EmleyRoad.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Media/PlantCloseup.webp" class="img-fluid content-img">
+                                    <img src="content/media/PlantCloseup.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="Media/CastleHillGlow.webp" class="img-fluid content-img">
+                                    <img src="content/media/CastleHillGlow.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Media/GreenSummerDay.webp" class="img-fluid content-img">
+                                    <img src="content/media/GreenSummerDay.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="Media/ForestSunset.webp" class="img-fluid content-img">
+                                    <img src="content/media/ForestSunset.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                         </div>
@@ -226,24 +181,24 @@
                         <div class="content-img-container">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="ItchIO/Scout.webp" class="img-fluid content-img">
+                                    <img src="content/itchIO/Scout.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="ItchIO/FirstPersonExperience.webp" class="img-fluid content-img">
+                                    <img src="content/itchIO/FirstPersonExperience.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="ItchIO/Rhubarbarian.webp" class="img-fluid content-img">
+                                    <img src="content/itchIO/Rhubarbarian.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="ItchIO/YetiHorror.webp" class="img-fluid content-img">
+                                    <img src="content/itchIO/YetiHorror.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="ItchIO/VehicleGame.webp" class="img-fluid content-img">
+                                    <img src="content/itchIO/VehicleGame.webp" class="img-fluid content-img">
                                 </div>
                                 <div class="col-4">
-                                    <img src="ItchIO/AdventureGame.webp" class="img-fluid content-img">
+                                    <img src="content/itchIO/AdventureGame.webp" class="img-fluid content-img">
                                 </div>
                             </div>
                         </div>
@@ -260,18 +215,18 @@
         <div class="container-fluid" style="margin-bottom: 30px;">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 d-flex flex-column align-items-center justify-content-center">
-                    <h2 class="content-heading"><a href="about_me.html">About Me</a></h2> 
+                    <h2 class="content-heading"><a href="/about-me.html">About Me</a></h2> 
                     <p class="content-text">Find out more about my hobbies and interests - get to know me more.</p>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-6">
-                    <a href="about_me.html">
+                    <a href="/about-me.html">
                         <div class="content-img-container d-flex justify-content-center">
                             <div class="row">
                                 <div class="col-6">
-                                    <img src="Misc/Daniooo PFP.webp" class="img-fluid content-img" style="width: 450px;">
+                                    <img src="/content/misc/Daniooo PFP.webp" class="img-fluid content-img" style="width: 450px;">
                                 </div>
                                 <div class="col-6">
-                                    <img src="Misc/Me.jpg" class="img-fluid content-img" style="width: 450px;">
+                                    <img src="/content/misc/Me.jpg" class="img-fluid content-img" style="width: 450px;">
                                 </div>
                             </div>
                         </div>
@@ -333,5 +288,5 @@
     </body>
 
     <!-- Load custom JS -->
-    <script src="code.js"></script>
+    <script src="/javascript/base.js"></script>
 </html>

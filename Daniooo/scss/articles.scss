@@ -1,0 +1,38 @@
+@import 'variables';
+
+/* Override - Applied to the breadcrumb navigation */
+.breadcrumb {
+    margin-left: 28px;
+}
+
+/* Override - Applied to the sort dropdown button */
+.dropdown-toggle {
+    margin-right: 28px;
+}
+
+/* Applied to the root div for horizontal spacing */
+#articles-root {
+    margin: 0px 11px 0px 11px;
+}
+
+/* Restyles the card background color for articles */
+.card-body {
+    background-color: $itemGrey;
+}
+
+/* Applied to cards to remove automatic white border */
+.card {
+    border: none;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 5px 40px 5px;
+}
+
+/* Applied to the date of articles */
+.article-date {
+    margin: 0;
+}
+
+p, h4, h5 {
+    color: white !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}

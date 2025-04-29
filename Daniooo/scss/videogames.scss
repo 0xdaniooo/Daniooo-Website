@@ -1,0 +1,75 @@
+@import 'variables';
+
+/* Override - Applied to the breadcrumb navigation */
+.breadcrumb {
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+
+/* Override - Applied to the sort dropdown button */
+.dropdown-toggle {
+    margin-right: 25px;
+    margin-bottom: 0px;
+}
+
+/* Background card for each game */
+.game {
+    margin: 25px;
+    padding: 20px;
+    background-color: $itemGrey; 
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Gives the images a glow */
+.game-image {
+    box-shadow: 0 0 3px 3px $red;
+}
+
+/* Gives the YouTube videos a glow */
+.game-video {
+    box-shadow: 0 0 3px 3px $red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Used to house the Itch IO link + icons */
+.game-footer {
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+/* Applied to the dates */
+.game-date {
+    margin: 0;
+}
+
+/* Applied to image cards to remove automatic white border */
+.card {
+    border: none;
+    background-color: $itemGrey;
+}
+
+/* Updates some properties to scale screen for small screens */
+@media (max-width: 576px) {
+    .breadcrumb {
+        margin-left: 10px;
+    }
+
+    .dropdown-toggle {
+        margin-right: 10px;
+    }
+
+    .game {
+        margin: 10px;
+    }
+
+    .dropdown-toggle {
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+p, h4, h5 {
+    color: white !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
