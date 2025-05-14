@@ -69,7 +69,7 @@ let itemObjects: Project[] = [
         date: "13th June 2023",
         dateNumber: "13062023",
         tags: ["", "2023", "Website"],
-        devlog: "PDFs/PlanifyDevlog.pdf",
+        devlog: "content/PDFs/PlanifyDevlog.pdf",
     },
     {
         image: "",
@@ -81,7 +81,7 @@ let itemObjects: Project[] = [
         date: "24th June 2022",
         dateNumber: "24062022",
         tags: ["", "2022", "GUI"],
-        devlog: "PDFs/BufferOverflowVisualizerDevlog.pdf",
+        devlog: "content/PDFs/BufferOverflowVisualizerDevlog.pdf",
     },
     {
         image: "",
@@ -117,7 +117,7 @@ let itemObjects: Project[] = [
         date: "6th July 2023",
         dateNumber: "06072023",
         tags: ["", "2023", "Website"],
-        devlog: "PDFs/DanioooWebsiteDevlog.pdf",
+        devlog: "content/PDFs/DanioooWebsiteDevlog.pdf",
     },
     {
         image: "",

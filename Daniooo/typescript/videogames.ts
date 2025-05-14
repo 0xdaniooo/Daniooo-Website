@@ -61,7 +61,7 @@ let itemObjects: Game[] = [
         date: "23rd May 2021",
         dateNumber: "23052021",
         tags: ["", "2021", "3D"],
-        devlog: "PDFs/ScoutFMPDevlog.pdf",
+        devlog: "content/PDFs/ScoutFMPDevlog.pdf",
     },
     {
         image: "content/itchIO/FirstPersonExperience.webp",
@@ -75,7 +75,7 @@ let itemObjects: Game[] = [
         date: "5th March 2021",
         dateNumber: "05032021",
         tags: ["", "2021", "3D"],
-        devlog: "PDFs/FirstPersonExperienceDevlog.pdf",
+        devlog: "content/PDFs/FirstPersonExperienceDevlog.pdf",
     },
     {
         image: "content/itchIO/Rhubarbarian.webp",
@@ -103,7 +103,7 @@ let itemObjects: Game[] = [
         date: "25th May 2020",
         dateNumber: "25052020",
         tags: ["", "2020", "2D"],
-        devlog: "PDFs/YetiFMPDevlog.pdf",
+        devlog: "content/PDFs/YetiFMPDevlog.pdf",
     },
     {
         image: "content/itchIO/VehicleGame.webp",
