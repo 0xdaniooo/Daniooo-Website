@@ -129,20 +129,33 @@
   box-shadow: 0 0 4px 4px #FE2D02;
 }
 
-/* Applied to hover over dropdown items */
+/* Applied to dropdown menu */
+.dropdown-menu {
+  background-color: #6F6F6F;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+.dropdown-menu a {
+  color: #FFFFFF;
+}
 .dropdown-menu a:hover {
   color: #FE2D02 !important;
+  background-color: #666666;
   cursor: pointer;
+}
+
+/* Override */
+.dropdown-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.4666666667);
 }
 
 /* Applied to the currently chosen sorting dropdown option */
 .current-sort {
-  color: #FE2D02;
+  color: #FE2D02 !important;
 }
 
 /* Applied to the currently chosen collection dropdown option */
 .current-collection {
-  color: #FE2D02;
+  color: #FE2D02 !important;
 }
 
 /* Applied to main buttons */

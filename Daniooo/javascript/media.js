@@ -16,12 +16,12 @@ let collections = [
         tag: "Inowlodz",
     },
     {
-        id: "coll-emley",
-        tag: "Emley",
-    },
-    {
         id: "coll-huddersfield",
         tag: "Huddersfield",
+    },
+    {
+        id: "coll-2019",
+        tag: "2019",
     },
     {
         id: "coll-2020",
@@ -44,16 +44,8 @@ let collections = [
         tag: "2024",
     },
     {
-        id: "coll-image",
-        tag: "Image",
-    },
-    {
-        id: "coll-video",
-        tag: "Video",
-    },
-    {
-        id: "coll-ytvideo",
-        tag: "YouTube Video",
+        id: "coll-2025",
+        tag: "2025",
     },
 ];
 let itemObjects = [
@@ -64,7 +56,7 @@ let itemObjects = [
         dateNumber: "15072021",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2021", "Image"],
+        tags: ["", "England", "2021"],
     },
     {
         image: "content/media/ScenicRiver.webp",
@@ -73,7 +65,16 @@ let itemObjects = [
         dateNumber: "25022023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
+    },
+    {
+        image: "content/media/Darkness.webp",
+        video: "",
+        date: "May 2025",
+        dateNumber: "01052025",
+        location: "Huddersfield, UK",
+        type: "image",
+        tags: ["", "Huddersfield", "2025"],
     },
     {
         image: "content/media/EmleyRoad.webp",
@@ -82,7 +83,7 @@ let itemObjects = [
         dateNumber: "14012023",
         location: "Emley Moor, UK",
         type: "image",
-        tags: ["", "Emley", "2023", "Image"],
+        tags: ["", "Emley", "2023"],
     },
     {
         image: "content/media/PlantCloseup.webp",
@@ -91,7 +92,7 @@ let itemObjects = [
         dateNumber: "15072021",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2021", "Image"],
+        tags: ["", "England", "2021"],
     },
     {
         image: "content/media/Aftermath.webp",
@@ -100,7 +101,16 @@ let itemObjects = [
         dateNumber: "28072024",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2024", "Image"],
+        tags: ["", "Inowlodz", "2024"],
+    },
+    {
+        image: "content/media/Delusions.webp",
+        video: "",
+        date: "May 2025",
+        dateNumber: "01052025",
+        location: "Huddersfield, UK",
+        type: "image",
+        tags: ["", "Huddersfield", "2025"],
     },
     {
         image: "content/media/CastleHillGlow.webp",
@@ -109,7 +119,16 @@ let itemObjects = [
         dateNumber: "16102022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
+        tags: ["", "Huddersfield", "2022"],
+    },
+    {
+        image: "content/media/Hope.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "22082025",
+        location: "Poland, PL",
+        type: "image",
+        tags: ["", "Poland", "2025"],
     },
     {
         image: "content/media/GreenSummerDay.webp",
@@ -118,7 +137,7 @@ let itemObjects = [
         dateNumber: "27082020",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2020", "Image"],
+        tags: ["", "Inowlodz", "2020"],
     },
     {
         image: "content/media/DistantViews.webp",
@@ -127,7 +146,7 @@ let itemObjects = [
         dateNumber: "04012023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/Relaxation.webp",
@@ -136,7 +155,7 @@ let itemObjects = [
         dateNumber: "28072024",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2024", "Image"],
+        tags: ["", "Inowlodz", "2024"],
     },
     {
         image: "content/media/ForestSunset.webp",
@@ -145,7 +164,7 @@ let itemObjects = [
         dateNumber: "04062023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Sunset.webp",
@@ -154,7 +173,16 @@ let itemObjects = [
         dateNumber: "25072021",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2021", "Image"],
+        tags: ["", "England", "2021"],
+    },
+    {
+        image: "content/media/Kingdom.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "25082025",
+        location: "Krakow, PL",
+        type: "image",
+        tags: ["", "Krakow", "2025"],
     },
     {
         image: "content/media/CastleHillClouds.webp",
@@ -163,7 +191,7 @@ let itemObjects = [
         dateNumber: "18032023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/CityTurn.webp",
@@ -172,7 +200,7 @@ let itemObjects = [
         dateNumber: "26012022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
+        tags: ["", "Huddersfield", "2022"],
     },
     {
         image: "content/media/BurningSky.webp",
@@ -181,7 +209,7 @@ let itemObjects = [
         dateNumber: "08012023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/TreeSilhouettes.webp",
@@ -190,7 +218,7 @@ let itemObjects = [
         dateNumber: "25022023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Serenity.webp",
@@ -199,7 +227,16 @@ let itemObjects = [
         dateNumber: "21062024",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2024", "Image"],
+        tags: ["", "England", "2024"],
+    },
+    {
+        image: "content/media/Decay.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "19082025",
+        location: "Poland, PL",
+        type: "image",
+        tags: ["", "Poland", "2025"],
     },
     {
         image: "content/media/SnowyGate.webp",
@@ -208,7 +245,7 @@ let itemObjects = [
         dateNumber: "10032023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/Mirror.webp",
@@ -217,7 +254,7 @@ let itemObjects = [
         dateNumber: "28022025",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2025", "Image"],
+        tags: ["", "Huddersfield", "2025"],
     },
     {
         image: "content/media/GreyDay.webp",
@@ -226,7 +263,7 @@ let itemObjects = [
         dateNumber: "22042023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Rainbow.webp",
@@ -235,7 +272,7 @@ let itemObjects = [
         dateNumber: "07122021",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2021", "Image"],
+        tags: ["", "Huddersfield", "2021"],
     },
     {
         image: "content/media/Conclusion.webp",
@@ -244,16 +281,25 @@ let itemObjects = [
         dateNumber: "18042025",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2025", "Image"],
+        tags: ["", "Huddersfield", "2025"],
     },
     {
-        image: "",
-        video: "content/media/CastleHillWindyDarkness.mp4",
-        date: "January 2023",
-        dateNumber: "14012023",
-        location: "Huddersfield, UK",
-        type: "video",
-        tags: ["", "Huddersfield", "2023", "Video"],
+        image: "content/media/Summit.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "09082025",
+        location: "Lake District, UK",
+        type: "image",
+        tags: ["", "Lake District", "2025"],
+    },
+    {
+        image: "content/media/Youth.webp",
+        video: "",
+        date: "February 2019",
+        dateNumber: "19022019",
+        location: "Poland, PL",
+        type: "image",
+        tags: ["", "Poland", "2019"],
     },
     {
         image: "content/media/EmleyTower.webp",
@@ -262,7 +308,7 @@ let itemObjects = [
         dateNumber: "14012023",
         location: "Emley Moor, UK",
         type: "image",
-        tags: ["", "Emley", "2023", "Image"],
+        tags: ["", "Emley", "2023"],
     },
     {
         image: "content/media/MorningHalt.webp",
@@ -271,7 +317,7 @@ let itemObjects = [
         dateNumber: "18022025",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2025", "Image"],
+        tags: ["", "Huddersfield", "2025"],
     },
     {
         image: "content/media/Forest.webp",
@@ -280,7 +326,16 @@ let itemObjects = [
         dateNumber: "23022023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
+    },
+    {
+        image: "content/media/Departure.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "27082025",
+        location: "Poland, PL",
+        type: "image",
+        tags: ["", "Poland", "2025"],
     },
     {
         image: "content/media/CastleHillStairs.webp",
@@ -289,16 +344,7 @@ let itemObjects = [
         dateNumber: "18032022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
-    },
-    {
-        image: "",
-        video: "content/media/Sunset.mp4",
-        date: "June 2023",
-        dateNumber: "04062023",
-        location: "England, UK",
-        type: "video",
-        tags: ["", "England", "2023", "Video"],
+        tags: ["", "Huddersfield", "2022"],
     },
     {
         image: "content/media/SunsetRiver.webp",
@@ -307,7 +353,7 @@ let itemObjects = [
         dateNumber: "27082020",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2020", "Image"],
+        tags: ["", "Inowlodz", "2020"],
     },
     {
         image: "content/media/Trail.webp",
@@ -316,7 +362,7 @@ let itemObjects = [
         dateNumber: "19032025",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2025", "Image"],
+        tags: ["", "Huddersfield", "2025"],
     },
     {
         image: "content/media/SnowyBushes.webp",
@@ -325,7 +371,7 @@ let itemObjects = [
         dateNumber: "10032023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/River.webp",
@@ -334,7 +380,7 @@ let itemObjects = [
         dateNumber: "27082020",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2020", "Image"],
+        tags: ["", "Inowlodz", "2020"],
     },
     {
         image: "content/media/NightCity.webp",
@@ -343,7 +389,7 @@ let itemObjects = [
         dateNumber: "11022023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/OrangeHue.webp",
@@ -352,7 +398,7 @@ let itemObjects = [
         dateNumber: "19032025",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2025", "Image"],
+        tags: ["", "Huddersfield", "2025"],
     },
     {
         image: "content/media/Footpath.webp",
@@ -361,7 +407,16 @@ let itemObjects = [
         dateNumber: "25022023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
+    },
+    {
+        image: "content/media/Oceanfront.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "31082025",
+        location: "Blackpool, UK",
+        type: "image",
+        tags: ["", "England", "2025"],
     },
     {
         image: "content/media/Line.webp",
@@ -370,7 +425,7 @@ let itemObjects = [
         dateNumber: "08062024",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2024", "Image"],
+        tags: ["", "England", "2024"],
     },
     {
         image: "content/media/SnowyMountains.webp",
@@ -379,7 +434,7 @@ let itemObjects = [
         dateNumber: "10032023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/Skyline.webp",
@@ -388,7 +443,7 @@ let itemObjects = [
         dateNumber: "15072021",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2021", "Image"],
+        tags: ["", "England", "2021"],
     },
     {
         image: "content/media/BabyBlue.webp",
@@ -397,16 +452,7 @@ let itemObjects = [
         dateNumber: "15062023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
-    },
-    {
-        image: "",
-        video: "content/media/RedSkyline.mp4",
-        date: "February 2023",
-        dateNumber: "05022023",
-        location: "England, UK",
-        type: "video",
-        tags: ["", "England", "2023", "Video"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/Castle.webp",
@@ -415,7 +461,7 @@ let itemObjects = [
         dateNumber: "27082020",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2020", "Image"],
+        tags: ["", "Inowlodz", "2020"],
     },
     {
         image: "content/media/CityGlow.webp",
@@ -424,7 +470,7 @@ let itemObjects = [
         dateNumber: "05112022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
+        tags: ["", "Huddersfield", "2022"],
     },
     {
         image: "content/media/OrangeHorizon.webp",
@@ -433,7 +479,7 @@ let itemObjects = [
         dateNumber: "05022023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Moon.webp",
@@ -442,7 +488,7 @@ let itemObjects = [
         dateNumber: "15072021",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2021", "Image"],
+        tags: ["", "England", "2021"],
     },
     {
         image: "content/media/FogRollingIn.webp",
@@ -451,7 +497,7 @@ let itemObjects = [
         dateNumber: "18032023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/GreyRainbow.webp",
@@ -460,7 +506,7 @@ let itemObjects = [
         dateNumber: "26122022",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2022", "Image"],
+        tags: ["", "England", "2022"],
     },
     {
         image: "content/media/RockBottom.webp",
@@ -469,7 +515,7 @@ let itemObjects = [
         dateNumber: "08062024",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2024", "Image"],
+        tags: ["", "England", "2024"],
     },
     {
         image: "content/media/Canal.webp",
@@ -478,7 +524,7 @@ let itemObjects = [
         dateNumber: "07082023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Field.webp",
@@ -487,7 +533,7 @@ let itemObjects = [
         dateNumber: "18032022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
+        tags: ["", "Huddersfield", "2022"],
     },
     {
         image: "content/media/Cathedral.webp",
@@ -496,7 +542,7 @@ let itemObjects = [
         dateNumber: "02082024",
         location: "Poland, PL",
         type: "image",
-        tags: ["", "Huddersfield", "2025", "Image"],
+        tags: ["", "Huddersfield", "2024"],
     },
     {
         image: "content/media/Tree.webp",
@@ -505,7 +551,7 @@ let itemObjects = [
         dateNumber: "08012023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/CastleHill.webp",
@@ -514,7 +560,7 @@ let itemObjects = [
         dateNumber: "11022022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
+        tags: ["", "Huddersfield", "2022"],
     },
     {
         image: "content/media/Desolation.webp",
@@ -523,7 +569,7 @@ let itemObjects = [
         dateNumber: "29072024",
         location: "Inowlodz, PL",
         type: "image",
-        tags: ["", "Inowlodz", "2024", "Image"],
+        tags: ["", "Inowlodz", "2024"],
     },
     {
         image: "content/media/ScenicOverlook.webp",
@@ -532,7 +578,7 @@ let itemObjects = [
         dateNumber: "11022022",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2022", "Image"],
+        tags: ["", "Huddersfield", "2022"],
     },
     {
         image: "content/media/BlockView.webp",
@@ -541,7 +587,16 @@ let itemObjects = [
         dateNumber: "16082022",
         location: "Poland, PL",
         type: "image",
-        tags: ["", "Poland", "2022", "Image"],
+        tags: ["", "Poland", "2022"],
+    },
+    {
+        image: "content/media/Venture.webp",
+        video: "",
+        date: "August 2025",
+        dateNumber: "01082025",
+        location: "England, UK",
+        type: "image",
+        tags: ["", "England", "2025"],
     },
     {
         image: "content/media/DeadForest.webp",
@@ -550,7 +605,7 @@ let itemObjects = [
         dateNumber: "08012023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Oasis.webp",
@@ -559,7 +614,7 @@ let itemObjects = [
         dateNumber: "08012023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Connections.webp",
@@ -568,7 +623,7 @@ let itemObjects = [
         dateNumber: "23092023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/SnowyRoad.webp",
@@ -577,7 +632,7 @@ let itemObjects = [
         dateNumber: "10032023",
         location: "Huddersfield, UK",
         type: "image",
-        tags: ["", "Huddersfield", "2023", "Image"],
+        tags: ["", "Huddersfield", "2023"],
     },
     {
         image: "content/media/RedSky.webp",
@@ -586,7 +641,7 @@ let itemObjects = [
         dateNumber: "05022023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Variation.webp",
@@ -595,7 +650,7 @@ let itemObjects = [
         dateNumber: "06072023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/Canvas.webp",
@@ -604,7 +659,7 @@ let itemObjects = [
         dateNumber: "16102023",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2023", "Image"],
+        tags: ["", "England", "2023"],
     },
     {
         image: "content/media/PinkSky.webp",
@@ -613,7 +668,7 @@ let itemObjects = [
         dateNumber: "29072021",
         location: "England, UK",
         type: "image",
-        tags: ["", "England", "2021", "Image"],
+        tags: ["", "England", "2021"],
     },
 ];
 let itemHTMLobjects;
@@ -622,45 +677,20 @@ function createHTMLitem(item) {
     div.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'col-xl-2', 'media');
     let card = document.createElement('div');
     card.classList.add('card');
-    if (item.type === 'image') {
-        let img = document.createElement('img');
-        img.setAttribute('src', item.image);
-        img.setAttribute('data-bs-toggle', 'modal');
-        img.setAttribute('data-bs-target', '#imageModal');
-        let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
-        let text = document.createElement('p');
-        text.classList.add('card-text', 'text-center');
-        text.textContent = `${item.date} | ${item.location}`;
-        text.setAttribute('date', item.dateNumber);
-        text.setAttribute('identifier', item.image);
-        cardBody.appendChild(text);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-    }
-    else if (item.type === 'video') {
-        let ratioDiv = document.createElement('div');
-        ratioDiv.classList.add('ratio', 'ratio-4x3');
-        let video = document.createElement('video');
-        video.setAttribute('controls', '');
-        video.setAttribute('preload', 'none');
-        video.setAttribute('poster', `${item.video.replace(/\.mp4$/, '')}Thumbnail.webp`);
-        let source = document.createElement('source');
-        source.setAttribute('src', item.video);
-        source.setAttribute('type', 'video/mp4');
-        video.appendChild(source);
-        ratioDiv.appendChild(video);
-        let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
-        let text = document.createElement('p');
-        text.classList.add('card-text', 'text-center');
-        text.textContent = `${item.date} | ${item.location}`;
-        text.setAttribute('date', item.dateNumber);
-        text.setAttribute('identifier', item.video);
-        cardBody.appendChild(text);
-        card.appendChild(ratioDiv);
-        card.appendChild(cardBody);
-    }
+    let img = document.createElement('img');
+    img.setAttribute('src', item.image);
+    img.setAttribute('data-bs-toggle', 'modal');
+    img.setAttribute('data-bs-target', '#imageModal');
+    let cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+    let text = document.createElement('p');
+    text.classList.add('card-text', 'text-center');
+    text.textContent = `${item.date} | ${item.location}`;
+    text.setAttribute('date', item.dateNumber);
+    text.setAttribute('identifier', item.image);
+    cardBody.appendChild(text);
+    card.appendChild(img);
+    card.appendChild(cardBody);
     div.appendChild(card);
     return div;
 }
