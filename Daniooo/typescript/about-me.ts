@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event)
 
     function fadeInParagraphs() 
     {
-        let paragraphs = document.getElementsByClassName("aboutme-text") as HTMLCollectionOf<HTMLElement>;
+        let paragraphs = document.getElementsByClassName("fade") as HTMLCollectionOf<HTMLElement>;
         for (let i = 0; i < paragraphs.length; i++) paragraphs[i].style.opacity = "1";
     }
 

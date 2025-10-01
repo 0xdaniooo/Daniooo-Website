@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             fadeInParagraphs();
     }
     function fadeInParagraphs() {
-        let paragraphs = document.getElementsByClassName("aboutme-text");
+        let paragraphs = document.getElementsByClassName("fade");
         for (let i = 0; i < paragraphs.length; i++)
             paragraphs[i].style.opacity = "1";
     }

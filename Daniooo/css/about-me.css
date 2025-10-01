@@ -19,9 +19,13 @@
 }
 
 /* Adds fade in animation to about me text */
-.aboutme-text {
+.fade {
   opacity: 0;
   transition: opacity 1s ease-in;
+}
+
+.carousel-indicators .active {
+  background-color: #FE2D02;
 }
 
 p, h1 {

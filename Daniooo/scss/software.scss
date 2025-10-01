@@ -53,7 +53,14 @@
         margin: 0;
         color: $red;
         text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        text-decoration: underline;
+        text-underline-offset: 10px;
     }
+}
+
+.icon {
+    margin-bottom: 50px;
+    font-size: 30px;
 }
 
 /* Applied to YouTube video cards to remove automatic white border */

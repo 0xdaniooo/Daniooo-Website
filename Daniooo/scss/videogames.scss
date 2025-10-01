@@ -43,6 +43,21 @@
     margin: 0;
 }
 
+/* Applied to the devlog button */
+.devlog-button {
+    margin: 0;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+        margin: 0;
+        color: $red;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        text-decoration: underline;
+        text-underline-offset: 10px;
+    }
+}
+
 /* Applied to image cards to remove automatic white border */
 .card {
     border: none;

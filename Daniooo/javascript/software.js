@@ -1,6 +1,3 @@
-export {}; 
-
-// Collection options
 let collections = [
     {
         id: "coll-all",
@@ -27,10 +24,6 @@ let collections = [
         tag: "2025",
     },
     {
-        id: "coll-2024",
-        tag: "2024",
-    },
-    {
         id: "coll-2023",
         tag: "2023",
     },
@@ -43,22 +36,19 @@ let collections = [
         tag: "Work in Progress",
     },
 ];
-
-interface Project {
-    image: string,
-    video: string,
-    title: string,
-    description: string,
-    about: string,
-    link: string,
-    date: string,
-    dateNumber: string,
-    tags: string[],
-    devlog: string,
-}
-
-// Contains all the items to used for dynamic rendering
-let itemObjects: Project[] = [
+export const icons = new Map();
+icons.set("python", "https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54");
+icons.set("js", "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black");
+icons.set("django", "https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white");
+icons.set("cs", "https://img.shields.io/badge/C%23-9a4f96?style=for-the-badge&logo=c-sharp&logoColor=white");
+icons.set("html", "https://img.shields.io/badge/HTML-cc1000?style=for-the-badge&logo=html5&logoColor=white");
+icons.set("css", "https://img.shields.io/badge/CSS-254ce4?style=for-the-badge&logo=css&logoColor=white");
+icons.set("bootstrap", "https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white");
+icons.set("tkinter", "https://img.shields.io/badge/Tkinter-919191?style=for-the-badge&logo=python&logoColor=white");
+icons.set("cpp", "https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white");
+icons.set("ts", "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white");
+icons.set("scss", "https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white");
+let itemObjects = [
     {
         image: "",
         video: "https://www.youtube.com/embed/khLnwABBBGM",
@@ -70,6 +60,7 @@ let itemObjects: Project[] = [
         dateNumber: "13062023",
         tags: ["", "2023", "Website"],
         devlog: "content/PDFs/PlanifyDevlog.pdf",
+        icons: ["python", "js", "django", "bootstrap", "html", "css"]
     },
     {
         image: "",
@@ -82,6 +73,7 @@ let itemObjects: Project[] = [
         dateNumber: "24062022",
         tags: ["", "2022", "GUI"],
         devlog: "content/PDFs/BufferOverflowVisualizerDevlog.pdf",
+        icons: ["python", "tkinter"]
     },
     {
         image: "",
@@ -94,6 +86,7 @@ let itemObjects: Project[] = [
         dateNumber: "17072023",
         tags: ["", "2023", "GUI"],
         devlog: "",
+        icons: ["python", "tkinter"]
     },
     {
         image: "",
@@ -106,6 +99,7 @@ let itemObjects: Project[] = [
         dateNumber: "07052025",
         tags: ["", "2025", "Browser Extension"],
         devlog: "",
+        icons: ["html", "bootstrap", "ts", "scss"]
     },
     {
         image: "",
@@ -118,6 +112,7 @@ let itemObjects: Project[] = [
         dateNumber: "06072023",
         tags: ["", "2023", "Website"],
         devlog: "content/PDFs/DanioooWebsiteDevlog.pdf",
+        icons: ["bootstrap", "html", "ts", "scss"]
     },
     {
         image: "",
@@ -130,6 +125,7 @@ let itemObjects: Project[] = [
         dateNumber: "17092022",
         tags: ["", "2022", "Website"],
         devlog: "",
+        icons: ["python", "django", "bootstrap", "html", "css", "js"]
     },
     {
         image: "",
@@ -142,6 +138,7 @@ let itemObjects: Project[] = [
         dateNumber: "22042022",
         tags: ["", "2022", "CLI"],
         devlog: "",
+        icons: ["cpp"]
     },
     {
         image: "",
@@ -154,6 +151,7 @@ let itemObjects: Project[] = [
         dateNumber: "22052022",
         tags: ["", "2022", "CLI"],
         devlog: "",
+        icons: ["cs"]
     },
     {
         image: "",
@@ -166,6 +164,7 @@ let itemObjects: Project[] = [
         dateNumber: "19072023",
         tags: ["", "2023", "CLI"],
         devlog: "",
+        icons: ["python"]
     },
     {
         image: "",
@@ -178,9 +177,10 @@ let itemObjects: Project[] = [
         dateNumber: "24042022",
         tags: ["", "2022", "CLI"],
         devlog: "",
+        icons: ["python"]
     },
     {
-        image: "content/projects/netOS.webp",
+        image: "content/software/netOS.webp",
         video: "",
         title: "netOS Cybersecurity Network Simulator | Python Django Website Project",
         description: "Work in progress",
@@ -190,9 +190,10 @@ let itemObjects: Project[] = [
         dateNumber: "00000000",
         tags: ["", "Work in Progress", "Website"],
         devlog: "",
+        icons: ["python", "django", "ts", "scss", "html"]
     },
     {
-        image: "content/projects/SecPass.webp",
+        image: "content/software/SecPass.webp",
         video: "",
         title: "SecPass Password Manager | Python Django Website + Extension Project",
         description: "Work in progress",
@@ -202,317 +203,224 @@ let itemObjects: Project[] = [
         dateNumber: "00000000",
         tags: ["", "Work in Progress", "Website"],
         devlog: "",
+        icons: ["python", "html", "django", "ts", "scss"]
     },
 ];
-
-// Used to store the item HTML objects
-let itemHTMLobjects: HTMLElement[];
-
-// Creates a HTML object for item
-function createHTMLitem(item: Project)
-{
+let itemHTMLobjects;
+function createHTMLitem(item) {
     let projectDiv = document.createElement('div');
     projectDiv.setAttribute('class', 'row project');
-
-    let leftColumnDiv = document.createElement('div')
+    let leftColumnDiv = document.createElement('div');
     leftColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column');
-
     let rowDiv1 = document.createElement('div');
     rowDiv1.setAttribute('class', 'row');
-
     let colDiv1 = document.createElement('div');
     colDiv1.setAttribute('class', 'col-12');
-
     let projectTitle = document.createElement('h4');
     projectTitle.setAttribute('class', 'project-title');
     projectTitle.textContent = item.title;
-
     let underlineDiv = document.createElement('div');
     underlineDiv.setAttribute('class', 'underline');
-
     let projectDescription = document.createElement('p');
     projectDescription.textContent = item.description;
-
     let projectSubTitle = document.createElement('h5');
     projectSubTitle.setAttribute('class', 'subheading-underline');
     projectSubTitle.textContent = 'About this project:';
-
     let projectSubDescription = document.createElement('p');
     projectSubDescription.textContent = item.about;
-
+    let languages = document.createElement('h5');
+    languages.setAttribute('class', 'subheading-underline mb-2');
+    languages.textContent = 'Languages:';
     colDiv1.appendChild(projectTitle);
     colDiv1.appendChild(underlineDiv);
     colDiv1.appendChild(projectDescription);
     colDiv1.appendChild(projectSubTitle);
     colDiv1.appendChild(projectSubDescription);
-
+    colDiv1.appendChild(languages);
+    item.icons.forEach(i => {
+        let icon = document.createElement('img');
+        icon.src = icons.get(i);
+        colDiv1.appendChild(icon);
+    });
     rowDiv1.appendChild(colDiv1);
-
     let rowDiv2 = document.createElement('div');
     rowDiv2.setAttribute('class', 'row project-footer');
-
     let colDiv2 = document.createElement('div');
-    colDiv2.setAttribute('class', 'col-12 d-flex align-items-center');
-
+    colDiv2.setAttribute('class', 'col-12 d-flex align-items-center mt-3');
     let githubLink = document.createElement('a');
     githubLink.setAttribute('href', item.link);
     githubLink.setAttribute('class', 'btn custom-button');
     githubLink.setAttribute('target', '_blank');
-
-    // No source code access
-    if (item.link.length == 0) 
-    {
+    if (item.link.length == 0) {
         githubLink.style.pointerEvents = 'none';
         githubLink.innerHTML = 'Unavailable<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
     }
-    
-    else githubLink.innerHTML = 'See on GitHub<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
-
+    else
+        githubLink.innerHTML = 'See on GitHub<i class="fa-brands fa-github" style="color: white; margin-left: 10px;"></i>';
     let projectDate = document.createElement('p');
     projectDate.setAttribute('class', 'project-date');
     projectDate.setAttribute('style', 'margin-left: 20px;');
     projectDate.textContent = item.date;
     projectDate.setAttribute('date', item.dateNumber);
-
     let devlogButton = document.createElement('a');
-
-    if (item.devlog.length != 0)
-    {
+    if (item.devlog.length != 0) {
         devlogButton.setAttribute('class', 'devlog-button');
         devlogButton.setAttribute('style', 'margin-left: 20px');
         devlogButton.setAttribute('href', item.devlog);
         devlogButton.textContent = "View devlog";
         devlogButton.innerHTML += '<i class="fa-regular fa-images" style="margin-left: 6px;"></i>';
     }
-
     colDiv2.appendChild(githubLink);
     colDiv2.appendChild(projectDate);
-
-    if (item.devlog.length != 0) colDiv2.appendChild(devlogButton);
-
+    if (item.devlog.length != 0)
+        colDiv2.appendChild(devlogButton);
     rowDiv2.appendChild(colDiv2);
-
     leftColumnDiv.appendChild(rowDiv1);
     leftColumnDiv.appendChild(rowDiv2);
-
     let rightColumnDiv = document.createElement('div');
-
-    // Add video to project card
-    if (item.video.length != 0)
-    {
+    if (item.video.length != 0) {
         rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
-
         let cardDiv = document.createElement('div');
         cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video');
-
         let iframe = document.createElement('iframe');
         iframe.setAttribute('src', item.video);
         iframe.setAttribute('allowfullscreen', '');
-
         cardDiv.appendChild(iframe);
-
         rightColumnDiv.appendChild(cardDiv);
     }
-
-    // Add image to project card
-    else
-    {
+    else {
         rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
-
         let cardDiv = document.createElement('div');
         cardDiv.className = 'card';
-
         let projectImage = document.createElement('img');
         projectImage.src = item.image;
         projectImage.className = 'img-fluid project-image';
-
         cardDiv.appendChild(projectImage);
         rightColumnDiv.appendChild(cardDiv);
     }
-
     projectDiv.appendChild(leftColumnDiv);
     projectDiv.appendChild(rightColumnDiv);
-
     return projectDiv;
-};
-
-// Create items and render onto page
-function renderItems(tag: string)
-{
-    // Wipte item root clean
-    let itemRoot = document.getElementById('projects-root')!;
-    while (itemRoot.firstChild) itemRoot.firstChild.remove();
-
-    // Render all items
-    if (tag == "")
-    {
+}
+;
+function renderItems(tag) {
+    let itemRoot = document.getElementById('projects-root');
+    while (itemRoot.firstChild)
+        itemRoot.firstChild.remove();
+    if (tag == "") {
         itemObjects.forEach(item => {
             let htmlItem = createHTMLitem(item);
             itemRoot.appendChild(htmlItem);
         });
     }
-
-    // Render based on tag
-    else
-    {
+    else {
         itemObjects.forEach(item => {
-            if (!item.tags.includes(tag)) return;
-
+            if (!item.tags.includes(tag))
+                return;
             let htmlItem = createHTMLitem(item);
             itemRoot.appendChild(htmlItem);
         });
     }
-
-    // Store all the objects in array for sorting
     itemHTMLobjects = Array.from(document.querySelectorAll('.project'));
-
-    // Sort items based on current selection
     let currentSort = document.getElementsByClassName('current-sort');
     setCurrentDropdown(currentSort[0].id);
-};
-
-// Sort items by date (descending)
-function sortDescending()
-{
+}
+;
+function sortDescending() {
     itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
+        let dateString = a.querySelector('p[date]').getAttribute('date');
         let day = dateString.substring(0, 2);
         let month = dateString.substring(2, 4);
         let year = dateString.substring(4, 8);
         let formattedDate = `${year}-${month}-${day}`;
         let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
+        dateString = b.querySelector('p[date]').getAttribute('date');
         day = dateString.substring(0, 2);
         month = dateString.substring(2, 4);
         year = dateString.substring(4, 8);
         formattedDate = `${year}-${month}-${day}`;
         let date2 = new Date(formattedDate);
-
         return date2.getTime() - date1.getTime();
     });
-
-    // Reorder the items 
     itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
+        itemObj.parentElement.appendChild(itemObj);
     });
-};
-
-// Sort items by date (ascending)
-function sortAscending()
-{
+}
+;
+function sortAscending() {
     itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
+        let dateString = a.querySelector('p[date]').getAttribute('date');
         let day = dateString.substring(0, 2);
         let month = dateString.substring(2, 4);
         let year = dateString.substring(4, 8);
         let formattedDate = `${year}-${month}-${day}`;
         let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
+        dateString = b.querySelector('p[date]').getAttribute('date');
         day = dateString.substring(0, 2);
         month = dateString.substring(2, 4);
         year = dateString.substring(4, 8);
         formattedDate = `${year}-${month}-${day}`;
         let date2 = new Date(formattedDate);
-
         return date1.getTime() - date2.getTime();
     });
-
-    // Reorder the items 
     itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
+        itemObj.parentElement.appendChild(itemObj);
     });
-};
-
-// Default sort
-function sortDefault()
-{
+}
+;
+function sortDefault() {
     let tempArray = [];
-
-    // Compile default item order by referencing against original array
-    for (let i = 0; i < itemObjects.length; i++)
-    {
-        for (let j = 0; j < itemHTMLobjects.length; j++)
-        {
-            if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a')!.getAttribute('href'))
-            {
+    for (let i = 0; i < itemObjects.length; i++) {
+        for (let j = 0; j < itemHTMLobjects.length; j++) {
+            if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a').getAttribute('href')) {
                 tempArray.push(itemHTMLobjects[j]);
                 continue;
             }
         }
     }
-
-    // Rewrite the items array based on new order
-    for (let i = 0; i < itemHTMLobjects.length; i++)
-    {
+    for (let i = 0; i < itemHTMLobjects.length; i++) {
         itemHTMLobjects[i] = tempArray[i];
     }
-
-    // Reorder the items 
     itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
+        itemObj.parentElement.appendChild(itemObj);
     });
-};
-
-// Function to set the current option and show it as selected
-function setCurrentDropdown(optionId: string) 
-{
-    // Remove current sort class from old current sort
+}
+;
+function setCurrentDropdown(optionId) {
     let dropdownItems = document.querySelectorAll(".dropdown-item");
     dropdownItems.forEach(item => {
         item.classList.remove("current-sort");
     });
-
-    // Apply current sort to new current sort
-    let selectedOption = document.getElementById(optionId)!;
+    let selectedOption = document.getElementById(optionId);
     selectedOption.classList.add("current-sort");
-
-    if (optionId == 'sort-new-old') sortDescending();
-    else if (optionId == 'sort-old-new') sortAscending();
-    else if (optionId == 'sort-default') sortDefault();
+    if (optionId == 'sort-new-old')
+        sortDescending();
+    else if (optionId == 'sort-old-new')
+        sortAscending();
+    else if (optionId == 'sort-default')
+        sortDefault();
 }
-
-// Add event listeners for sorting buttons
-let sortDescendingButton = document.getElementById('sort-new-old')!;
+let sortDescendingButton = document.getElementById('sort-new-old');
 sortDescendingButton.addEventListener('click', () => {
     setCurrentDropdown('sort-new-old');
 });
-
-let sortAscendingButton = document.getElementById('sort-old-new')!;
+let sortAscendingButton = document.getElementById('sort-old-new');
 sortAscendingButton.addEventListener('click', () => {
     setCurrentDropdown('sort-old-new');
 });
-
-let sortDefaultButton = document.getElementById('sort-default')!;
+let sortDefaultButton = document.getElementById('sort-default');
 sortDefaultButton.addEventListener('click', () => {
     setCurrentDropdown('sort-default');
 });
-
-// Initialise collection dropdowns
-for (let i = 0; i < collections.length; i++)
-{
-    // Count up items
-    let collDropItem = document.getElementById(collections[i].id)!;
+for (let i = 0; i < collections.length; i++) {
+    let collDropItem = document.getElementById(collections[i].id);
     let count = itemObjects.filter(obj => obj.tags.includes(collections[i].tag)).length;
     collDropItem.textContent += ` (${count})`;
-
-    // Add event listener to collection dropdown
     collDropItem.addEventListener('click', () => {
         renderItems(collections[i].tag);
-
-        // Remove current collection dropdown
         let currentCollection = document.getElementsByClassName('current-collection');
         currentCollection[0].classList.remove("current-collection");
-
-        // Set current collection dropdown
-        document.getElementById(collections[i].id)!.classList.add("current-collection");
+        document.getElementById(collections[i].id).classList.add("current-collection");
     });
 }
-
-// Initialise page
 renderItems("");

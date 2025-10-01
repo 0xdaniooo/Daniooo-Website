@@ -19,17 +19,9 @@ let collections = [
         tag: "Productivity",
     },
     {
-        id: "coll-2023",
-        tag: "2023",
-    },
-    {
-        id: "coll-2022",
-        tag: "2022",
-    },
-    {
         id: "coll-2021",
         tag: "2021",
-    },
+    }
 ];
 
 interface Article {
@@ -154,17 +146,7 @@ let itemObjects: Article[] = [
         dateNumber: "07082021",
         category: "Technology",
         tags: ["", "2021", "Technology"],
-    },
-    {
-        image: "content/articles/DivideAndConquer.webp",
-        title: "Tackling Large Goals — Divide and Conquer Method",
-        description: "When faced with tasks in life whether these be small or large, we can often push them off for later due to the effort needed to get going with them. In this article I want to share what really helped me break past this and cut down my procrastination...",
-        link: "https://daniooo.medium.com/tackling-large-goals-divide-and-conquer-method-74db8ab67212",
-        date: "6th November 2022",
-        dateNumber: "06112022",
-        category: "Productivity",
-        tags: ["", "2022", "Productivity"],
-    },
+    }
 ];
 
 // Used to store the article HTML objects

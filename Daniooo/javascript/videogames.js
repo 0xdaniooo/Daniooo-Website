@@ -22,11 +22,7 @@ let collections = [
     {
         id: "coll-2019",
         tag: "2019",
-    },
-    {
-        id: "coll-wip",
-        tag: "Work in Progress",
-    },
+    }
 ];
 let itemObjects = [
     {
