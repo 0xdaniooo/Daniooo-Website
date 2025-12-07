@@ -21,7 +21,7 @@
 /* Applied to cards to remove automatic white border */
 .card {
   border: none;
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
   margin: 0 5px 40px 5px;
 }
 
@@ -31,8 +31,8 @@
 }
 
 p, h4, h5 {
-  color: white !important;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5019607843);
 }
 
 /*# sourceMappingURL=articles.css.map */

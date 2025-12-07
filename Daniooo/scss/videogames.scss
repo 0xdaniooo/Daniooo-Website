@@ -16,8 +16,8 @@
 .game {
     margin: 25px;
     padding: 20px;
-    background-color: $itemGrey; 
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+    background-color: $item; 
+    box-shadow: 0 0 4px 4px $lightShadow;
 }
 
 /* Gives the images a glow */
@@ -46,13 +46,13 @@
 /* Applied to the devlog button */
 .devlog-button {
     margin: 0;
-    color: white;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: $white;
+    text-shadow: 0 4px 8px $strongShadow;
 
     &:hover {
         margin: 0;
         color: $red;
-        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 4px 8px $strongShadow;
         text-decoration: underline;
         text-underline-offset: 10px;
     }
@@ -61,7 +61,7 @@
 /* Applied to image cards to remove automatic white border */
 .card {
     border: none;
-    background-color: $itemGrey;
+    background-color: $item;
 }
 
 /* Updates some properties to scale screen for small screens */
@@ -85,6 +85,6 @@
 }
 
 p, h4, h5 {
-    color: white !important;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: $white !important;
+    text-shadow: 0 4px 8px $strongShadow;
 }

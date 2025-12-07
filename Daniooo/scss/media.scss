@@ -17,13 +17,13 @@
 
 /* Restyles the card background color for media items */
 .card-body {
-    background-color: $itemGrey;
+    background-color: $item;
 }
 
 /* Applied to cards to remove automatic white border */
 .card {
     border: none;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px 4px $lightShadow;
     margin: 0 2px 40px 2px;
     transition: transform 0.3s ease;
 
@@ -37,7 +37,7 @@
 /* Bootstrap override - Applied to the image modal */
 .modal-body {
     padding: 0px;
-    box-shadow: 0 0 4px 4px #4c4c4c, 0 0 2px 2px $backgroundGrey;
+    box-shadow: 0 0 4px 4px $primary, 0 0 2px 2px $secondary;
 }
 
 /* Bootstrap override - Applied to modal content for bug fix */

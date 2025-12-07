@@ -4,14 +4,14 @@
 
 /* Used for navbar */
 .header {
-    background-color: $headerGrey; 
-    box-shadow: 0 12px 10px rgba(0, 0, 0, 0.5);
+    background-color: $primary; 
+    box-shadow: 0 12px 10px $strongShadow;
     margin-bottom: 30px;
 }
 
 /* Applied to all links in the navbar */
 .nav-link, .navbar-brand, a, p, h1, h2, h3, h4, h5 {
-    color: white;
+    color: $white;
     font-family: 'Poppins', sans-serif; 
     font-weight: 500;
 }
@@ -19,14 +19,14 @@
 /* Applied to all links in the navbar */
 .nav-link:hover, .navbar-brand:hover {
     color: $red;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 8px $strongShadow;
     text-decoration: underline;
     text-underline-offset: 10px;
 }
 
 /* Custom navbar toggler */
 .navbar-toggler {
-    color: white;
+    color: $white;
     border: none;
 
     &:hover {
@@ -65,10 +65,10 @@
     right: 20px;
     width: 60px;
     height: 60px;
-    color: #fff;
-    background-color: $headerGrey;
+    color: $white;
+    background-color: $primary;
     border-radius: 50%;
-    border: 2px solid #414141;
+    border: 2px solid $border;
     visibility: hidden;
     transition: transform 0.3s ease, color 0.3s ease;
     animation: fadeIn 1s ease;
@@ -97,7 +97,7 @@
 /* Applied to navigatable breadcrumb entries */
 .breadcrumb a {
     text-decoration: none;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 8px $strongShadow;
 }
 
 /* Applied to navigatable breadcrumb entries on hover */
@@ -109,8 +109,8 @@
 
 /* Applied to current breadcrumb entry */
 .breadcrumb-item.active {
-    color: rgb(211, 211, 211);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: $breadcrumb;
+    text-shadow: 0 4px 8px $strongShadow;
     font-family: 'Poppins', sans-serif; 
 }
 
@@ -122,9 +122,9 @@
 .dropdown-toggle {
     margin-left: 2px;
     margin-bottom: 25px;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
-    color: white;
-    background-color: #6c6c6c;
+    box-shadow: 0 0 4px 4px $lightShadow;
+    color: $white;
+    background-color: $item;
 
     &:hover {
         color: $red;
@@ -140,24 +140,24 @@
 
 /* Applied to dropdown menu */
 .dropdown-menu {
-    background-color: $itemGrey;
+    background-color: $item;
     border-radius: 0px;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px 4px $lightShadow;
 
     a {
-        color: #FFFFFF;
+        color: $white;
     }
 
     a:hover {
         color: $red !important;
-        background-color: $backgroundGrey;
+        background-color: $secondary;
         cursor: pointer;
     }
 }
 
 /* Override */
 .dropdown-divider {
-    border-top: 1px solid #FFFFFF77;
+    border-top: 1px solid $dropdownDivider;
 }
 
 /* Applied to the currently chosen sorting dropdown option */
@@ -170,43 +170,24 @@
     color: $red !important;
 }
 
-/* Applied to main buttons */
-.custom-button {
-    color: white;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid white;
-    transition: background-color 0.7s, border 1s;
-
-    &:hover {
-        color: white;
-        background-color: $red;
-        border: 2px solid white;
-    }
-}
-
-/* Applied to main buttons for animation */
-.custom-button::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: $red;
-    transition: left 0.7s;
-}
-
-/* Applied to main buttons on hover */
-.custom-button:hover::after {
-    left: 100%;
-}
-
 /* Bootstrap override - Sets font for buttons */
 .btn {
     font-family: 'Poppins', sans-serif; 
     font-weight: 500;
     border-radius: 0px;
+}
+
+.button-outline {
+    color: $white;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid $white;
+    cursor: pointer;
+
+    &:hover {
+        color: $white;
+        border: 2px solid $red;
+    }
 }
 
 /* Custom line used underneath headings */
@@ -216,7 +197,7 @@
     border: 50%;
     background-color: $red;
     margin-bottom: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px $strongShadow;
 }
 
 /* Applied to sub-headings */
@@ -228,9 +209,42 @@
     text-decoration-thickness: 2px !important;
 }
 
+.modal-content {
+    box-shadow: 0 0 4px 4px $lightShadow;
+
+    .modal-header {
+        box-shadow: 0 0 4px 4px $lightShadow;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: $primary;
+    }
+    
+    .modal-body {
+        background-color: $secondary;
+    }
+
+    .modal-close {
+        color: $white;
+        cursor: pointer;
+        font-size: 1.5rem;
+
+        &:hover {
+            color: $red;
+        }
+    }
+
+    .caption {
+        opacity: 0.7;
+    }
+}
+
+.shadow-red {
+    box-shadow: 0 0 3px 3px $red;
+}
+
 /* Applied as background for footer logos */
 .fa-circle {
-    color: white;
+    color: $white;
 }
 
 /* Applied to footer logos */
@@ -241,7 +255,7 @@
 
 /* Keeps footer at the true bottom of the page + styles the background */
 body {
-    background-color: $backgroundGrey;
+    background-color: $secondary;
     min-height: 100vh;
     position: relative;
     margin: 0;
@@ -251,8 +265,8 @@ body {
 
 /* Applied to the footer */
 footer {
-    background-color: $headerGrey;
-    border-top: 2px solid #414141;
+    background-color: $primary;
+    border-top: 2px solid $border;
     height: 50px;
     padding-top: 20px;
     padding-bottom: 50px;

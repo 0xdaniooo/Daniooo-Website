@@ -12,9 +12,11 @@ Back in September 2022, I had created a website under this same URL where I disp
 ## Features
 - Responsive layout which works across various screen sizes (desktop, mobile etc)
 - Animations and other little details to make the website feel alive
-- Content is added to the DOM and rendered onto the screen dynamically through JavaScript
+- Content added to the DOM and rendered onto the screen dynamically through JavaScript
 - Display content based on collections
 - Ability to change content sorting
+- Project backstories with previous and next navigation
+- Icons for software, articles and videogames
 
 
 ## Home Page
@@ -23,7 +25,7 @@ Back in September 2022, I had created a website under this same URL where I disp
 ![Home3](/Imgs/Home3.png)
 
 ## Projects Page
-![Projects](/Imgs/Projects.png)
+![Projects](/Imgs/Software.png)
 
 ## Articles Page
 ![Articles](/Imgs/Articles.png)
@@ -37,12 +39,5 @@ Back in September 2022, I had created a website under this same URL where I disp
 ## About Me Page
 ![AboutMe](/Imgs/AboutMe.png)
 
-## Collection Dropdown
-![CollectionDropdown](/Imgs/CollectionDropdown.png)
-
-## Sorting Dropdown
-![SortingDropdown](/Imgs/SortDropdown.png)
-
-
-## Note
-Videos from the Media page are not included in the codebase due to file size restrictions. These can be acquired from the live version of the website if you wish to tinker with the code and have everything working correctly.
+## Project Backstories
+![ProjectBackstories](/Imgs/ProjectBackstories.png)

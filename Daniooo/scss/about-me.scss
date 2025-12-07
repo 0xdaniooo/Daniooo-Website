@@ -8,7 +8,7 @@
 
 /* Styles the about me image */
 .about-image {
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 4px 4px $lightShadow;
     margin: 20px;
 }
 
@@ -16,14 +16,18 @@
 .about-text {
     margin: 20px 20px 20px 20px;
     padding: 30px;
-    background-color: $itemGrey; 
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+    background-color: $item; 
+    box-shadow: 0 0 4px 4px $lightShadow;
 }
 
 /* Adds fade in animation to about me text */
 .fade {
     opacity: 0;
     transition: opacity 1s ease-in;
+}
+
+.red-dash {
+    color: $red;
 }
 
 .carousel-indicators {
@@ -33,6 +37,6 @@
 }
 
 p, h1 {
-    color: white !important;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    color: $white !important;
+    text-shadow: 0 2px 6px $strongShadow;
 }

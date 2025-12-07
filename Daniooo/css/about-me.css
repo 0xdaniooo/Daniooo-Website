@@ -6,7 +6,7 @@
 
 /* Styles the about me image */
 .about-image {
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
   margin: 20px;
 }
 
@@ -15,7 +15,7 @@
   margin: 20px 20px 20px 20px;
   padding: 30px;
   background-color: #6F6F6F;
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
 }
 
 /* Adds fade in animation to about me text */
@@ -24,13 +24,17 @@
   transition: opacity 1s ease-in;
 }
 
+.red-dash {
+  color: #FE2D02;
+}
+
 .carousel-indicators .active {
   background-color: #FE2D02;
 }
 
 p, h1 {
-  color: white !important;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5019607843);
 }
 
 /*# sourceMappingURL=about-me.css.map */
