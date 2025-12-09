@@ -1,0 +1,18 @@
+@import 'variables';
+
+.breadcrumb {
+    margin-left: 25px;
+}
+
+.error-message {
+    margin: 25px; 
+    padding: 20px;
+    background-color: $item;
+    box-shadow: 0 0 4px 4px $lightShadow;
+    width: 90%; 
+    max-width: 700px;
+
+    .error-code, error-reason {
+        color: $white;
+    }
+}

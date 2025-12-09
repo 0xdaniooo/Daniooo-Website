@@ -1,4 +1,5 @@
-export {}; 
+import { softwareIcons as icons, Software, openProjectModal } from "./shared-projects.js";
+import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 
 // Collection options
 let collections = [
@@ -40,45 +41,8 @@ let collections = [
     },
 ];
 
-// Map icons to img urls
-export const icons = new Map<string, string>();
-icons.set("python", "https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54");
-icons.set("js", "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black");
-icons.set("django", "https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white");
-icons.set("cs", "https://img.shields.io/badge/C%23-9a4f96?style=for-the-badge&logo=c-sharp&logoColor=white");
-icons.set("html", "https://img.shields.io/badge/HTML-cc1000?style=for-the-badge&logo=html5&logoColor=white");
-icons.set("css", "https://img.shields.io/badge/CSS-254ce4?style=for-the-badge&logo=css&logoColor=white");
-icons.set("bootstrap", "https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white");
-icons.set("tkinter", "https://img.shields.io/badge/Tkinter-919191?style=for-the-badge&logo=python&logoColor=white");
-icons.set("cpp", "https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white");
-icons.set("ts", "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white");
-icons.set("scss", "https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white");
-
-type HistoryBlock =
-    | { type: "heading"; text: string }
-    | { type: "paragraph"; text: string }
-    | { type: "image"; src: string; caption: string }
-
-interface Project {
-    id: string,
-    prevId?: string,
-    nextId?: string,
-    image: string,
-    video: string,
-    title: string,
-    description: string,
-    about: string,
-    history: HistoryBlock[],
-    link: string,
-    date: string,
-    dateNumber: string,
-    tags: string[],
-    devlog: string,
-    icons: string[]
-};
-
 // Contains all the items to used for dynamic rendering
-let itemObjects: Project[] = [
+let itemObjects: Software[] = [
     {
         id: "planify-study-tracker",
         prevId: "cybersecurity-toolkit",
@@ -123,7 +87,7 @@ let itemObjects: Project[] = [
         history: [
             { type: "heading", text: "Timeframe" },
             { type: "paragraph", text: "- First version's development started in September 2022 - ended in September 2022" },
-            { type: "paragraph", text: "- Current version's development started in June 2023 - ended in June 2023" },
+            { type: "paragraph", text: "- Current version's development started in June 2023 - ended in July 2023" },
             { type: "paragraph", text: "- Updated every few months whenever I get new ideas" },
             { type: "heading", text: "Version 1.0" },
             { type: "paragraph", text: "I had wanted to create a portfolio page for myself for quite some time. I had just started my second year of uni and would need to find a way to show off my skills to potential employers to help me land a student placement role. This being my second ever website I still didn't exactly know what I was doing but with some planning I was able to put together a site that featured things I had created in the past - namely my projects, articles, games and media. Once it was complete, I had to look into server hosting and purchase a domain which felt like quite the accomplishment. I was pretty proud of having my own plot of land on the internet." },
@@ -379,7 +343,7 @@ let itemObjects: Project[] = [
         ],
         link: "",
         date: "??????",
-        dateNumber: "00000000",
+        dateNumber: "99999991",
         tags: ["", "Work in Progress", "Website"],
         devlog: "",
         icons: ["python", "django", "ts", "scss", "html"]
@@ -412,7 +376,7 @@ let itemObjects: Project[] = [
         ],
         link: "",
         date: "??????",
-        dateNumber: "00000000",
+        dateNumber: "99999992",
         tags: ["", "Work in Progress", "Website"],
         devlog: "",
         icons: ["python", "html", "django", "ts", "scss"]
@@ -423,10 +387,15 @@ let itemObjects: Project[] = [
 let itemHTMLobjects: HTMLElement[];
 
 // Creates a HTML object for item
-function createHTMLitem(item: Project)
+function createHTMLitem(item: Software)
 {
     let projectDiv = document.createElement('div');
     projectDiv.setAttribute('class', 'row project');
+    projectDiv.setAttribute('item-id', item.id);
+
+    // Store date as YYYYMMDD for sorting
+    let date = item.dateNumber;
+    projectDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2,4)}${date.slice(0,2)}`;
 
     let leftColumnDiv = document.createElement('div')
     leftColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column');
@@ -461,7 +430,7 @@ function createHTMLitem(item: Project)
 
     // History modal
     backgroundHistoryButton.addEventListener('click', () => {
-        openProjectModal(item.id);
+        openProjectModal(item.id, itemObjects);
     });
 
     let languages = document.createElement('h5');
@@ -545,8 +514,9 @@ function createHTMLitem(item: Project)
         let iframe = document.createElement('iframe');
         iframe.setAttribute('src', item.video);
         iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('loading', 'lazy');
 
-        cardDiv.appendChild(iframe);
+        cardDiv.appendChild(iframe);    
 
         rightColumnDiv.appendChild(cardDiv);
     }
@@ -561,6 +531,7 @@ function createHTMLitem(item: Project)
 
         let projectImage = document.createElement('img');
         projectImage.src = item.image;
+        projectImage.setAttribute('loading', 'lazy');
         projectImage.className = 'img-fluid project-image';
 
         cardDiv.appendChild(projectImage);
@@ -578,221 +549,38 @@ function renderItems(tag: string)
 {
     // Wipe item root clean
     let itemRoot = document.getElementById('projects-root')!;
-    while (itemRoot.firstChild) itemRoot.firstChild.remove();
+    itemRoot.innerHTML = "";
+
+    let fragment = document.createDocumentFragment();
 
     // Render all items
-    if (tag == "")
+    if (tag === "") 
     {
         itemObjects.forEach(item => {
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            fragment.appendChild(createHTMLitem(item));
         });
-    }
-
+    } 
+    
     // Render based on tag
-    else
+    else 
     {
         itemObjects.forEach(item => {
-            if (!item.tags.includes(tag)) return;
-
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            if (item.tags.includes(tag)) {
+                fragment.appendChild(createHTMLitem(item));
+            }
         });
     }
 
-    // Store all the objects in array for sorting
-    itemHTMLobjects = Array.from(document.querySelectorAll('.project'));
+    // Add items to DOM
+    itemRoot.appendChild(fragment);
+
+    // Store all the items in array for sorting
+    itemHTMLobjects = Array.from(itemRoot.querySelectorAll('.project'));
 
     // Sort items based on current selection
-    let currentSort = document.getElementsByClassName('current-sort');
-    setCurrentDropdown(currentSort[0].id);
-};
-
-// Opens up a modal and dynamically populates it
-function openProjectModal(id: string)
-{
-    let item = itemObjects.find(p => p.id === id);
-    if (!item) return;
-
-    let modalTitle = document.getElementById('modalTitle') as HTMLElement;
-    let modalBody = document.getElementById('modalBody') as HTMLElement;
-    modalTitle.textContent = item.title;
-    modalBody.innerHTML = "";
-    modalBody.scrollTop = 0;
-
-    // Fill out modal using project data
-    item.history.forEach(block => {
-        switch (block.type) 
-        {
-            case "heading":
-                let h = document.createElement('h5');
-                h.textContent = block.text;
-                h.className = "subheading-underline";
-                modalBody.appendChild(h);
-                break;
-
-            case "paragraph":
-                let p = document.createElement('p');
-                p.textContent = block.text;
-                modalBody.appendChild(p);
-                break;
-
-            case "image":
-                let img = document.createElement('img');
-                img.src = block.src;
-                img.className = "img-fluid shadow-red my-3";
-                modalBody.appendChild(img);
-
-                if (block.caption) 
-                {
-                    let cap = document.createElement('p')
-                    cap.className = "caption text-center"
-                    cap.textContent = block.caption
-                    modalBody.appendChild(cap)
-                }
-
-                break;
-        }
-    });
-
-    let navWrapper = document.createElement('div');
-    navWrapper.className = "d-flex justify-content-between mt-4";
-
-    // Previous chronological project button
-    if (item.prevId)
-    {
-        console.log("prev init")
-        let prevBtn = document.createElement('button');
-        prevBtn.className = "btn button-outline";
-        prevBtn.textContent = "<- Previous Project";
-
-        prevBtn.addEventListener('click', () => {
-            let modalEl = document.getElementById('historyModal')!;
-            let instance = bootstrap.Modal.getInstance(modalEl);
-            instance?.hide();
-
-            openProjectModal(item.prevId!);
-        });
-
-        navWrapper.appendChild(prevBtn);
-    }
-
-    // Empty button for previous
-    else navWrapper.appendChild(document.createElement('div'));
-
-    // Next chronological project button
-    if (item.nextId)
-    {
-        console.log("next init")
-        let nextBtn = document.createElement('button');
-        nextBtn.className = "btn button-outline";
-        nextBtn.textContent = "Next Project ->";
-
-        nextBtn.addEventListener('click', () => {
-            let modalEl = document.getElementById('historyModal')!;
-            let instance = bootstrap.Modal.getInstance(modalEl);
-            instance?.hide();
-
-            openProjectModal(item.nextId!);
-        });
-
-        navWrapper.appendChild(nextBtn);
-    }
-
-    modalBody.appendChild(navWrapper);
-
-    // Display the modal
-    let modal = new bootstrap.Modal(document.getElementById('historyModal')!);
-    modal.show();
+    let currentSort = document.getElementsByClassName('current-sort')[0];
+    setCurrentDropdown(currentSort.id);
 }
-
-// Sort items by date (descending)
-function sortDescending()
-{
-    itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-
-        return date2.getTime() - date1.getTime();
-    });
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
-
-// Sort items by date (ascending)
-function sortAscending()
-{
-    itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-
-        return date1.getTime() - date2.getTime();
-    });
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
-
-// Default sort
-function sortDefault()
-{
-    let tempArray = [];
-
-    // Compile default item order by referencing against original array
-    for (let i = 0; i < itemObjects.length; i++)
-    {
-        for (let j = 0; j < itemHTMLobjects.length; j++)
-        {
-            if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a')!.getAttribute('href'))
-            {
-                tempArray.push(itemHTMLobjects[j]);
-                continue;
-            }
-        }
-    }
-
-    // Rewrite the items array based on new order
-    for (let i = 0; i < itemHTMLobjects.length; i++)
-    {
-        itemHTMLobjects[i] = tempArray[i];
-    }
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
 
 // Function to set the current option and show it as selected
 function setCurrentDropdown(optionId: string) 
@@ -807,9 +595,9 @@ function setCurrentDropdown(optionId: string)
     let selectedOption = document.getElementById(optionId)!;
     selectedOption.classList.add("current-sort");
 
-    if (optionId == 'sort-new-old') sortDescending();
-    else if (optionId == 'sort-old-new') sortAscending();
-    else if (optionId == 'sort-default') sortDefault();
+    if (optionId == 'sort-new-old') sortDescending(itemHTMLobjects);
+    else if (optionId == 'sort-old-new') sortAscending(itemHTMLobjects);
+    else if (optionId == 'sort-default') sortDefault(itemObjects, itemHTMLobjects);
 }
 
 // Add event listeners for sorting buttons

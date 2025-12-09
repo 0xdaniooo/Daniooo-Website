@@ -1,4 +1,5 @@
-export {}; 
+import { videogameIcons as icons, Game, openProjectModal } from "./shared-projects.js";
+import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 
 // Collection options
 let collections = [
@@ -28,40 +29,6 @@ let collections = [
     }
 ];
 
-// Map icons to img urls
-export const icons = new Map<string, string>();
-icons.set("cs", "https://img.shields.io/badge/C%23-9a4f96?style=for-the-badge&logo=c-sharp&logoColor=white");
-icons.set("unity", "https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white");
-icons.set("photoshop", "https://img.shields.io/badge/Photoshop-001E36?style=for-the-badge&logo=adobephotoshop&logoColor=white");
-icons.set("blender", "https://img.shields.io/badge/Blender-F5792A?style=for-the-badge&logo=blender&logoColor=white");
-icons.set("autodesk", "https://img.shields.io/badge/Autodesk-0696D7?style=for-the-badge&logo=autodesk&logoColor=white");
-
-type HistoryBlock =
-    | { type: "heading"; text: string }
-    | { type: "paragraph"; text: string }
-    | { type: "image"; src: string; caption: string }
-
-interface Game {
-    id: string,
-    prevId?: string;
-    nextId?: string;
-    image: string,
-    video: string,
-    title: string,
-    description: string,
-    p1: string,
-    p2: string,
-    p3: string,
-    history: HistoryBlock[],
-    link: string,
-    date: string,
-    dateNumber: string,
-    tags: string[],
-    devlog: string,
-    github: string,
-    icons: string[],
-};
-
 // Contains all the items to used for dynamic rendering
 let itemObjects: Game[] = [
     {
@@ -69,7 +36,6 @@ let itemObjects: Game[] = [
         prevId: "first-person-experience",
         nextId: "rhubarbarian",
         image: "content/videogames/Scout.webp",
-        video: "",
         title: "Scout - Final Major Project",
         description: "Scout the area, plan your attack, defeat enemies.",
         p1: "Fight off waves of incoming enemies but be careful as each weapon has only one magazine. Use your drone to plan out your attacks from a safe distance then go in for the kill. Loot whatever you can find and utilise the various abilities to aid you in battle.",
@@ -105,7 +71,6 @@ let itemObjects: Game[] = [
         prevId: "yeti-horror-game",
         nextId: "scout",
         image: "content/videogames/FirstPersonExperience.webp",
-        video: "",
         title: "First Person Experience - Project 1",
         description: "Area 51 has been overrun by aliens - clear them out.",
         p1: "Make your way through the Area 51 facility whilst clearing out the alien infestation. Interact with the environment to open doors and continue with the mini questline present there. Save up points by killing enemies to allow you to purchase new weapons at the shop stations found there.",
@@ -139,7 +104,6 @@ let itemObjects: Game[] = [
         prevId: "vehicle-game",
         nextId: "first-person-experience",
         image: "content/videogames/YetiHorror.webp",
-        video: "",
         title: "Yeti Horror Game - Final Major Project",
         description: "Fix your helicopter and make it out of the snowy hills of Nepal alive.",
         p1: "Explore the snowy Himalayan mountains for any parts you can use to fix your helicopter. Stock up on weapons, supplies and traps to fight off the wildlife trying to hunt you down. You are not alone - a Yeti roams around looking for its prey. Make the best of the limited time you have here and get out in one piece.",
@@ -172,7 +136,6 @@ let itemObjects: Game[] = [
         id: "rhubarbarian",
         prevId: "scout",
         image: "content/videogames/Rhubarbarian.webp",
-        video: "",
         title: "Rise of the Rhubarbarian - Game Jam",
         description: "Rise up and train the Rhubarbarian for a top secret mission.",
         p1: "Make your way through a test course designed to train the Rhubarbarian robot for an infiltration mission. Avoid deadly turrets and any other obstacles designed to stop you from reaching the finish point. Watch out for collapsing platforms awaiting your demise. Interact with fun puzzle games to progress further.",
@@ -203,7 +166,6 @@ let itemObjects: Game[] = [
         prevId: "adventure-game",
         nextId: "yeti-horror-game",
         image: "content/videogames/VehicleGame.webp",
-        video: "",
         title: "3D Vehicle Game - Project 2",
         description: "Back to the future! Discover what the DeLorean is capable of.",
         p1: "Drive your DeLorean equipped with highly deadly weapons to eliminiate other drivers stood in your way. Go for a ride and explore this sci-fi world and all it has to offer. Stack up cash and upgrade your vehicle at upgrade stops. Avoid the many traps set out on the roads.",
@@ -231,7 +193,6 @@ let itemObjects: Game[] = [
         id: "adventure-game",
         nextId: "vehicle-game",
         image: "content/videogames/AdventureGame.webp",
-        video: "",
         title: "Top Down Adventure - Project 1",
         description: "Survive and thrive in this harsh apocalyptic world... or die trying.",
         p1: "A simple top down adventure game where you traverse a post-apocalyptic city of ruins with the goal of getting out. Be on the lookout for any mines laid around and razor sharp bushes blocking your path. Venture into buildings to locate loot and beware of the enemies spread around the world.",
@@ -266,6 +227,11 @@ function createHTMLitem(item: Game)
 {
     let rowGameDiv = document.createElement('div');
     rowGameDiv.className = 'row game';
+    rowGameDiv.setAttribute('item-id', item.id);
+
+    // Store date as YYYYMMDD for sorting
+    let date = item.dateNumber;
+    rowGameDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2,4)}${date.slice(0,2)}`;
 
     let colDiv1 = document.createElement('div');
     colDiv1.className = 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column';
@@ -307,7 +273,7 @@ function createHTMLitem(item: Game)
 
     // History modal
     backgroundHistoryButton.addEventListener('click', () => {
-        openProjectModal(item.id);
+        openProjectModal(item.id, itemObjects);
     });
 
     let technology = document.createElement('h5');
@@ -404,38 +370,19 @@ function createHTMLitem(item: Game)
 
     let rightColumnDiv = document.createElement('div');
 
-    // Add video to game card
-    if (item.video.length != 0)
-    {
-        rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
-
-        let cardDiv = document.createElement('div');
-        cardDiv.setAttribute('class', 'ratio ratio-16x9 game-video');
-
-        let iframe = document.createElement('iframe');
-        iframe.setAttribute('src', item.video);
-        iframe.setAttribute('allowfullscreen', '');
-
-        cardDiv.appendChild(iframe);
-
-        rightColumnDiv.appendChild(cardDiv);
-    }
-
     // Add image to game card
-    else
-    {
-        rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
+    rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
 
-        let cardDiv = document.createElement('div');
-        cardDiv.className = 'card';
+    let cardDiv = document.createElement('div');
+    cardDiv.className = 'card';
 
-        let gameImage = document.createElement('img');
-        gameImage.src = item.image;
-        gameImage.className = 'img-fluid game-image';
+    let img = document.createElement('img');
+    img.src = item.image;
+    img.setAttribute('loading', 'lazy');
+    img.className = 'img-fluid game-image';
 
-        cardDiv.appendChild(gameImage);
-        rightColumnDiv.appendChild(cardDiv);
-    }
+    cardDiv.appendChild(img);
+    rightColumnDiv.appendChild(cardDiv);
 
     rowGameDiv.appendChild(colDiv1);
     rowGameDiv.appendChild(rightColumnDiv);
@@ -448,218 +395,38 @@ function renderItems(tag: string)
 {
     // Wipe item root clean
     let itemRoot = document.getElementById('games-root')!;
-    while (itemRoot.firstChild) itemRoot.firstChild.remove();
+    itemRoot.innerHTML = "";
+
+    let fragment = document.createDocumentFragment();
 
     // Render all items
-    if (tag == "")
+    if (tag === "") 
     {
         itemObjects.forEach(item => {
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            fragment.appendChild(createHTMLitem(item));
         });
-    }
-
+    } 
+    
     // Render based on tag
-    else
+    else 
     {
         itemObjects.forEach(item => {
-            if (!item.tags.includes(tag)) return;
-
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            if (item.tags.includes(tag)) {
+                fragment.appendChild(createHTMLitem(item));
+            }
         });
     }
 
-    // Store all the objects in array for sorting
-    itemHTMLobjects = Array.from(document.querySelectorAll('.game'));
+    // Add items to DOM
+    itemRoot.appendChild(fragment);
+
+    // Store all the items in array for sorting
+    itemHTMLobjects = Array.from(itemRoot.querySelectorAll('.game'));
 
     // Sort items based on current selection
-    let currentSort = document.getElementsByClassName('current-sort');
-    setCurrentDropdown(currentSort[0].id);
-};
-
-// Opens up a modal and dynamically populates it
-function openProjectModal(id: string)
-{
-    let item = itemObjects.find(p => p.id === id);
-    if (!item) return;
-
-    let modalTitle = document.getElementById('modalTitle') as HTMLElement;
-    let modalBody = document.getElementById('modalBody') as HTMLElement;
-    modalTitle.textContent = item.title;
-    modalBody.innerHTML = "";
-    modalBody.scrollTop = 0;
-
-    // Fill out modal using project data
-    item.history.forEach(block => {
-        switch (block.type) 
-        {
-            case "heading":
-                let h = document.createElement('h5');
-                h.textContent = block.text;
-                h.className = "subheading-underline";
-                modalBody.appendChild(h);
-                break;
-
-            case "paragraph":
-                let p = document.createElement('p');
-                p.textContent = block.text;
-                modalBody.appendChild(p);
-                break;
-
-            case "image":
-                let img = document.createElement('img');
-                img.src = block.src;
-                img.className = "img-fluid shadow-red my-3";
-                modalBody.appendChild(img);
-
-                if (block.caption) 
-                {
-                    let cap = document.createElement('p')
-                    cap.className = "caption text-center"
-                    cap.textContent = block.caption
-                    modalBody.appendChild(cap)
-                }
-
-                break;
-        }
-    });
-
-    let navWrapper = document.createElement('div');
-    navWrapper.className = "d-flex justify-content-between mt-4";
-
-    // Previous chronological project button
-    if (item.prevId)
-    {
-        console.log("prev init")
-        let prevBtn = document.createElement('button');
-        prevBtn.className = "btn button-outline";
-        prevBtn.textContent = "<- Previous Project";
-
-        prevBtn.addEventListener('click', () => {
-            let modalEl = document.getElementById('historyModal')!;
-            let instance = bootstrap.Modal.getInstance(modalEl);
-            instance?.hide();
-
-            openProjectModal(item.prevId!);
-        });
-
-        navWrapper.appendChild(prevBtn);
-    }
-
-    // Empty button for previous
-    else navWrapper.appendChild(document.createElement('div'));
-
-    // Next chronological project button
-    if (item.nextId)
-    {
-        console.log("next init")
-        let nextBtn = document.createElement('button');
-        nextBtn.className = "btn button-outline";
-        nextBtn.textContent = "Next Project ->";
-
-        nextBtn.addEventListener('click', () => {
-            let modalEl = document.getElementById('historyModal')!;
-            let instance = bootstrap.Modal.getInstance(modalEl);
-            instance?.hide();
-
-            openProjectModal(item.nextId!);
-        });
-
-        navWrapper.appendChild(nextBtn);
-    }
-
-    modalBody.appendChild(navWrapper);
-
-    // Display the modal
-    let modal = new bootstrap.Modal(document.getElementById('historyModal')!);
-    modal.show();
+    let currentSort = document.getElementsByClassName('current-sort')[0];
+    setCurrentDropdown(currentSort.id);
 }
-
-// Sort items by date (descending)
-let sortDescending = () => {
-    itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-
-        return date2.getTime() - date1.getTime();
-    });
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
-
-// Sort items by date (ascending)
-let sortAscending = () => {
-    itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-
-        return date1.getTime() - date2.getTime();
-    });
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
-
-// Default sort
-let sortDefault = () => {
-    let tempArray = [];
-
-    // Compile default item order by referencing against original array
-    for (let i = 0; i < itemObjects.length; i++)
-    {
-        for (let j = 0; j < itemHTMLobjects.length; j++)
-        {
-            if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a')!.getAttribute('href'))
-            {
-                tempArray.push(itemHTMLobjects[j]);
-                continue;
-            }
-        }
-    }
-
-    // Rewrite the items array based on new order
-    for (let i = 0; i < itemHTMLobjects.length; i++)
-    {
-        itemHTMLobjects[i] = tempArray[i];
-    }
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
 
 // Function to set the current option and show it as selected
 function setCurrentDropdown(optionId: string) 
@@ -674,9 +441,9 @@ function setCurrentDropdown(optionId: string)
     let selectedOption = document.getElementById(optionId);
     selectedOption!.classList.add("current-sort");
 
-    if (optionId == 'sort-new-old') sortDescending();
-    else if (optionId == 'sort-old-new') sortAscending();
-    else if (optionId == 'sort-default') sortDefault();
+    if (optionId == 'sort-new-old') sortDescending(itemHTMLobjects);
+    else if (optionId == 'sort-old-new') sortAscending(itemHTMLobjects);
+    else if (optionId == 'sort-default') sortDefault(itemObjects, itemHTMLobjects);
 }
 
 // Add event listeners for sorting buttons

@@ -1,4 +1,5 @@
-export {}; 
+import { articleIcons as icons } from "./shared-projects.js";
+import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 
 // Collection options
 let collections = [
@@ -32,25 +33,8 @@ let collections = [
     }
 ];
 
-// Map icons to img urls
-export const icons = new Map<string, string>();
-icons.set("windows", "https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48cGF0aCBkPSJNOTYgMTU3LjdMMjc5LjYgMTMyLjRMMjc5LjYgMzA5LjhMOTYgMzA5LjhMOTYgMTU3Ljd6TTk2IDQ4Mi4zTDI3OS42IDUwNy42TDI3OS42IDMzMi40TDk2IDMzMi40TDk2IDQ4Mi4zek0yOTkuOCA1MTAuM0w1NDQgNTQ0LDU0NCAzMzIuNEwyOTkuOCAzMzIuNEwyOTkuOCA1MTAuM3pNMjk5LjggMTI5LjdMMjk5LjggMzA5LjhMNTQ0IDMwOS44TDU0NCA5NiwyOTkuOCAxMjkuN3oiIGZpbGw9IndoaXRlIi8+PC9zdmc+");
-icons.set("linux", "https://img.shields.io/badge/Linux-ECC404?style=for-the-badge&logo=linux&logoColor=black");
-icons.set("parrotos", "https://img.shields.io/badge/Parrot_Security-15AABF?style=for-the-badge&logo=parrotsecurity&logoColor=white");
-icons.set("gdb", "https://img.shields.io/badge/GDB-237929?style=for-the-badge&logo=gnu&logoColor=white");
-icons.set("git", "https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white");
-icons.set("vscode", "https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white");
-icons.set("hashes", "https://img.shields.io/badge/Hashes-378242?style=for-the-badge");
-icons.set("exif", "https://img.shields.io/badge/EXIF-555555?style=for-the-badge");
-icons.set("storage", "https://img.shields.io/badge/Storage-3691BF?style=for-the-badge");
-icons.set("assembly", "https://img.shields.io/badge/Assembly-2B2B2B?style=for-the-badge");
-icons.set("ghidra", "https://img.shields.io/badge/Ghidra-E22625?style=for-the-badge&logo=ghidra&logoColor=black");
-icons.set("radare2", "https://img.shields.io/badge/Radare2-000000?style=for-the-badge");
-icons.set("tryhackme", "https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=red");
-icons.set("performance", "https://img.shields.io/badge/Performance-8A2BE2?style=for-the-badge&logo=speedtest&logoColor=white");
-icons.set("security", "https://img.shields.io/badge/Security-FF0000?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMiAyTDMgNnY2YzAgNS41IDMuOCAxMC4zIDkgMTJjNS4yLTEuNyA5LTYuNSAxMC0xMlY2bC05LTR6Ii8+PC9zdmc+");
-
 interface Article {
+    id: string,
     image: string,
     title: string,
     description: string,
@@ -65,6 +49,7 @@ interface Article {
 // Contains all the items to used for dynamic rendering
 let itemObjects: Article[] = [
     {
+        id: "safe-browsing",
         image: "content/articles/SafeBrowsing.webp",
         title: "Safer and More Secure Browsing",
         description: "The web more often than not feels like a nice place where we can discover tons of information and have a fun time. However, it doesn’t take long to look in the wrong direction and see how evil certain parts can be. Today I’ll teach you some things that you... [1741 words]",
@@ -76,6 +61,7 @@ let itemObjects: Article[] = [
         icons: ["security"]
     },
     {
+        id: "git-basics",
         image: "content/articles/GitBasics.webp",
         title: "Get Started with Git - Basics, Tips and Tricks",
         description: "Git is hands down one of the best tools you can add to your toolbelt as a programmer. Whether you are writing small scripts or developing large scale projects, Git will make it extremely easy to perform version control and backup your code... [2715 words]",
@@ -87,6 +73,7 @@ let itemObjects: Article[] = [
         icons: ["vscode", "git", "windows"]
     },
     {
+        id: "tips-for-reversing-elf",
         image: "content/articles/TipsForReversingELF.webp",
         title: "Tips for Reverse Engineering ELF Binaries on Linux",
         description: "After reversing a good amount of ELF binaries for Linux I've seen my fair share of patterns and formed some approaches when it comes to dealing with them effectively. I'll show you how I deal with ELF binary reversing in the context of CTF crackme challenges, progressively diving into... [???? words]",
@@ -98,6 +85,7 @@ let itemObjects: Article[] = [
         icons: ["linux", "gdb", "assembly", "ghidra", "parrotos"]
     },
     {
+        id: "reversing-elf",
         image: "content/articles/ReversingELF.webp",
         title: "Reversing ELF | TryHackMe Writeup",
         description: "This room allows you to test your skills at reverse engineering ELF binaries giving you 8 fun challenges to solve in total. The setup is fairly simple as you just need a Linux machine, some reverse engineering tools of your choice and basic RE knowledge... [1024 words]",
@@ -109,6 +97,7 @@ let itemObjects: Article[] = [
         icons: ["tryhackme", "parrotos", "ghidra", "radare2", "gdb"]
     },
     {
+        id: "owasp-top-10",
         image: "content/articles/OwaspTop10.webp",
         title: "Owasp Top 10 | TryHackMe Writeup",
         description: "In this blog, we’ll be exploring the solutions to the questions in this room as well as learning how we can utilize the Owasp top 10 web vulnerabilities to perform our “malicious” actions. This one’s gonna be quite long so lets get on with... [2965 words]",
@@ -120,6 +109,7 @@ let itemObjects: Article[] = [
         icons: ["tryhackme", "parrotos", "linux"]
     },
     {
+        id: "intro-to-x86",
         image: "content/articles/IntroTox86.webp",
         title: "Intro to x86–64 | TryHackMe Writeup",
         description: "An introduction to reversing simple programs using the radare framework along with some assembly basics like the syntax (AT&T in this case), registers, if statements and loops. The room can be found here: https://tryhackme.com/room/introtox8664... [1038 words]", 
@@ -131,6 +121,7 @@ let itemObjects: Article[] = [
         icons: ["tryhackme", "parrotos", "radare2"]
     },
     {
+        id: "reverse-engineering",
         image: "content/articles/ReverseEngineering.webp",
         title: "Reverse Engineering | TryHackMe Writeup",
         description: "A very simple room with three task that have us reverse engineering some simple programs to finds passwords. To prepare, all we have to do is download the files and run the “chmod -x” command on each of them to give them execute permissions... [430 words]",
@@ -142,6 +133,7 @@ let itemObjects: Article[] = [
         icons: ["tryhackme", "parrotos", "radare2"]
     },
     {
+        id: "pc-optimization",
         image: "content/articles/PCOptimization.webp",
         title: "Quick and Easy PC Performance Boosts (Windows 10)",
         description: "We’ve all experienced our devices become painfully slow to the point we no longer want to use them. This can make for a very annoying experience however I am here to save you (or at least try to). I’ll run you through the list of things I do whenever I need to... [1170 words]",
@@ -153,6 +145,7 @@ let itemObjects: Article[] = [
         icons: ["windows", "performance"]
     },
     {
+        id: "partition-issues-windows",
         image: "content/articles/PartitionIssuesWindows.webp",
         title: "Fixing Partition Errors on USB Drives (Windows)",
         description: "Partitioning drives can introduce issues once it comes to reformatting. You try and format the drive through explorer only to find out you've lost space as you are left with a tiny usable partition, the remainder of your space gone. Fortunately this is easily... [576 words]",
@@ -164,6 +157,7 @@ let itemObjects: Article[] = [
         icons: ["windows", "storage"]
     },
     {
+        id: "creating-secure-passwords",
         image: "content/articles/CreatingSecurePasswords.webp",
         title: "Creating Cryptographically Secure Passwords",
         description: "People will always prefer convenience over security. This has a very negative impact as it very often leads to account takeovers since people just make it too easy for hackers to get in. Today I’ll show you how your passwords can be broken, what can be done to get... [801 words]",
@@ -175,6 +169,7 @@ let itemObjects: Article[] = [
         icons: ["security", "hashes"]
     },
     {
+        id: "malware-types",
         image: "content/articles/MalwareTypes.webp",
         title: "Malware Types and What Makes Them Unique",
         description: "One thing that’s very popular is for people to call any sort of malicious program a “virus” when there’s much more to them than that. The name malware comes from the words malicious and software being mixed together thus creating malicious software. It comes... [1387 words]",
@@ -186,6 +181,7 @@ let itemObjects: Article[] = [
         icons: ["security"]
     },
     {
+        id: "downloading-files-securely",
         image: "content/articles/DownloadingFilesSecurely.webp",
         title: "Verifying File Security and Integrity (Checksums)",
         description: "The internets full of a ton of files which makes it quite hard to determine what you’re downloading is actually the thing that you were looking for. Fortunately, there are a few things you can do to ensure the intergrity of the file in question which we’ll... [726 words]",
@@ -197,6 +193,7 @@ let itemObjects: Article[] = [
         icons: ["security", "hashes"]
     },
     {
+        id: "preventing-account-takeovers",
         image: "content/articles/PreventingAccountTakeovers.webp",
         title: "Become Unhackable — How to Prevent Account Takeovers",
         description: "Each day thousands of accounts are compromised by hackers and bots crawling all over the internet. This has many obvious repercussions for the owners of these accounts as they could: lose access to their data, be victim to identity fraud, could lose their... [830 words]",
@@ -208,6 +205,7 @@ let itemObjects: Article[] = [
         icons: ["security", "hashes"]
     },
     {
+        id: "importance-of-patching",
         image: "content/articles/ImportanceOfPatching.webp",
         title: "Patching and its Underrated Role in Security",
         description: "The way to get around this is to either check if there are any new updates daily or allow your device to perform automatic updates. Developers release patches either on Patch Tuesday (first Tuesday of each month) or every once in a while whenever it’s ready... [404 words]",
@@ -219,6 +217,7 @@ let itemObjects: Article[] = [
         icons: ["security"]
     },
     {
+        id: "images-compromise-security",
         image: "content/articles/ImagesCompromiseSecurity.webp",
         title: "Your Images Compromise Your Privacy (EXIF Data)",
         description: "Everytime you take a photo, your device will store that in an image format for you to enjoy however this isn’t the only information that will be saved. Embedded into that file will also be a range of metadata which in the wrong hands can be used by others... [433 words]",
@@ -230,6 +229,7 @@ let itemObjects: Article[] = [
         icons: ["security", "exif"]
     },
     {
+        id: "first-blog",
         image: "content/articles/FirstBlog.webp",
         title: "Welcome to my first blog",
         description: "Hi, as you’ve seen from the title this is my first blog. Here you’ll get to listen to me ramble and share knowledge about the things that I’m passionate about and hopefully you'll learn something new (fun times)... [364 words]",
@@ -251,6 +251,11 @@ function createHTMLitem(item: Article)
     // Create the main column container
     let articleObject = document.createElement('div');
     articleObject.classList.add('col-sm-12', 'col-md-6', 'col-lg-6', 'col-xl-4', 'article');
+    articleObject.setAttribute('item-id', item.id);
+
+    // Store date as YYYYMMDD for sorting
+    let date = item.dateNumber;
+    articleObject.dataset.timestamp = `${date.slice(4)}${date.slice(2,4)}${date.slice(0,2)}`;
 
     // Create the card container
     let cardDiv = document.createElement('div');
@@ -259,6 +264,7 @@ function createHTMLitem(item: Article)
     // Create the image element
     let image = document.createElement('img');
     image.src = item.image;
+    image.setAttribute('loading', 'lazy');
 
     // Create the card body container
     let cardBodyDiv = document.createElement('div');
@@ -343,123 +349,38 @@ function renderItems(tag: string)
 {
     // Wipe item root clean
     let itemRoot = document.getElementById('articles-root')!;
-    while (itemRoot.firstChild) itemRoot.firstChild.remove();
+    itemRoot.innerHTML = "";
+
+    let fragment = document.createDocumentFragment();
 
     // Render all items
-    if (tag == "")
+    if (tag === "") 
     {
         itemObjects.forEach(item => {
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            fragment.appendChild(createHTMLitem(item));
         });
-    }
-
+    } 
+    
     // Render based on tag
-    else
+    else 
     {
         itemObjects.forEach(item => {
-            if (!item.tags.includes(tag)) return;
-
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            if (item.tags.includes(tag)) {
+                fragment.appendChild(createHTMLitem(item));
+            }
         });
     }
 
-    // Store all the objects in array for sorting
-    itemHTMLobjects = Array.from(document.querySelectorAll('.article'));
+    // Add items to DOM
+    itemRoot.appendChild(fragment);
+
+    // Store all the items in array for sorting
+    itemHTMLobjects = Array.from(itemRoot.querySelectorAll('.article'));
 
     // Sort items based on current selection
-    let currentSort = document.getElementsByClassName('current-sort');
-    setCurrentDropdown(currentSort[0].id);
-};
-
-// Sort items by date (descending)
-function sortDescending()
-{
-    itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-
-        return date2.getTime() - date1.getTime();
-    });
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
-
-// Sort items by date (ascending)
-function sortAscending()
-{
-    itemHTMLobjects.sort((a, b) => {
-        // Obtain date for a
-        let dateString = a.querySelector('p[date]')!.getAttribute('date')!;
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-
-        // Obtain date for b
-        dateString = b.querySelector('p[date]')!.getAttribute('date')!;
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-
-        return date1.getTime() - date2.getTime();
-    });
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
-
-// Default sort
-function sortDefault()
-{
-    let tempArray = [];
-
-    // Compile default item order by referencing against original array
-    for (let i = 0; i < itemObjects.length; i++)
-    {
-        for (let j = 0; j < itemHTMLobjects.length; j++)
-        {
-            if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a')!.getAttribute('href'))
-            {
-                tempArray.push(itemHTMLobjects[j]);
-                continue;
-            }
-        }
-    }
-
-    // Rewrite the items array based on new order
-    for (let i = 0; i < itemHTMLobjects.length; i++)
-    {
-        itemHTMLobjects[i] = tempArray[i];
-    }
-
-    // Reorder the items 
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement!.appendChild(itemObj);
-    });
-};
+    let currentSort = document.getElementsByClassName('current-sort')[0];
+    setCurrentDropdown(currentSort.id);
+}
 
 // Function to set the current option and show it as selected
 function setCurrentDropdown(optionId: string) 
@@ -474,9 +395,9 @@ function setCurrentDropdown(optionId: string)
     let selectedOption = document.getElementById(optionId)!;
     selectedOption.classList.add("current-sort");
 
-    if (optionId == 'sort-new-old') sortDescending();
-    else if (optionId == 'sort-old-new') sortAscending();
-    else if (optionId == 'sort-default') sortDefault();
+    if (optionId == 'sort-new-old') sortDescending(itemHTMLobjects);
+    else if (optionId == 'sort-old-new') sortAscending(itemHTMLobjects);
+    else if (optionId == 'sort-default') sortDefault(itemObjects, itemHTMLobjects);
 }
 
 // Add event listeners for sorting buttons

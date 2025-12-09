@@ -1,3 +1,5 @@
+import { videogameIcons as icons, openProjectModal } from "./shared-projects.js";
+import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 let collections = [
     {
         id: "coll-all",
@@ -24,20 +26,12 @@ let collections = [
         tag: "2019",
     }
 ];
-export const icons = new Map();
-icons.set("cs", "https://img.shields.io/badge/C%23-9a4f96?style=for-the-badge&logo=c-sharp&logoColor=white");
-icons.set("unity", "https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity&logoColor=white");
-icons.set("photoshop", "https://img.shields.io/badge/Photoshop-001E36?style=for-the-badge&logo=adobephotoshop&logoColor=white");
-icons.set("blender", "https://img.shields.io/badge/Blender-F5792A?style=for-the-badge&logo=blender&logoColor=white");
-icons.set("autodesk", "https://img.shields.io/badge/Autodesk-0696D7?style=for-the-badge&logo=autodesk&logoColor=white");
-;
 let itemObjects = [
     {
         id: "scout",
         prevId: "first-person-experience",
         nextId: "rhubarbarian",
         image: "content/videogames/Scout.webp",
-        video: "",
         title: "Scout - Final Major Project",
         description: "Scout the area, plan your attack, defeat enemies.",
         p1: "Fight off waves of incoming enemies but be careful as each weapon has only one magazine. Use your drone to plan out your attacks from a safe distance then go in for the kill. Loot whatever you can find and utilise the various abilities to aid you in battle.",
@@ -73,7 +67,6 @@ let itemObjects = [
         prevId: "yeti-horror-game",
         nextId: "scout",
         image: "content/videogames/FirstPersonExperience.webp",
-        video: "",
         title: "First Person Experience - Project 1",
         description: "Area 51 has been overrun by aliens - clear them out.",
         p1: "Make your way through the Area 51 facility whilst clearing out the alien infestation. Interact with the environment to open doors and continue with the mini questline present there. Save up points by killing enemies to allow you to purchase new weapons at the shop stations found there.",
@@ -107,7 +100,6 @@ let itemObjects = [
         prevId: "vehicle-game",
         nextId: "first-person-experience",
         image: "content/videogames/YetiHorror.webp",
-        video: "",
         title: "Yeti Horror Game - Final Major Project",
         description: "Fix your helicopter and make it out of the snowy hills of Nepal alive.",
         p1: "Explore the snowy Himalayan mountains for any parts you can use to fix your helicopter. Stock up on weapons, supplies and traps to fight off the wildlife trying to hunt you down. You are not alone - a Yeti roams around looking for its prey. Make the best of the limited time you have here and get out in one piece.",
@@ -140,7 +132,6 @@ let itemObjects = [
         id: "rhubarbarian",
         prevId: "scout",
         image: "content/videogames/Rhubarbarian.webp",
-        video: "",
         title: "Rise of the Rhubarbarian - Game Jam",
         description: "Rise up and train the Rhubarbarian for a top secret mission.",
         p1: "Make your way through a test course designed to train the Rhubarbarian robot for an infiltration mission. Avoid deadly turrets and any other obstacles designed to stop you from reaching the finish point. Watch out for collapsing platforms awaiting your demise. Interact with fun puzzle games to progress further.",
@@ -171,7 +162,6 @@ let itemObjects = [
         prevId: "adventure-game",
         nextId: "yeti-horror-game",
         image: "content/videogames/VehicleGame.webp",
-        video: "",
         title: "3D Vehicle Game - Project 2",
         description: "Back to the future! Discover what the DeLorean is capable of.",
         p1: "Drive your DeLorean equipped with highly deadly weapons to eliminiate other drivers stood in your way. Go for a ride and explore this sci-fi world and all it has to offer. Stack up cash and upgrade your vehicle at upgrade stops. Avoid the many traps set out on the roads.",
@@ -199,7 +189,6 @@ let itemObjects = [
         id: "adventure-game",
         nextId: "vehicle-game",
         image: "content/videogames/AdventureGame.webp",
-        video: "",
         title: "Top Down Adventure - Project 1",
         description: "Survive and thrive in this harsh apocalyptic world... or die trying.",
         p1: "A simple top down adventure game where you traverse a post-apocalyptic city of ruins with the goal of getting out. Be on the lookout for any mines laid around and razor sharp bushes blocking your path. Venture into buildings to locate loot and beware of the enemies spread around the world.",
@@ -229,6 +218,9 @@ let itemHTMLobjects;
 function createHTMLitem(item) {
     let rowGameDiv = document.createElement('div');
     rowGameDiv.className = 'row game';
+    rowGameDiv.setAttribute('item-id', item.id);
+    let date = item.dateNumber;
+    rowGameDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2, 4)}${date.slice(0, 2)}`;
     let colDiv1 = document.createElement('div');
     colDiv1.className = 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column';
     let innerRowDiv = document.createElement('div');
@@ -257,7 +249,7 @@ function createHTMLitem(item) {
     backgroundHistoryButton.textContent = "Click to read more about this project's background";
     backgroundHistoryButton.innerHTML += '<i class="fa-solid fa-book" style="margin-left: 6px;"></i>';
     backgroundHistoryButton.addEventListener('click', () => {
-        openProjectModal(item.id);
+        openProjectModal(item.id, itemObjects);
     });
     let technology = document.createElement('h5');
     technology.setAttribute('class', 'subheading-underline mb-2');
@@ -328,26 +320,15 @@ function createHTMLitem(item) {
     colDiv1.appendChild(innerRowDiv);
     colDiv1.appendChild(gameFooterRowDiv);
     let rightColumnDiv = document.createElement('div');
-    if (item.video.length != 0) {
-        rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
-        let cardDiv = document.createElement('div');
-        cardDiv.setAttribute('class', 'ratio ratio-16x9 game-video');
-        let iframe = document.createElement('iframe');
-        iframe.setAttribute('src', item.video);
-        iframe.setAttribute('allowfullscreen', '');
-        cardDiv.appendChild(iframe);
-        rightColumnDiv.appendChild(cardDiv);
-    }
-    else {
-        rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
-        let cardDiv = document.createElement('div');
-        cardDiv.className = 'card';
-        let gameImage = document.createElement('img');
-        gameImage.src = item.image;
-        gameImage.className = 'img-fluid game-image';
-        cardDiv.appendChild(gameImage);
-        rightColumnDiv.appendChild(cardDiv);
-    }
+    rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
+    let cardDiv = document.createElement('div');
+    cardDiv.className = 'card';
+    let img = document.createElement('img');
+    img.src = item.image;
+    img.setAttribute('loading', 'lazy');
+    img.className = 'img-fluid game-image';
+    cardDiv.appendChild(img);
+    rightColumnDiv.appendChild(cardDiv);
     rowGameDiv.appendChild(colDiv1);
     rowGameDiv.appendChild(rightColumnDiv);
     return rowGameDiv;
@@ -355,154 +336,25 @@ function createHTMLitem(item) {
 ;
 function renderItems(tag) {
     let itemRoot = document.getElementById('games-root');
-    while (itemRoot.firstChild)
-        itemRoot.firstChild.remove();
-    if (tag == "") {
+    itemRoot.innerHTML = "";
+    let fragment = document.createDocumentFragment();
+    if (tag === "") {
         itemObjects.forEach(item => {
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
+            fragment.appendChild(createHTMLitem(item));
         });
     }
     else {
         itemObjects.forEach(item => {
-            if (!item.tags.includes(tag))
-                return;
-            let htmlItem = createHTMLitem(item);
-            itemRoot.appendChild(htmlItem);
-        });
-    }
-    itemHTMLobjects = Array.from(document.querySelectorAll('.game'));
-    let currentSort = document.getElementsByClassName('current-sort');
-    setCurrentDropdown(currentSort[0].id);
-}
-;
-function openProjectModal(id) {
-    let item = itemObjects.find(p => p.id === id);
-    if (!item)
-        return;
-    let modalTitle = document.getElementById('modalTitle');
-    let modalBody = document.getElementById('modalBody');
-    modalTitle.textContent = item.title;
-    modalBody.innerHTML = "";
-    modalBody.scrollTop = 0;
-    item.history.forEach(block => {
-        switch (block.type) {
-            case "heading":
-                let h = document.createElement('h5');
-                h.textContent = block.text;
-                h.className = "subheading-underline";
-                modalBody.appendChild(h);
-                break;
-            case "paragraph":
-                let p = document.createElement('p');
-                p.textContent = block.text;
-                modalBody.appendChild(p);
-                break;
-            case "image":
-                let img = document.createElement('img');
-                img.src = block.src;
-                img.className = "img-fluid shadow-red my-3";
-                modalBody.appendChild(img);
-                if (block.caption) {
-                    let cap = document.createElement('p');
-                    cap.className = "caption text-center";
-                    cap.textContent = block.caption;
-                    modalBody.appendChild(cap);
-                }
-                break;
-        }
-    });
-    let navWrapper = document.createElement('div');
-    navWrapper.className = "d-flex justify-content-between mt-4";
-    if (item.prevId) {
-        console.log("prev init");
-        let prevBtn = document.createElement('button');
-        prevBtn.className = "btn button-outline";
-        prevBtn.textContent = "<- Previous Project";
-        prevBtn.addEventListener('click', () => {
-            let modalEl = document.getElementById('historyModal');
-            let instance = bootstrap.Modal.getInstance(modalEl);
-            instance?.hide();
-            openProjectModal(item.prevId);
-        });
-        navWrapper.appendChild(prevBtn);
-    }
-    else
-        navWrapper.appendChild(document.createElement('div'));
-    if (item.nextId) {
-        console.log("next init");
-        let nextBtn = document.createElement('button');
-        nextBtn.className = "btn button-outline";
-        nextBtn.textContent = "Next Project ->";
-        nextBtn.addEventListener('click', () => {
-            let modalEl = document.getElementById('historyModal');
-            let instance = bootstrap.Modal.getInstance(modalEl);
-            instance?.hide();
-            openProjectModal(item.nextId);
-        });
-        navWrapper.appendChild(nextBtn);
-    }
-    modalBody.appendChild(navWrapper);
-    let modal = new bootstrap.Modal(document.getElementById('historyModal'));
-    modal.show();
-}
-let sortDescending = () => {
-    itemHTMLobjects.sort((a, b) => {
-        let dateString = a.querySelector('p[date]').getAttribute('date');
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-        dateString = b.querySelector('p[date]').getAttribute('date');
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-        return date2.getTime() - date1.getTime();
-    });
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement.appendChild(itemObj);
-    });
-};
-let sortAscending = () => {
-    itemHTMLobjects.sort((a, b) => {
-        let dateString = a.querySelector('p[date]').getAttribute('date');
-        let day = dateString.substring(0, 2);
-        let month = dateString.substring(2, 4);
-        let year = dateString.substring(4, 8);
-        let formattedDate = `${year}-${month}-${day}`;
-        let date1 = new Date(formattedDate);
-        dateString = b.querySelector('p[date]').getAttribute('date');
-        day = dateString.substring(0, 2);
-        month = dateString.substring(2, 4);
-        year = dateString.substring(4, 8);
-        formattedDate = `${year}-${month}-${day}`;
-        let date2 = new Date(formattedDate);
-        return date1.getTime() - date2.getTime();
-    });
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement.appendChild(itemObj);
-    });
-};
-let sortDefault = () => {
-    let tempArray = [];
-    for (let i = 0; i < itemObjects.length; i++) {
-        for (let j = 0; j < itemHTMLobjects.length; j++) {
-            if (itemObjects[i].link == itemHTMLobjects[j].querySelector('a').getAttribute('href')) {
-                tempArray.push(itemHTMLobjects[j]);
-                continue;
+            if (item.tags.includes(tag)) {
+                fragment.appendChild(createHTMLitem(item));
             }
-        }
+        });
     }
-    for (let i = 0; i < itemHTMLobjects.length; i++) {
-        itemHTMLobjects[i] = tempArray[i];
-    }
-    itemHTMLobjects.forEach(itemObj => {
-        itemObj.parentElement.appendChild(itemObj);
-    });
-};
+    itemRoot.appendChild(fragment);
+    itemHTMLobjects = Array.from(itemRoot.querySelectorAll('.game'));
+    let currentSort = document.getElementsByClassName('current-sort')[0];
+    setCurrentDropdown(currentSort.id);
+}
 function setCurrentDropdown(optionId) {
     let dropdownItems = document.querySelectorAll(".dropdown-item");
     dropdownItems.forEach(item => {
@@ -511,11 +363,11 @@ function setCurrentDropdown(optionId) {
     let selectedOption = document.getElementById(optionId);
     selectedOption.classList.add("current-sort");
     if (optionId == 'sort-new-old')
-        sortDescending();
+        sortDescending(itemHTMLobjects);
     else if (optionId == 'sort-old-new')
-        sortAscending();
+        sortAscending(itemHTMLobjects);
     else if (optionId == 'sort-default')
-        sortDefault();
+        sortDefault(itemObjects, itemHTMLobjects);
 }
 let sortDescendingButton = document.getElementById('sort-new-old');
 sortDescendingButton.addEventListener('click', () => {

@@ -43,6 +43,8 @@
 /* Applied to the link for current page within the navbar */
 #current-page {
     text-decoration: underline;
+    text-decoration-color: $red;
+    text-decoration-thickness: 1.5px;
     text-underline-offset: 10px;
 }
 
@@ -207,6 +209,10 @@
     text-decoration: underline !important; 
     text-underline-offset: 10px !important; 
     text-decoration-thickness: 2px !important;
+
+    &.red {
+        text-decoration-color: $red !important;
+    }
 }
 
 .modal-content {

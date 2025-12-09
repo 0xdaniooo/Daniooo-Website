@@ -1,0 +1,17 @@
+.breadcrumb {
+  margin-left: 25px;
+}
+
+.error-message {
+  margin: 25px;
+  padding: 20px;
+  background-color: #6F6F6F;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
+  width: 90%;
+  max-width: 700px;
+}
+.error-message .error-code, .error-message error-reason {
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=error.css.map */
