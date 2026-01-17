@@ -53,7 +53,11 @@ export function openProjectModal(id, itemObjects) {
                 break;
             case "paragraph":
                 let p = document.createElement('p');
-                p.textContent = block.text;
+                let bracketUrlRegex = /\[(https?:\/\/[^\s\]]+)\]/g;
+                let processedText = block.text.replace(bracketUrlRegex, (match, url) => {
+                    return `<a href="${url}" target="_blank" class="link">${match}</a>`;
+                });
+                p.innerHTML = processedText;
                 modalBody.appendChild(p);
                 break;
             case "image":

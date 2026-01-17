@@ -18,10 +18,18 @@
 /* Restyles the card background color for media items */
 .card-body {
     background-color: $item;
+    padding: 12px 10px;
 }
 
-/* Applied to cards to remove automatic white border */
+.media {
+    display: flex;
+    flex-direction: column;
+}
+
 .card {
+    // Match vertical height
+    flex: 1 0 auto; 
+    
     border: none;
     box-shadow: 0 0 4px 4px $lightShadow;
     margin: 0 2px 40px 2px;

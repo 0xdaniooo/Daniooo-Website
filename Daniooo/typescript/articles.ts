@@ -268,7 +268,7 @@ function createHTMLitem(item: Article)
 
     // Create the card body container
     let cardBodyDiv = document.createElement('div');
-    cardBodyDiv.classList.add('card-body');
+    cardBodyDiv.classList.add('card-body', 'd-flex', 'flex-column');
 
     // Create the card title
     let cardTitle = document.createElement('h4');
@@ -297,7 +297,7 @@ function createHTMLitem(item: Article)
 
     // Create the row container
     let rowDiv = document.createElement('div');
-    rowDiv.classList.add('row', 'align-items-center');
+    rowDiv.classList.add('row', 'align-items-center', 'mt-auto');
 
     // Create the first column in the row
     let col1Div = document.createElement('div');

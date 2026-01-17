@@ -145,6 +145,14 @@ let itemObjects: Media[] = [
         tags: ["", "Poland", "2025"],
     },
     {
+        id: "signals",
+        image: "content/media/Signals.webp",
+        date: "December 2025",
+        dateNumber: "18122025",
+        location: "England, UK",
+        tags: ["", "England", "2025"],
+    },
+    {
         id: "green-summer-day",
         image: "content/media/GreenSummerDay.webp",
         date: "August 2020",
@@ -706,7 +714,7 @@ function createHTMLitem(item: Media)
     img.setAttribute('data-bs-target', '#imageModal');
 
     let cardBody = document.createElement('div');
-    cardBody.classList.add('card-body');
+    cardBody.classList.add('card-body', 'd-flex', 'justify-content-center', 'align-items-center');
 
     let text = document.createElement('p');
     text.classList.add('card-text', 'text-center');

@@ -18,8 +18,13 @@
   background-color: #6F6F6F;
 }
 
-/* Applied to cards to remove automatic white border */
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
 .card {
+  flex: 1 0 auto;
   border: none;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
   margin: 0 5px 40px 5px;

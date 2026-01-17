@@ -238,7 +238,7 @@ function createHTMLitem(item) {
     image.src = item.image;
     image.setAttribute('loading', 'lazy');
     let cardBodyDiv = document.createElement('div');
-    cardBodyDiv.classList.add('card-body');
+    cardBodyDiv.classList.add('card-body', 'd-flex', 'flex-column');
     let cardTitle = document.createElement('h4');
     cardTitle.classList.add('card-title');
     cardTitle.textContent = item.title;
@@ -255,7 +255,7 @@ function createHTMLitem(item) {
         iconsDiv.appendChild(icon);
     });
     let rowDiv = document.createElement('div');
-    rowDiv.classList.add('row', 'align-items-center');
+    rowDiv.classList.add('row', 'align-items-center', 'mt-auto');
     let col1Div = document.createElement('div');
     col1Div.classList.add('col-6');
     let link = document.createElement('a');

@@ -244,6 +244,15 @@
     }
 }
 
+.link {
+    text-decoration: underline;
+
+    &:hover {
+        color: $red;
+        text-decoration: underline;
+    }
+}
+
 .shadow-red {
     box-shadow: 0 0 3px 3px $red;
 }

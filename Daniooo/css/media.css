@@ -16,10 +16,16 @@
 /* Restyles the card background color for media items */
 .card-body {
   background-color: #6F6F6F;
+  padding: 12px 10px;
 }
 
-/* Applied to cards to remove automatic white border */
+.media {
+  display: flex;
+  flex-direction: column;
+}
+
 .card {
+  flex: 1 0 auto;
   border: none;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
   margin: 0 2px 40px 2px;
