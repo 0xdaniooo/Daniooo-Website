@@ -73,18 +73,6 @@ let itemObjects: Article[] = [
         icons: ["vscode", "git", "windows"]
     },
     {
-        id: "tips-for-reversing-elf",
-        image: "content/articles/TipsForReversingELF.webp",
-        title: "Tips for Reverse Engineering ELF Binaries on Linux",
-        description: "After reversing a good amount of ELF binaries for Linux I've seen my fair share of patterns and formed some approaches when it comes to dealing with them effectively. I'll show you how I deal with ELF binary reversing in the context of CTF crackme challenges, progressively diving into... [???? words]",
-        link: "",
-        date: "??????",
-        dateNumber: "01092022",
-        category: "Technology",
-        tags: ["", "2022", "Technology"],
-        icons: ["linux", "gdb", "assembly", "ghidra", "parrotos"]
-    },
-    {
         id: "reversing-elf",
         image: "content/articles/ReversingELF.webp",
         title: "Reversing ELF | TryHackMe Writeup",
