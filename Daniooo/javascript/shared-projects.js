@@ -10,6 +10,7 @@ softwareIcons.set("tkinter", "https://img.shields.io/badge/Tkinter-919191?style=
 softwareIcons.set("cpp", "https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white");
 softwareIcons.set("ts", "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white");
 softwareIcons.set("scss", "https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white");
+softwareIcons.set("flask", "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white");
 export const articleIcons = new Map();
 articleIcons.set("windows", "https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNjQwIj48cGF0aCBkPSJNOTYgMTU3LjdMMjc5LjYgMTMyLjRMMjc5LjYgMzA5LjhMOTYgMzA5LjhMOTYgMTU3Ljd6TTk2IDQ4Mi4zTDI3OS42IDUwNy42TDI3OS42IDMzMi40TDk2IDMzMi40TDk2IDQ4Mi4zek0yOTkuOCA1MTAuM0w1NDQgNTQ0LDU0NCAzMzIuNEwyOTkuOCAzMzIuNEwyOTkuOCA1MTAuM3pNMjk5LjggMTI5LjdMMjk5LjggMzA5LjhMNTQ0IDMwOS44TDU0NCA5NiwyOTkuOCAxMjkuN3oiIGZpbGw9IndoaXRlIi8+PC9zdmc+");
 articleIcons.set("linux", "https://img.shields.io/badge/Linux-ECC404?style=for-the-badge&logo=linux&logoColor=black");

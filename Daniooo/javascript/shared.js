@@ -1,7 +1,13 @@
 function reorder(items) {
-    let root = items[0].parentElement;
+    let root;
     let frag = document.createDocumentFragment();
-    items.forEach(el => frag.appendChild(el));
+    items.forEach(el => {
+        if (!root && el != undefined)
+            root = el.parentElement;
+        if (el == undefined)
+            return;
+        frag.appendChild(el);
+    });
     root.appendChild(frag);
 }
 export function sortDescending(items) {

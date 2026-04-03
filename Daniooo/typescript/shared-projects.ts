@@ -11,6 +11,7 @@ softwareIcons.set("tkinter", "https://img.shields.io/badge/Tkinter-919191?style=
 softwareIcons.set("cpp", "https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white");
 softwareIcons.set("ts", "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white");
 softwareIcons.set("scss", "https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white");
+softwareIcons.set("flask", "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white");
 
 // Map article to img urls
 export const articleIcons = new Map<string, string>();

@@ -1,9 +1,13 @@
 // Re-order HTML elements
 function reorder(items: HTMLElement[]) 
 {
-    let root = items[0].parentElement!;
+    let root!: HTMLElement;
     let frag = document.createDocumentFragment();
-    items.forEach(el => frag.appendChild(el));
+    items.forEach(el => {
+        if (!root && el != undefined) root = el.parentElement!;
+        if (el == undefined) return;
+        frag.appendChild(el);
+    });
     root.appendChild(frag);
 }
 

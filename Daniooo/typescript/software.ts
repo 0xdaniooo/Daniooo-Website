@@ -24,6 +24,10 @@ let collections = [
         tag: "Browser Extension",
     },
     {
+        id: "coll-2026",
+        tag: "2026",
+    },
+    {
         id: "coll-2025",
         tag: "2025",
     },
@@ -109,6 +113,34 @@ let itemObjects: Software[] = [
         icons: ["bootstrap", "html", "ts", "scss"]
     },
     {
+        id: "habit-tracker",
+        prevId: "ryanair-wizzair-scraper",
+        image: "",
+        video: "https://www.youtube.com/embed/wDQqDovSc88",
+        title: "Habit Tracker | Flask Self-Hosted Web App",
+        description: "A lightweight habit tracker written in Flask for motivational habit progression displayed via a GitHub contribution style heatmap format.",
+        about: "I've been into habit tracking since around late 2021 where I would note down actions I wanted to repeat daily and mark them off on a piece of paper. That worked pretty well as it allowed me to keep on track by incentivising me to visually have more cells ticked off on top of wanting to keep streaks going. Wanting to digitise this for less admin work and more historical progression and since the GitHub contribution heatmap works so well at getting me to code I thought why not visualise habits this way too?",
+        history: [
+            { type: "heading", text: "Timeframe" },
+            { type: "paragraph", text: "Development started in January 2026 - Completed in March 2026" },
+            { type: "heading", text: "Internal prototype" },
+            { type: "paragraph", text: "This originally started as a tool I made just for my own use. I had been tracking habits on paper for a good few years but the manual admin was getting tedious and I wanted a way to see my long-term progression at a glance. I’ve always loved seeing my coding progress stack up on GitHub, so the insight hit me to try and emulate that exact visual reward system for my daily life. The basic version was effective enough that I decided to flesh it out into a proper tool, expand it with more features and make it available to others." },
+            { type: "image", src: "content/historic/GitHubContributions.webp", caption: "Feels very rewarding seeing those contributions stack up [January 2026]" },
+            { type: "heading", text: "CLI roots" },
+            { type: "paragraph", text: "The very first iteration was very primitive in design; habits were toggled via a CLI which was initiated by a global batch task for easy access. This then used a template file to generate and display a static web page containing all the habits and their entries based on a JSON file. For the heatmap itself, I managed to find a pretty neat framework called Cal-Heatmap which handled the heavy lifting of the grid rendering. Seeing that basic version work so well was the catalyst for turning it into a proper web application (that and needing this to be more interactive with additional metrics)." },
+            { type: "image", src: "content/historic/HabitTrackerCLI.webp", caption: "My original internal version where entries were updated via CLI [January 2026]" },
+            { type: "heading", text: "Flask & SPA architecture" },
+            { type: "paragraph", text: "When it came to the full rebuild, I opted for Flask. I already had a great amount of Django experience though I needed something more lightweight then I remembered Flask. The challenge here was moving away from that static template model as I had to rebuild the logic to use an API for every operation and then optimise those operations to enable the dashboard to function as a true Single Page Application (SPA). Slowly I kept adding features I personally wanted to see like custom streaks, habit archival and more control over habits and their metadata. In the end, I've created a tool that will make habits much more interesting and fun to complete." },
+            { type: "image", src: "content/historic/HabitTrackerAJAX.webp", caption: "Configuring AJAX modification for seamless interactivity [February 2026]" },
+        ],
+        link: "https://github.com/0xdaniooo/Habit-Tracker",
+        date: "16th March 2026",
+        dateNumber: "16032026",
+        tags: ["", "2026", "Website"],
+        devlog: "content/PDFs/HabitTrackerDevlog.pdf",
+        icons: ["flask", "ts", "python", "html", "scss", "bootstrap"]
+    },
+    {
         id: "strong-app-data-visualiser",
         prevId: "daniooo-website",
         nextId: "secure-passphrase-generator",
@@ -164,6 +196,7 @@ let itemObjects: Software[] = [
     {
         id: "ryanair-wizzair-scraper",
         prevId: "secpass",
+        nextId: "habit-tracker",
         image: "",
         video: "https://www.youtube.com/embed/3JDruGENFe8",
         title: "Ryanair-WizzAir Scraper | Browser Extension",
@@ -363,7 +396,7 @@ let itemObjects: Software[] = [
             { type: "paragraph", text: "Immediately picked back up early May 2025 - Ongoing ever since" },
             { type: "heading", text: "What do I do?" },
             { type: "paragraph", text: "Going into final year, I had absolutely no idea what I wanted to build. Everyone around me seemed to arrive with a crystal clear idea while I was completely directionless, stuck knowing I had to commit to something substantial without having any real conviction behind any one idea." },
-            { type: "paragraph", text: "That changed during the induction lecture. Out of nowhere, the concept hit me with visceral clarity. As soon as I got home I drafted up the first design document while the idea was still fresh in my head. I even found an emoji (flower card, Notion variant 🎴) to represent the colour scheme I had pictured and I stuck to this up until I had developed my logo and UI designs." },
+            { type: "paragraph", text: "That changed during the induction lecture. Out of nowhere, the concept hit me with visceral clarity. As soon as I got home I drafted up the first design document while the idea was still fresh in my head. I even found a perfect emoji (flower card, Notion variant 🎴) to represent the colour scheme I had pictured and I stuck to this up until I had developed my logo and UI designs." },
             { type: "paragraph", text: "Inspiration had been taken from Myki. This was a password manager I had used daily for my credentials and note taking before it was suddenly discontinued early 2022, and when it vanished it left behind a noticeable gap that nothing else really seemed to fill properly. Finally I had something that I felt strongly for and could dedicate time to making it happen." },
             { type: "image", src: "content/historic/SecPassPoster.webp", caption: "My vision for this project in the form of a poster [January 2025]" },
             { type: "heading", text: "Hectic final year lifestyle" },
@@ -398,7 +431,7 @@ function createHTMLitem(item: Software)
     projectDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2,4)}${date.slice(0,2)}`;
 
     let leftColumnDiv = document.createElement('div')
-    leftColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column');
+    leftColumnDiv.setAttribute('class', 'col-sm-12 col-md-12 col-lg-6 d-flex flex-column');
 
     let rowDiv1 = document.createElement('div');
     rowDiv1.setAttribute('class', 'row');
@@ -506,7 +539,7 @@ function createHTMLitem(item: Software)
     // Add video to project card
     if (item.video.length != 0)
     {
-        rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center');
+        rightColumnDiv.setAttribute('class', 'col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center align-items-center');
 
         let cardDiv = document.createElement('div');
         cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video');

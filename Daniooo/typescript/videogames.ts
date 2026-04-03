@@ -234,7 +234,7 @@ function createHTMLitem(item: Game)
     rowGameDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2,4)}${date.slice(0,2)}`;
 
     let colDiv1 = document.createElement('div');
-    colDiv1.className = 'col-sm-12 col-md-6 col-lg-6 d-flex flex-column';
+    colDiv1.className = 'col-sm-12 col-md-12 col-lg-6 d-flex flex-column';
 
     let innerRowDiv = document.createElement('div');
     innerRowDiv.className = 'row';
@@ -261,7 +261,7 @@ function createHTMLitem(item: Game)
     aboutGameParagraph1.innerHTML += item.p1;
 
     let aboutGameParagraph2 = document.createElement('p');
-    aboutGameParagraph2.innerHTML +=item.p2;
+    aboutGameParagraph2.innerHTML += item.p2;
 
     let projectDetailsParagraph = document.createElement('p');
     projectDetailsParagraph.innerHTML += item.p3;
@@ -371,7 +371,7 @@ function createHTMLitem(item: Game)
     let rightColumnDiv = document.createElement('div');
 
     // Add image to game card
-    rightColumnDiv.className = 'col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center';
+    rightColumnDiv.className = 'col-sm-12 col-md-12 col-lg-6 d-flex justify-content-center align-items-center';
 
     let cardDiv = document.createElement('div');
     cardDiv.className = 'card';

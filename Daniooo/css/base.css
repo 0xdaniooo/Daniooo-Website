@@ -9,7 +9,7 @@
 /* Applied to all links in the navbar */
 .nav-link, .navbar-brand, a, p, h1, h2, h3, h4, h5 {
   color: #FFFFFF;
-  font-family: "Poppins", sans-serif;
+  font-family: "Readex Pro", serif;
   font-weight: 500;
 }
 
@@ -106,7 +106,7 @@
 .breadcrumb-item.active {
   color: #D3D3D3;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5019607843);
-  font-family: "Poppins", sans-serif;
+  font-family: "Readex Pro", serif;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -163,7 +163,7 @@
 
 /* Bootstrap override - Sets font for buttons */
 .btn {
-  font-family: "Poppins", sans-serif;
+  font-family: "Readex Pro", serif;
   font-weight: 500;
   border-radius: 0px;
 }

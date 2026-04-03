@@ -48,6 +48,10 @@ let collections = [
         id: "coll-2025",
         tag: "2025",
     },
+    {
+        id: "coll-2026",
+        tag: "2026",
+    },
 ];
 let itemObjects = [
     {
@@ -209,6 +213,14 @@ let itemObjects = [
         dateNumber: "19082025",
         location: "Poland, PL",
         tags: ["", "Poland", "2025"],
+    },
+    {
+        id: "civilisation",
+        image: "content/media/Civilisation.webp",
+        date: "February 2026",
+        dateNumber: "24022026",
+        location: "Leeds, UK",
+        tags: ["", "Leeds", "2026"],
     },
     {
         id: "castle-hill-clouds",
