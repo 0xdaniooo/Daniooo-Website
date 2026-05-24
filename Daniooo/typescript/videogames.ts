@@ -1,4 +1,4 @@
-import { videogameIcons as icons, Game, openProjectModal } from "./shared-projects.js";
+import { videogameIcons as icons, Game, openProjectModal, handleHashRouting } from "./shared-projects.js";
 import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 
 // Collection options
@@ -228,6 +228,7 @@ function createHTMLitem(item: Game)
     let rowGameDiv = document.createElement('div');
     rowGameDiv.className = 'row game';
     rowGameDiv.setAttribute('item-id', item.id);
+    rowGameDiv.id = item.id;
 
     // Store date as YYYYMMDD for sorting
     let date = item.dateNumber;
@@ -485,3 +486,6 @@ for (let i = 0; i < collections.length; i++)
 
 // Initialise page
 renderItems("");
+
+// Handle deep linking
+handleHashRouting((targetId) => openProjectModal(targetId, itemObjects));

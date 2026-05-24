@@ -1,4 +1,4 @@
-import { videogameIcons as icons, openProjectModal } from "./shared-projects.js";
+import { videogameIcons as icons, openProjectModal, handleHashRouting } from "./shared-projects.js";
 import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 let collections = [
     {
@@ -219,6 +219,7 @@ function createHTMLitem(item) {
     let rowGameDiv = document.createElement('div');
     rowGameDiv.className = 'row game';
     rowGameDiv.setAttribute('item-id', item.id);
+    rowGameDiv.id = item.id;
     let date = item.dateNumber;
     rowGameDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2, 4)}${date.slice(0, 2)}`;
     let colDiv1 = document.createElement('div');
@@ -393,3 +394,4 @@ for (let i = 0; i < collections.length; i++) {
     });
 }
 renderItems("");
+handleHashRouting((targetId) => openProjectModal(targetId, itemObjects));

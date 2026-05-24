@@ -1,4 +1,4 @@
-import { softwareIcons as icons, Software, openProjectModal } from "./shared-projects.js";
+import { softwareIcons as icons, Software, openProjectModal, handleHashRouting } from "./shared-projects.js";
 import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 
 // Collection options
@@ -425,6 +425,7 @@ function createHTMLitem(item: Software)
     let projectDiv = document.createElement('div');
     projectDiv.setAttribute('class', 'row project');
     projectDiv.setAttribute('item-id', item.id);
+    projectDiv.id = item.id;
 
     // Store date as YYYYMMDD for sorting
     let date = item.dateNumber;
@@ -672,3 +673,6 @@ for (let i = 0; i < collections.length; i++)
 
 // Initialise page
 renderItems("");
+
+// Handle deep linking
+handleHashRouting((targetId) => openProjectModal(targetId, itemObjects));

@@ -1,4 +1,4 @@
-import { softwareIcons as icons, openProjectModal } from "./shared-projects.js";
+import { softwareIcons as icons, openProjectModal, handleHashRouting } from "./shared-projects.js";
 import { sortAscending, sortDescending, sortDefault } from "./shared.js";
 let collections = [
     {
@@ -416,6 +416,7 @@ function createHTMLitem(item) {
     let projectDiv = document.createElement('div');
     projectDiv.setAttribute('class', 'row project');
     projectDiv.setAttribute('item-id', item.id);
+    projectDiv.id = item.id;
     let date = item.dateNumber;
     projectDiv.dataset.timestamp = `${date.slice(4)}${date.slice(2, 4)}${date.slice(0, 2)}`;
     let leftColumnDiv = document.createElement('div');
@@ -580,3 +581,4 @@ for (let i = 0; i < collections.length; i++) {
     });
 }
 renderItems("");
+handleHashRouting((targetId) => openProjectModal(targetId, itemObjects));

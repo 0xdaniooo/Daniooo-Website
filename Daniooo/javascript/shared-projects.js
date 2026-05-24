@@ -104,6 +104,24 @@ export function openProjectModal(id, itemObjects) {
         navWrapper.appendChild(nextBtn);
     }
     modalBody.appendChild(navWrapper);
-    let modal = new bootstrap.Modal(document.getElementById('historyModal'));
+    let modalEl = document.getElementById('historyModal');
+    let existingInstance = bootstrap.Modal.getInstance(modalEl);
+    if (existingInstance)
+        existingInstance.hide();
+    let modal = new bootstrap.Modal(modalEl);
     modal.show();
+}
+export function handleHashRouting(onMatchFound) {
+    const processHash = () => {
+        if (!window.location.hash)
+            return;
+        const targetId = window.location.hash.substring(1);
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            onMatchFound(targetId);
+        }
+    };
+    setTimeout(processHash, 100);
+    window.addEventListener('hashchange', processHash);
 }

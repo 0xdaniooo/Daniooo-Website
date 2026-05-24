@@ -182,7 +182,36 @@ export function openProjectModal(id: string, itemObjects: (Software | Game)[])
 
     modalBody.appendChild(navWrapper);
 
+    let modalEl = document.getElementById('historyModal')!;
+    let existingInstance = bootstrap.Modal.getInstance(modalEl);
+    
+    // Close modal if one exists already
+    if (existingInstance) existingInstance.hide();
+
     // Display the modal
-    let modal = new bootstrap.Modal(document.getElementById('historyModal')!);
+    let modal = new bootstrap.Modal(modalEl);
     modal.show();
+}
+
+// Setup deep linking based on item ID hash via callback
+export function handleHashRouting(onMatchFound: (targetId: string) => void) 
+{
+    const processHash = () => {
+        if (!window.location.hash) return;
+        
+        const targetId = window.location.hash.substring(1);
+        const element = document.getElementById(targetId);
+        
+        if (element) 
+        {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            onMatchFound(targetId);
+        }
+    };
+
+    // Handle the initial page load jump
+    setTimeout(processHash, 100);
+
+    // Handle live clicks while staying on the same page
+    window.addEventListener('hashchange', processHash);
 }
