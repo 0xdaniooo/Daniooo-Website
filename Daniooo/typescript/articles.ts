@@ -252,6 +252,7 @@ function createHTMLitem(item: Article)
     // Create the image element
     let image = document.createElement('img');
     image.src = item.image;
+    image.setAttribute('alt', `${item.id} article image`);
     image.setAttribute('loading', 'lazy');
 
     // Create the card body container
@@ -278,10 +279,12 @@ function createHTMLitem(item: Article)
 
     // Add icons
     item.icons.forEach(i => {
-            let icon = document.createElement('img');
-            icon.src = icons.get(i)!;
-            iconsDiv.appendChild(icon);
-        });
+        let icon = document.createElement('img');
+        icon.src = icons.get(i)!;
+        icon.setAttribute('alt', `${i} technology badge`);
+        icon.setAttribute('loading', 'lazy');
+        iconsDiv.appendChild(icon);
+    });
 
     // Create the row container
     let rowDiv = document.createElement('div');

@@ -224,6 +224,7 @@ function createHTMLitem(item) {
     cardDiv.classList.add('card');
     let image = document.createElement('img');
     image.src = item.image;
+    image.setAttribute('alt', `${item.id} article image`);
     image.setAttribute('loading', 'lazy');
     let cardBodyDiv = document.createElement('div');
     cardBodyDiv.classList.add('card-body', 'd-flex', 'flex-column');
@@ -240,6 +241,8 @@ function createHTMLitem(item) {
     item.icons.forEach(i => {
         let icon = document.createElement('img');
         icon.src = icons.get(i);
+        icon.setAttribute('alt', `${i} technology badge`);
+        icon.setAttribute('loading', 'lazy');
         iconsDiv.appendChild(icon);
     });
     let rowDiv = document.createElement('div');

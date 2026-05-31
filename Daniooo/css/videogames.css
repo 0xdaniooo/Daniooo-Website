@@ -10,6 +10,10 @@
   margin-bottom: 0px;
 }
 
+#games-root {
+  min-height: 80vh;
+}
+
 /* Background card for each game */
 .game {
   margin: 25px;

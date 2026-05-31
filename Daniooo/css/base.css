@@ -6,6 +6,16 @@
   margin-bottom: 30px;
 }
 
+.navbar-brand {
+  font-size: 30px;
+}
+
+.nav-logo {
+  width: 70px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
 /* Applied to all links in the navbar */
 .nav-link, .navbar-brand, a, p, h1, h2, h3, h4, h5 {
   color: #FFFFFF;
@@ -236,6 +246,10 @@
 
 .shadow-red {
   box-shadow: 0 0 3px 3px #FE2D02;
+}
+
+.fa-stack {
+  vertical-align: top;
 }
 
 /* Applied as background for footer logos */

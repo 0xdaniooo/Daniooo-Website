@@ -721,6 +721,7 @@ function createHTMLitem(item: Media)
 
     let img = document.createElement('img');
     img.setAttribute('src', item.image);
+    img.setAttribute('alt', `${item.id} image`);
     img.setAttribute('loading', 'lazy');
     img.setAttribute('data-bs-toggle', 'modal');
     img.setAttribute('data-bs-target', '#imageModal');

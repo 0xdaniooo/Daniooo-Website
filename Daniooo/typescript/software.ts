@@ -145,7 +145,7 @@ let itemObjects: Software[] = [
         prevId: "daniooo-website",
         nextId: "secure-passphrase-generator",
         image: "",
-        video: "https://www.youtube.com/embed/fvG2z0ZIqt0 ",
+        video: "https://www.youtube.com/embed/fvG2z0ZIqt0",
         title: "Strong App - Data Visualizer | Python Tkinter + Plotly Project",
         description: "Data visualization tool for plotting workout data from Strong App's CSV files - Built with Tkinter and Plotly.",
         about: "Ever since I started working out at the gym, I've been keeping a detailed record of nearly every workout I have done (which includes exercises, weights and reps). It's been really useful helping me see what I've done and then going higher. Such a large dataset has also been great for viewing my progression. Reading all this data was great but I wanted a way to visualise it which is exactly what this project solves. With plenty of flexibility, it allows you to plot exercises, weights, reps, decide how it is presented and view it on easy to understand charts.",
@@ -481,10 +481,12 @@ function createHTMLitem(item: Software)
 
     // Add icons
     item.icons.forEach(i => {
-            let icon = document.createElement('img');
-            icon.src = icons.get(i)!;
-            colDiv1.appendChild(icon);
-        });
+        let icon = document.createElement('img');
+        icon.src = icons.get(i)!;
+        icon.setAttribute('alt', `${i} technology badge`);
+        icon.setAttribute('loading', 'lazy');
+        colDiv1.appendChild(icon);
+    });
 
     rowDiv1.appendChild(colDiv1);
 
@@ -544,13 +546,33 @@ function createHTMLitem(item: Software)
 
         let cardDiv = document.createElement('div');
         cardDiv.setAttribute('class', 'ratio ratio-16x9 project-video');
+        cardDiv.style.cursor = 'pointer';
+        
+        // Fetch YouTube video thumbnail
+        let videoId = item.video.split('/').pop();
+        cardDiv.style.backgroundImage = `url('https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg')`;
+        cardDiv.style.backgroundSize = 'cover';
+        cardDiv.style.backgroundPosition = 'center';
 
-        let iframe = document.createElement('iframe');
-        iframe.setAttribute('src', item.video);
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.setAttribute('loading', 'lazy');
+        // Create a play button overlay
+        let playButton = document.createElement('div');
+        playButton.setAttribute('class', 'd-flex justify-content-center align-items-center w-100 h-100');
+        playButton.innerHTML = '<i class="fa-brands fa-youtube" style="color: #FF0000; font-size: 5rem; text-shadow: 0px 0px 15px rgba(0,0,0,0.8);"></i>';
+        cardDiv.appendChild(playButton);
 
-        cardDiv.appendChild(iframe);    
+        // Swap thumbnail for iframe
+        cardDiv.addEventListener('click', () => {
+            cardDiv.innerHTML = '';
+            cardDiv.style.backgroundImage = 'none';
+            
+            let iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `${item.video}?autoplay=1`);
+            iframe.setAttribute('title', `YouTube video for ${item.title}`);
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            
+            cardDiv.appendChild(iframe);
+        });
 
         rightColumnDiv.appendChild(cardDiv);
     }
@@ -566,6 +588,7 @@ function createHTMLitem(item: Software)
         let projectImage = document.createElement('img');
         projectImage.src = item.image;
         projectImage.setAttribute('loading', 'lazy');
+        projectImage.setAttribute('alt', `${item.id} project image`);
         projectImage.className = 'img-fluid project-image';
 
         cardDiv.appendChild(projectImage);
