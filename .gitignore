@@ -1,0 +1,9 @@
+# Secrets
+.env
+
+# build
+_site
+
+# npm
+node_modules
+package-lock.json

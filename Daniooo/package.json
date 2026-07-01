@@ -1,0 +1,13 @@
+{
+	"name": "daniooo-website",
+	"version": "6.0.0",
+	"type": "module",
+	"scripts": {
+		"start": "eleventy --serve",
+		"build": "set NODE_ENV=production&&eleventy"
+	},
+	"dependencies": {
+		"@11ty/eleventy": "^3.0.0",
+		"dotenv": "^16.4.5"
+	}
+}

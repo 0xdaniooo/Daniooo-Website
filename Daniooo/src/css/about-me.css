@@ -1,0 +1,24 @@
+.breadcrumb {
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+
+.about-text {
+  margin: 20px 20px 20px 20px;
+  padding: 30px;
+  background-color: #6F6F6F;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
+}
+.about-text .red-dash {
+  color: #FE2D02 !important;
+}
+.about-text .carousel-indicators .active {
+  background-color: #FE2D02;
+}
+
+.about-image {
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
+  margin: 20px;
+}
+
+/*# sourceMappingURL=about-me.css.map */

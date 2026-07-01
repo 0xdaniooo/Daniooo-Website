@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: About Me
+stylesheet: about-me.css
+script: about-me.js
+---
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+            <div class="about-text">
+                <h1>Hi I'm Daniel Kasprzyk - aka Daniooo</h1>
+                <div class="underline"></div>
+                <p>Cyber Assurance Officer @ Leeds City Council <span class="red-dash">|</span> Recent University of Huddersfield First Class Graduate</p>
+                <p>I'm a passionate individual who's interested in too many things; there's always something to keep me busy, whether that be:</p>
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <p><span class="red-dash">-</span> Reading novels and history books</p>
+                        <p><span class="red-dash">-</span> Developing software, tools and websites</p>
+                        <p><span class="red-dash">-</span> Getting stronger at the gym through bodybuilding</p>
+                    </div>
+                    <div class="col-6 text-center">
+                        <p><span class="red-dash">-</span> Listening to music (check out my playlists below)</p>
+                        <p><span class="red-dash">-</span> Researching whatever interests me at the moment</p>
+                        <p><span class="red-dash">-</span> Going on walks & bike rides and exploring the world</p>
+                    </div>
+                </div>
+                <div id="spotifyPlaylists" class="carousel slide carousel-fade">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#spotifyPlaylists" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#spotifyPlaylists" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#spotifyPlaylists" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/playlist/0HVBuunip50f8qOTaODTWK?utm_source=generator&theme=0" title="Spotify playlist 1" width="100%" height="152" frameBorder="0" allowfullscreen="" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                        <div class="carousel-item">
+                            <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/playlist/5uCyrbMAp8hVJQBslxBYG7?utm_source=generator" title="Spotify playlist 2" width="100%" height="152" frameBorder="0" allowfullscreen="" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                        <div class="carousel-item">
+                            <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/playlist/54ZO3WOzHSuWwBYb5Jwd1B?utm_source=generator" title="Spotify playlist 3" width="100%" height="152" frameBorder="0" allowfullscreen="" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 d-flex justify-content-center align-items-center">
+            <div class="about-image">
+                <img src="/content/misc/Me.jpg" alt="Daniooo image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>

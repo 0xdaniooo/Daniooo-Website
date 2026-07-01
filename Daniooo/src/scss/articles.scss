@@ -1,0 +1,39 @@
+@import 'variables';
+
+.breadcrumb {
+    margin-left: 28px;
+    margin-bottom: 0px;
+}
+
+.filters {
+    margin-left: 28px;
+}
+
+.dropdown-toggle {
+    margin-right: 28px;
+}
+
+#articles-root {
+    margin: 20px 11px 0px 11px;
+    min-height: 80vh;
+
+    .article {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 0 auto; 
+        border: none;
+        box-shadow: 0 0 4px 4px $lightShadow;
+        margin: 0 5px 40px 5px;
+
+        .card-body {
+            background-color: $item;
+
+            .article-date {
+                margin: 0;
+            }
+        }
+    }
+}

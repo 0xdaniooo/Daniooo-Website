@@ -1,0 +1,21 @@
+---
+layout: base.njk
+title: Media
+stylesheet: media.css
+script: media.js
+hasFilters: true
+---
+<div class="container-fluid">
+    <div id="media-root" class="row"></div>
+</div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-body position-relative p-0">
+                <button type="button" class="btn-close btn-close-white modal-close-overlay" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img id="largeImage" src="/content/media/LakeReflection.webp" class="img-fluid w-100">
+            </div>
+        </div>
+    </div>
+</div>

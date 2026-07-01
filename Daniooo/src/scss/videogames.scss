@@ -1,0 +1,65 @@
+@import 'variables';
+
+.breadcrumb {
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+
+.filters {
+    margin-left: 25px;
+}
+
+.dropdown-toggle {
+    margin-right: 25px;
+    margin-bottom: 0px;
+}
+
+#games-root {
+    min-height: 80vh;
+    padding-bottom: 20px;
+
+    .game {
+        margin: 25px;
+        padding: 20px;
+        background-color: $item; 
+        box-shadow: 0 0 4px 4px $lightShadow;
+
+        .game-footer {
+            margin-top: auto;
+            margin-bottom: 10px;
+
+            .game-date {
+                margin: 0;
+            }
+
+            .devlog-button {
+                margin: 0;
+                color: $white;
+                text-shadow: 0 4px 8px $strongShadow;
+
+                &:hover {
+                    margin: 0;
+                    color: $red !important;
+                    text-shadow: 0 4px 8px $strongShadow;
+                    text-decoration: underline;
+                    text-underline-offset: 10px;
+                }
+            }
+        }
+    }
+
+    .game-image {
+        border: 2px solid $red;
+    }
+
+    .card {
+        border: none;
+        background-color: $item;
+    }
+}
+
+@media (max-width: 576px) {
+    .game {
+        margin: 10px;
+    }
+}

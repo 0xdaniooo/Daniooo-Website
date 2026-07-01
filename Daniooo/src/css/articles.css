@@ -1,0 +1,35 @@
+.breadcrumb {
+  margin-left: 28px;
+  margin-bottom: 0px;
+}
+
+.filters {
+  margin-left: 28px;
+}
+
+.dropdown-toggle {
+  margin-right: 28px;
+}
+
+#articles-root {
+  margin: 20px 11px 0px 11px;
+  min-height: 80vh;
+}
+#articles-root .article {
+  display: flex;
+  flex-direction: column;
+}
+#articles-root .card {
+  flex: 1 0 auto;
+  border: none;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
+  margin: 0 5px 40px 5px;
+}
+#articles-root .card .card-body {
+  background-color: #6F6F6F;
+}
+#articles-root .card .card-body .article-date {
+  margin: 0;
+}
+
+/*# sourceMappingURL=articles.css.map */

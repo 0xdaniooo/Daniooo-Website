@@ -1,0 +1,82 @@
+.breadcrumb {
+  margin-left: 28px;
+  margin-bottom: 0px;
+}
+
+.filters {
+  margin-left: 28px;
+}
+
+.dropdown-toggle {
+  margin-right: 28px;
+}
+
+#media-root {
+  margin: 20px 11px 0px 11px;
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+#media-root .media {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+#media-root .media .card {
+  background-color: #1A1A1A;
+}
+#media-root .media .card img {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+#media-root .card {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 0px;
+  margin: 0 6px 40px 6px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
+  transition: transform 0.3s ease;
+  width: calc(100% - 12px);
+}
+#media-root .card:hover {
+  border: 1px solid #FE2D02;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+#media-root .card .card-body {
+  background-color: #6F6F6F;
+  padding: 12px 10px;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#media-root .card .card-body .red-dash {
+  color: #FE2D02 !important;
+}
+
+.modal-close-overlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+  padding: 0.5rem;
+  transition: filter 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+.modal-close-overlay:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  filter: invert(24%) sepia(93%) saturate(6831%) hue-rotate(356deg) brightness(94%) contrast(116%) !important;
+}
+
+/*# sourceMappingURL=media.css.map */

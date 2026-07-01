@@ -1,5 +1,5 @@
 # Daniooo Website
-My personal website built with HTML, SCSS, TypeScript and Bootstrap 5 where I host all my content in one convenient place.
+My personal website built with Eleventy, SCSS, TypeScript and Bootstrap 5 where I host all my content in one convenient place.
 
 Check it out at: https://daniooo.com
 
@@ -13,6 +13,7 @@ Back in September 2022, I had created a website under this same URL where I disp
 - Responsive layout which works across various screen sizes (desktop, mobile etc)
 - Animations and other little details to make the website feel alive
 - Content added to the DOM and rendered onto the screen dynamically through JavaScript
+- Template setup heavily reducing content duplication
 - Display content based on collections
 - Ability to change content sorting
 - Project backstories with previous and next navigation
@@ -22,19 +23,18 @@ Back in September 2022, I had created a website under this same URL where I disp
 ## Home Page
 ![Home1](/Imgs/Home1.png)
 ![Home2](/Imgs/Home2.png)
-![Home3](/Imgs/Home3.png)
 
-## Projects Page
-![Projects](/Imgs/Software.png)
+## Software Page
+![Software](/Imgs/Software.png)
 
 ## Articles Page
 ![Articles](/Imgs/Articles.png)
 
-## Videogames Page
-![Videogames](/Imgs/Videogames.png)
-
 ## Media Page
 ![Media](/Imgs/Media.png)
+
+## Videogames Page
+![Videogames](/Imgs/Videogames.png)
 
 ## About Me Page
 ![AboutMe](/Imgs/AboutMe.png)

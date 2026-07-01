@@ -1,0 +1,58 @@
+.breadcrumb {
+  margin-left: 25px;
+  margin-bottom: 0px;
+}
+
+.filters {
+  margin-left: 25px;
+}
+
+.dropdown-toggle {
+  margin-right: 25px;
+  margin-bottom: 0px;
+}
+
+#games-root {
+  min-height: 80vh;
+  padding-bottom: 20px;
+}
+#games-root .game {
+  margin: 25px;
+  padding: 20px;
+  background-color: #6F6F6F;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.3019607843);
+}
+#games-root .game .game-footer {
+  margin-top: auto;
+  margin-bottom: 10px;
+}
+#games-root .game .game-footer .game-date {
+  margin: 0;
+}
+#games-root .game .game-footer .devlog-button {
+  margin: 0;
+  color: #FFFFFF;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5019607843);
+}
+#games-root .game .game-footer .devlog-button:hover {
+  margin: 0;
+  color: #FE2D02 !important;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5019607843);
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+#games-root .game-image {
+  border: 2px solid #FE2D02;
+}
+#games-root .card {
+  border: none;
+  background-color: #6F6F6F;
+}
+
+@media (max-width: 576px) {
+  .game {
+    margin: 10px;
+  }
+}
+
+/*# sourceMappingURL=videogames.css.map */
