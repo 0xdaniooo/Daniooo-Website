@@ -1,9 +1,9 @@
 {
 	"name": "daniooo-website",
-	"version": "6.0.0",
+	"version": "6.1.0",
 	"type": "module",
 	"scripts": {
-		"start": "eleventy --serve",
+		"dev": "eleventy --serve",
 		"build": "set NODE_ENV=production&&eleventy"
 	},
 	"dependencies": {

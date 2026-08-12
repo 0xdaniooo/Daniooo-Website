@@ -85,6 +85,14 @@ let itemObjects: Media[] = [
         tags: ["Kraków", "2025"],
     },
     {
+        id: "associations",
+        image: "/content/media/Associations.webp",
+        date: "Aug 2026",
+        dateNumber: "09082026",
+        location: "Hudderfsield, UK",
+        tags: ["Hudderfsield", "2026"],
+    },
+    {
         id: "stalker",
         image: "/content/media/Stalker.webp",
         date: "Aug 2025",
@@ -179,6 +187,14 @@ let itemObjects: Media[] = [
         dateNumber: "28022025",
         location: "Huddersfield, UK",
         tags: ["Huddersfield", "2025"],
+    },
+    {
+        id: "warped-perceptions",
+        image: "/content/media/WarpedPerceptions.webp",
+        date: "Aug 2026",
+        dateNumber: "09082026",
+        location: "Huddersfield, UK",
+        tags: ["Huddersfield", "2026"],
     },
     {
         id: "conclusion",
@@ -311,10 +327,18 @@ let itemObjects: Media[] = [
     {
         id: "resolutions",
         image: "/content/media/Resolutions.webp",
-        date: "Sept 2025",
+        date: "Sep 2025",
         dateNumber: "28092025",
         location: "England, UK",
         tags: ["England", "2025"],
+    },
+    {
+        id: "alignment",
+        image: "/content/media/Alignment.webp",
+        date: "Jul 2026",
+        dateNumber: "01072026",
+        location: "England, UK",
+        tags: ["England", "2026"],
     },
     {
         id: "green-summer-day",
@@ -351,7 +375,7 @@ let itemObjects: Media[] = [
     {
         id: "burning-sky",
         image: "/content/media/BurningSky.webp",
-        date: "Jaunary 2023",
+        date: "Jan 2023",
         dateNumber: "08012023",
         location: "England, UK",
         tags: ["England", "2023"],
@@ -591,7 +615,7 @@ let itemObjects: Media[] = [
     {
         id: "connections",
         image: "/content/media/Connections.webp",
-        date: "Sept 2023",
+        date: "Sep 2023",
         dateNumber: "23092023",
         location: "England, UK",
         tags: ["England", "2023"],
